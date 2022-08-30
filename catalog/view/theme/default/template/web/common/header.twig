@@ -4,7 +4,7 @@
 <head>
     <title>Opriya</title>
     <meta charset="utf-8" />
-
+<base href="{{ base }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <!-- FAVICONS -->
@@ -34,8 +34,53 @@
     <link rel="stylesheet" href="{{assets}}css/app-orange.css" id="theme_color" />
     <link rel="stylesheet" href="{{assets}}" id="rtl" />
     <link rel="stylesheet" href="{{assets}}css/app-responsive.css" />
+    <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="catalog/view/javascript/common2.js" type="text/javascript"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
 
     <script src="https://kit.fontawesome.com/dde7a70e93.js" crossorigin="anonymous"></script>
+    <style>
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 
 <body class="page home-style3">
@@ -670,144 +715,49 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mx-auto searchWrapper col">
+                    {# <div class="mx-auto searchWrapper col">
                         <form method="get" action="" class="d-flex aic">
                             <input type="text" value="" name="s" class="searchInput form-control"
                                 placeholder="Keyword here...">
                             <button type="submit" class="btn_theme search_btn mb-0">Search</button>
                         </form>
-                    </div>
-                    <div class="ms-auto d-flex aic" style="width:70px">
+                    </div> #}
+                    {{search}}
+                    <div class="d-flex aic" style="width:70px">
                         <div class="top-form top-form-minicart etrostore-minicart">
-                            <div class="top-minicart-icon pull-right">
-                                <i class="fa fa-shopping-cart"></i>
-                                <a class="cart-contents" href="cart.html" title="View your shopping cart"><span
-                                        class="minicart-number">2</span></a>
-                            </div>
-
-                            <div class="wrapp-minicart">
-                                <div class="minicart-padding">
-                                    <div class="number-item">There are <span>items</span> in your carts</div>
-                                    <ul class="minicart-content">
-                                        <li>
-                                            <a href="simple_product.html" class="product-image">
-                                                <img width="100" height="100" src="images/products/psmall.png"
-                                                    class="attachment-100x100 size-100x100 wp-post-image" alt="">
-                                            </a>
-
-                                            <div class="detail-item">
-                                                <div class="product-details">
-                                                    <h4><a class="title-item" href="simple_product.html">veniam
-                                                            dolore</a>
-                                                    </h4>
-                                                    <div class="product-price">
-                                                        <span class="price"><span
-                                                                class="woocommerce-Price-amount amount">₹190.00</span></span>
-                                                        <div class="qty">
-                                                            <span class="qty-number">1</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="product-action clearfix">
-                                                        <a href="" class="btn-remove" title="Remove this item "><span
-                                                                class="fa fa-trash-o "></span></a>
-                                                        <a class="btn-edit " href="cart.html "
-                                                            title="View your shopping cart "><span
-                                                                class="fa fa-pencil "></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <a href="simple_product.html " class="product-image ">
-                                                <img width="100 " height="100 " src="images/1903/22-150x150.jpg "
-                                                    class="attachment-100x100 size-100x100 wp-post-image " alt=" "
-                                                    srcset="images/1903/22-150x150.jpg 150w, images/products/ps5.webp 300w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w "
-                                                    sizes="(max-width: 100px) 100vw, 100px ">
-                                            </a>
-
-                                            <div class="detail-item ">
-                                                <div class="product-details ">
-                                                    <h4><a class="title-item " href="simple_product.html ">Cleaner
-                                                            with bag</a>
-                                                    </h4>
-
-                                                    <div class="product-price ">
-                                                        <span class="price "><span
-                                                                class="woocommerce-Price-amount amount ">₹350.00</span></span>
-                                                        <div class="qty ">
-                                                            <span class="qty-number ">1</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="product-action clearfix ">
-                                                        <a href=" " class="btn-remove " title="Remove this item "><span
-                                                                class="fa fa-trash-o "></span></a>
-                                                        <a class="btn-edit " href="cart.html "
-                                                            title="View your shopping cart "><span
-                                                                class="fa fa-pencil "></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="simple_product.html" class="product-image">
-                                                <img width="100" height="100" src="images/products/psmall.png"
-                                                    class="attachment-100x100 size-100x100 wp-post-image" alt="">
-                                            </a>
-
-                                            <div class="detail-item">
-                                                <div class="product-details">
-                                                    <h4><a class="title-item" href="simple_product.html">veniam
-                                                            dolore</a>
-                                                    </h4>
-                                                    <div class="product-price">
-                                                        <span class="price"><span
-                                                                class="woocommerce-Price-amount amount">₹190.00</span></span>
-                                                        <div class="qty">
-                                                            <span class="qty-number">1</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="product-action clearfix">
-                                                        <a href="" class="btn-remove" title="Remove this item "><span
-                                                                class="fa fa-trash-o "></span></a>
-                                                        <a class="btn-edit " href="cart.html "
-                                                            title="View your shopping cart "><span
-                                                                class="fa fa-pencil "></span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                    <div class="cart-checkout ">
-                                        <div class="price-total ">
-                                            <span class="label-price-total ">Total</span>
-                                            <span class="price-total-w "><span class="price "><span
-                                                        class="woocommerce-Price-amount amount ">₹540.00</span></span></span>
-                                        </div>
-
-                                        <div class="cart-links clearfix ">
-                                            <div class="cart-link "><a href="cart.html " title="Cart ">View
-                                                    Cart</a></div>
-                                            <div class="checkout-link "><a href="checkout.html "
-                                                    title="Check Out ">Check
-                                                    Out</a></div>
-                                        </div>
-                                    </div>
+                            <div class="dropdown">
+                                <iconify-icon icon="bx:user" width="24" height="24"></iconify-icon>
+                                <div class="dropdown-content">
+                                    {% if logged %}
+                                    <a href="{{ account }}">{{ text_account }}</a>
+                                    <a href="{{ order }}">{{ text_order }}</a>
+                                    <a href="{{ transaction }}">{{ text_transaction }}</a>
+                                    <a href="{{ download }}">{{ text_download }}</a>
+                                    <a href="{{ logout }}">{{ text_logout }}</a>
+                                    {% else %}
+                                    <a href="{{ register }}">{{ text_register }}</a>
+                                    <a href="{{ login }}">{{ text_login }}</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-
-                        <div class="widget mb-0 sw_top-7 sw_top ">
-                            <div class="widget-inner ">
-                                <div class="div-logined ">
-                                    <a href="javascript:void(0); " data-toggle="modal ">
-                                        <i class="fa-regular fa-user "></i>
-                                    </a>
-                                </div>
+                    </div>
+                    <div class="d-flex aic" style="width:70px">
+                        <div class="top-form top-form-minicart etrostore-minicart">
+                            <div class="dropdown">
+                            <a href="{{shopping_cart}}">
+                                <iconify-icon icon="eva:shopping-cart-fill" width="24" height="24"></iconify-icon>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex aic" style="width:70px">
+                        <div class="top-form top-form-minicart etrostore-minicart">
+                            <div class="dropdown">
+                            <a href="{{wishlist}}">
+                                <iconify-icon icon="clarity:heart-solid" width="24" height="24"></iconify-icon>
+                            </a>
+                                
                             </div>
                         </div>
                     </div>

@@ -33,10 +33,11 @@ class ControllerCommonContentTop extends Controller {
 
 		if (!$layout_id) {
 			$layout_id = $this->model_design_layout->getLayout($route);
+			
 		}
 
 		if (!$layout_id) {
-			$layout_id = $this->config->get('config_layout_id');
+			$layout_id = $this->config->get('config_layout_id');;
 		}
 
 		$this->load->model('setting/module');
