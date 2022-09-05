@@ -48,7 +48,7 @@ class ControllerWebCommonContentTop extends Controller
         $data['modules'] = array();
 
         $modules = $this->model_design_layout->getLayoutModules($layout_id, 'content_top');
-
+// echo "C>".$layout_id;
         foreach ($modules as $module) {
             $part = explode('.', $module['code']);
 
@@ -67,14 +67,21 @@ class ControllerWebCommonContentTop extends Controller
                     $output = $this->load->controller('web/extension/module/' . $part[0], $setting_info);
 
                     if ($output) {
-                        $data['modules'][] = $output;
-                        $data['modules_name_c'][] = 'web/extension/module/' . $part[0];
+                        if ($part[0] == 'banner') {
+                            $data['banner'][] = $output;
+                        }else{
+                            $data['modules'][] = $output;
+                        }
                     }
                 }
             }
+
+            // if (isset($part[0]) == 'banner') {
+            //     $data['modules_name_c'][] = $part[0];
+            // }
         }
         // echo "<pre>";
-        // print_r($data['modules_name_c']);
+        // print_r($data['banner']);
         // echo "</pre>";
         return $this->load->view('web/common/content_top', $data);
     }

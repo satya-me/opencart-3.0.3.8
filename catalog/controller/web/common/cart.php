@@ -133,7 +133,7 @@ class ControllerWebCommonCart extends Controller {
 		$data['cart'] = $this->url->link('web/checkout/cart');
 		$data['checkout'] = $this->url->link('web/checkout/checkout', '', true);
 
-		return $this->load->view('common/cart', $data);
+		return $this->load->view('web/common/cart', $data);
 	}
 
 	public function info() {

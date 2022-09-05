@@ -20,7 +20,7 @@ class ControllerWebProductCompare extends Controller {
 				$this->session->data['success'] = $this->language->get('text_remove');
 			}
 
-			$this->response->redirect($this->url->link('product/compare'));
+			$this->response->redirect($this->url->link('web/product/compare'));
 		}
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -29,12 +29,12 @@ class ControllerWebProductCompare extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('product/compare')
+			'href' => $this->url->link('web/product/compare')
 		);
 
 		if (isset($this->session->data['success'])) {
@@ -109,8 +109,8 @@ class ControllerWebProductCompare extends Controller {
 					'width'        => $this->length->format($product_info['width'], $product_info['length_class_id']),
 					'height'       => $this->length->format($product_info['height'], $product_info['length_class_id']),
 					'attribute'    => $attribute_data,
-					'href'         => $this->url->link('product/product', 'product_id=' . $product_id),
-					'remove'       => $this->url->link('product/compare', 'remove=' . $product_id)
+					'href'         => $this->url->link('web/product/product', 'product_id=' . $product_id),
+					'remove'       => $this->url->link('web/product/compare', 'remove=' . $product_id)
 				);
 
 				foreach ($attribute_groups as $attribute_group) {
@@ -125,16 +125,16 @@ class ControllerWebProductCompare extends Controller {
 			}
 		}
 
-		$data['continue'] = $this->url->link('common/home');
+		$data['continue'] = $this->url->link('web/common/home');
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('product/compare', $data));
+		$this->response->setOutput($this->load->view('web/product/compare', $data));
 	}
 
 	public function add() {
@@ -165,11 +165,15 @@ class ControllerWebProductCompare extends Controller {
 				$this->session->data['compare'][] = $this->request->post['product_id'];
 			}
 
-			$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+			$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('web/product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('web/product/compare'));
 
 			$json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
-		}
 
+			$json['count'] = $this->session->data['compare'];
+
+			$json['link'] = $this->url->link('web/product/compare');
+		}
+		// echo "LoginInfo";
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}

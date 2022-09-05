@@ -2,9 +2,9 @@
 class ControllerWebAccountNewsletter extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/newsletter', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/newsletter', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$this->load->language('account/newsletter');
@@ -18,39 +18,39 @@ class ControllerWebAccountNewsletter extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->response->redirect($this->url->link('web/account/account', '', true));
 		}
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('web/account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_newsletter'),
-			'href' => $this->url->link('account/newsletter', '', true)
+			'href' => $this->url->link('web/account/newsletter', '', true)
 		);
 
-		$data['action'] = $this->url->link('account/newsletter', '', true);
+		$data['action'] = $this->url->link('web/account/newsletter', '', true);
 
 		$data['newsletter'] = $this->customer->getNewsletter();
 
-		$data['back'] = $this->url->link('account/account', '', true);
+		$data['back'] = $this->url->link('web/account/account', '', true);
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('account/newsletter', $data));
+		$this->response->setOutput($this->load->view('web/account/newsletter', $data));
 	}
 }

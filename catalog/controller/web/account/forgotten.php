@@ -3,8 +3,9 @@ class ControllerWebAccountForgotten extends Controller {
 	private $error = array();
 
 	public function index() {
+
 		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->response->redirect($this->url->link('web/account/account', '', true));
 		}
 
 		$this->load->language('account/forgotten');
@@ -18,24 +19,24 @@ class ControllerWebAccountForgotten extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('web/account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_forgotten'),
-			'href' => $this->url->link('account/forgotten', '', true)
+			'href' => $this->url->link('web/account/forgotten', '', true)
 		);
 
 		if (isset($this->error['warning'])) {
@@ -44,9 +45,9 @@ class ControllerWebAccountForgotten extends Controller {
 			$data['error_warning'] = '';
 		}
 
-		$data['action'] = $this->url->link('account/forgotten', '', true);
+		$data['action'] = $this->url->link('web/account/forgotten', '', true);
 
-		$data['back'] = $this->url->link('account/login', '', true);
+		$data['back'] = $this->url->link('web/account/login', '', true);
 
 		if (isset($this->request->post['email'])) {
 			$data['email'] = $this->request->post['email'];
@@ -54,14 +55,14 @@ class ControllerWebAccountForgotten extends Controller {
 			$data['email'] = '';
 		}
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('account/forgotten', $data));
+		$this->response->setOutput($this->load->view('web/account/forgotten', $data));
 	}
 
 	protected function validate() {

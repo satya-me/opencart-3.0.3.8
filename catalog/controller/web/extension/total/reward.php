@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionTotalReward extends Controller {
+class ControllerWebExtensionTotalReward extends Controller {
 	public function index() {
 		$points = $this->customer->getRewardPoints();
 
@@ -24,7 +24,7 @@ class ControllerExtensionTotalReward extends Controller {
 				$data['reward'] = '';
 			}
 
-			return $this->load->view('extension/total/reward', $data);
+			return $this->load->view('web/extension/total/reward', $data);
 		}
 	}
 

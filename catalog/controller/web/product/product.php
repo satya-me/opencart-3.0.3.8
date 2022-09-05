@@ -3,13 +3,16 @@ class ControllerWebProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+		$data['assets'] = ASSET_URL;
+		// echo "check";
+		// exit();
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$this->load->model('catalog/category');
@@ -33,7 +36,7 @@ class ControllerWebProductProduct extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('product/category', 'path=' . $path)
+						'href' => $this->url->link('web/product/category', 'path=' . $path)
 					);
 				}
 			}
@@ -62,7 +65,7 @@ class ControllerWebProductProduct extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $category_info['name'],
-					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url)
+					'href' => $this->url->link('web/product/category', 'path=' . $this->request->get['path'] . $url)
 				);
 			}
 		}
@@ -72,7 +75,7 @@ class ControllerWebProductProduct extends Controller {
 		if (isset($this->request->get['manufacturer_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_brand'),
-				'href' => $this->url->link('product/manufacturer')
+				'href' => $this->url->link('web/product/manufacturer')
 			);
 
 			$url = '';
@@ -98,7 +101,7 @@ class ControllerWebProductProduct extends Controller {
 			if ($manufacturer_info) {
 				$data['breadcrumbs'][] = array(
 					'text' => $manufacturer_info['name'],
-					'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url)
+					'href' => $this->url->link('web/product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url)
 				);
 			}
 		}
@@ -144,7 +147,7 @@ class ControllerWebProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_search'),
-				'href' => $this->url->link('product/search', $url)
+				'href' => $this->url->link('web/product/search', $url)
 			);
 		}
 
@@ -227,13 +230,13 @@ class ControllerWebProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $product_info['name'],
-				'href' => $this->url->link('product/product', $url . '&product_id=' . $this->request->get['product_id'])
+				'href' => $this->url->link('web/product/product', $url . '&product_id=' . $this->request->get['product_id'])
 			);
 
 			$this->document->setTitle($product_info['meta_title']);
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
-			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
+			$this->document->addLink($this->url->link('web/product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
 			$this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
@@ -244,7 +247,7 @@ class ControllerWebProductProduct extends Controller {
 			$data['heading_title'] = $product_info['name'];
 
 			$data['text_minimum'] = sprintf($this->language->get('text_minimum'), $product_info['minimum']);
-			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true));
+			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('web/account/login', '', true), $this->url->link('web/account/register', '', true));
 
 			$this->load->model('catalog/review');
 
@@ -252,7 +255,7 @@ class ControllerWebProductProduct extends Controller {
 
 			$data['product_id'] = (int)$this->request->get['product_id'];
 			$data['manufacturer'] = $product_info['manufacturer'];
-			$data['manufacturers'] = $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
+			$data['manufacturers'] = $this->url->link('web/product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
 			$data['model'] = $product_info['model'];
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
@@ -387,7 +390,7 @@ class ControllerWebProductProduct extends Controller {
 				$data['captcha'] = '';
 			}
 
-			$data['share'] = $this->url->link('product/product', 'product_id=' . (int)$this->request->get['product_id']);
+			$data['share'] = $this->url->link('web/product/product', 'product_id=' . (int)$this->request->get['product_id']);
 
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
 
@@ -438,7 +441,7 @@ class ControllerWebProductProduct extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $rating,
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+					'href'        => $this->url->link('web/product/product', 'product_id=' . $result['product_id'])
 				);
 			}
 
@@ -450,7 +453,7 @@ class ControllerWebProductProduct extends Controller {
 				foreach ($tags as $tag) {
 					$data['tags'][] = array(
 						'tag'  => trim($tag),
-						'href' => $this->url->link('product/search', 'tag=' . trim($tag))
+						'href' => $this->url->link('web/product/search', 'tag=' . trim($tag))
 					);
 				}
 			}
@@ -459,14 +462,14 @@ class ControllerWebProductProduct extends Controller {
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 			
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['column_left'] = $this->load->controller('web/common/column_left');
+			$data['column_right'] = $this->load->controller('web/common/column_right');
+			$data['content_top'] = $this->load->controller('web/common/content_top');
+			$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+			$data['footer'] = $this->load->controller('web/common/footer');
+			$data['header'] = $this->load->controller('web/common/header');
 
-			$this->response->setOutput($this->load->view('product/product', $data));
+			$this->response->setOutput($this->load->view('web/product/product', $data));
 		} else {
 			$url = '';
 
@@ -520,12 +523,12 @@ class ControllerWebProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('product/product', $url . '&product_id=' . $product_id)
+				'href' => $this->url->link('web/product/product', $url . '&product_id=' . $product_id)
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->link('web/common/home');
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 
@@ -570,7 +573,7 @@ class ControllerWebProductProduct extends Controller {
 		$pagination->total = $review_total;
 		$pagination->page = $page;
 		$pagination->limit = 5;
-		$pagination->url = $this->url->link('product/product/review', 'product_id=' . $this->request->get['product_id'] . '&page={page}');
+		$pagination->url = $this->url->link('web/product/product/review', 'product_id=' . $this->request->get['product_id'] . '&page={page}');
 
 		$data['pagination'] = $pagination->render();
 

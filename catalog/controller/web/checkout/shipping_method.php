@@ -40,7 +40,7 @@ class ControllerWebCheckoutShippingMethod extends Controller {
 		}
 
 		if (empty($this->session->data['shipping_methods'])) {
-			$data['error_warning'] = sprintf($this->language->get('error_no_shipping'), $this->url->link('information/contact'));
+			$data['error_warning'] = sprintf($this->language->get('error_no_shipping'), $this->url->link('web/information/contact'));
 		} else {
 			$data['error_warning'] = '';
 		}
@@ -63,7 +63,7 @@ class ControllerWebCheckoutShippingMethod extends Controller {
 			$data['comment'] = '';
 		}
 		
-		$this->response->setOutput($this->load->view('checkout/shipping_method', $data));
+		$this->response->setOutput($this->load->view('web/checkout/shipping_method', $data));
 	}
 
 	public function save() {
@@ -73,17 +73,17 @@ class ControllerWebCheckoutShippingMethod extends Controller {
 
 		// Validate if shipping is required. If not the customer should not have reached this page.
 		if (!$this->cart->hasShipping()) {
-			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			$json['redirect'] = $this->url->link('web/checkout/checkout', '', true);
 		}
 
 		// Validate if shipping address has been set.
 		if (!isset($this->session->data['shipping_address'])) {
-			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			$json['redirect'] = $this->url->link('web/checkout/checkout', '', true);
 		}
 
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$json['redirect'] = $this->url->link('checkout/cart');
+			$json['redirect'] = $this->url->link('web/checkout/cart');
 		}
 
 		// Validate minimum quantity requirements.
@@ -99,7 +99,7 @@ class ControllerWebCheckoutShippingMethod extends Controller {
 			}
 
 			if ($product['minimum'] > $product_total) {
-				$json['redirect'] = $this->url->link('checkout/cart');
+				$json['redirect'] = $this->url->link('web/checkout/cart');
 
 				break;
 			}

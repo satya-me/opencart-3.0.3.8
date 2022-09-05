@@ -1,6 +1,7 @@
 <?php
 class ControllerWebCheckoutCart extends Controller {
 	public function index() {
+		$data['assets'] = ASSET_URL;
 		$this->load->language('checkout/cart');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -8,12 +9,12 @@ class ControllerWebCheckoutCart extends Controller {
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
-			'href' => $this->url->link('common/home'),
+			'href' => $this->url->link('web/common/home'),
 			'text' => $this->language->get('text_home')
 		);
 
 		$data['breadcrumbs'][] = array(
-			'href' => $this->url->link('checkout/cart'),
+			'href' => $this->url->link('web/checkout/cart'),
 			'text' => $this->language->get('heading_title')
 		);
 
@@ -29,7 +30,7 @@ class ControllerWebCheckoutCart extends Controller {
 			}
 
 			if ($this->config->get('config_customer_price') && !$this->customer->isLogged()) {
-				$data['attention'] = sprintf($this->language->get('text_login'), $this->url->link('account/login'), $this->url->link('account/register'));
+				$data['attention'] = sprintf($this->language->get('text_login'), $this->url->link('web/account/login'), $this->url->link('web/account/register'));
 			} else {
 				$data['attention'] = '';
 			}
@@ -42,7 +43,7 @@ class ControllerWebCheckoutCart extends Controller {
 				$data['success'] = '';
 			}
 
-			$data['action'] = $this->url->link('checkout/cart/edit', '', true);
+			$data['action'] = $this->url->link('web/checkout/cart/edit', '', true);
 
 			if ($this->config->get('config_cart_weight')) {
 				$data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
@@ -142,7 +143,7 @@ class ControllerWebCheckoutCart extends Controller {
 					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 					'price'     => $price,
 					'total'     => $total,
-					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'href'      => $this->url->link('web/product/product', 'product_id=' . $product['product_id'])
 				);
 			}
 
@@ -155,7 +156,7 @@ class ControllerWebCheckoutCart extends Controller {
 						'key'         => $key,
 						'description' => $voucher['description'],
 						'amount'      => $this->currency->format($voucher['amount'], $this->session->data['currency']),
-						'remove'      => $this->url->link('checkout/cart', 'remove=' . $key)
+						'remove'      => $this->url->link('web/checkout/cart', 'remove=' . $key)
 					);
 				}
 			}
@@ -213,9 +214,9 @@ class ControllerWebCheckoutCart extends Controller {
 				);
 			}
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->link('web/common/home');
 
-			$data['checkout'] = $this->url->link('checkout/checkout', '', true);
+			$data['checkout'] = $this->url->link('web/checkout/checkout', '', true);
 
 			$this->load->model('setting/extension');
 
@@ -225,7 +226,7 @@ class ControllerWebCheckoutCart extends Controller {
 
 			if ($files) {
 				foreach ($files as $file) {
-					$result = $this->load->controller('extension/total/' . basename($file, '.php'));
+					$result = $this->load->controller('web/extension/total/' . basename($file, '.php'));
 					
 					if ($result) {
 						$data['modules'][] = $result;
@@ -233,29 +234,29 @@ class ControllerWebCheckoutCart extends Controller {
 				}
 			}
 
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['column_left'] = $this->load->controller('web/common/column_left');
+			$data['column_right'] = $this->load->controller('web/common/column_right');
+			$data['content_top'] = $this->load->controller('web/common/content_top');
+			$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+			$data['footer'] = $this->load->controller('web/common/footer');
+			$data['header'] = $this->load->controller('web/common/header');
 
-			$this->response->setOutput($this->load->view('checkout/cart', $data));
+			$this->response->setOutput($this->load->view('web/checkout/cart', $data));
 		} else {
 			$data['text_error'] = $this->language->get('text_empty');
 			
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->link('web/common/home');
 
 			unset($this->session->data['success']);
 
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['column_left'] = $this->load->controller('web/common/column_left');
+			$data['column_right'] = $this->load->controller('web/common/column_right');
+			$data['content_top'] = $this->load->controller('web/common/content_top');
+			$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+			$data['footer'] = $this->load->controller('web/common/footer');
+			$data['header'] = $this->load->controller('web/common/header');
 
-			$this->response->setOutput($this->load->view('error/not_found', $data));
+			$this->response->setOutput($this->load->view('web/error/not_found', $data));
 		}
 	}
 
@@ -318,7 +319,7 @@ class ControllerWebCheckoutCart extends Controller {
 			if (!$json) {
 				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
 
-				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('web/product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('web/checkout/cart'));
 
 				// Unset all shipping and payment methods
 				unset($this->session->data['shipping_method']);
@@ -372,7 +373,7 @@ class ControllerWebCheckoutCart extends Controller {
 
 				$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
 			} else {
-				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']));
+				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('web/product/product', 'product_id=' . $this->request->post['product_id']));
 			}
 		}
 
@@ -399,7 +400,7 @@ class ControllerWebCheckoutCart extends Controller {
 			unset($this->session->data['payment_methods']);
 			unset($this->session->data['reward']);
 
-			$this->response->redirect($this->url->link('checkout/cart'));
+			$this->response->redirect($this->url->link('web/checkout/cart'));
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

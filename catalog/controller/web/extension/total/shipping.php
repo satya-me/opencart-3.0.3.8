@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionTotalShipping extends Controller {
+class ControllerWebExtensionTotalShipping extends Controller {
 	public function index() {
 		if ($this->config->get('total_shipping_status') && $this->config->get('total_shipping_estimator') && $this->cart->hasShipping()) {
 			$this->load->language('extension/total/shipping');
@@ -32,7 +32,7 @@ class ControllerExtensionTotalShipping extends Controller {
 				$data['shipping_method'] = '';
 			}
 
-			return $this->load->view('extension/total/shipping', $data);
+			return $this->load->view('web/extension/total/shipping', $data);
 		}
 	}
 

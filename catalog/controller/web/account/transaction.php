@@ -2,9 +2,9 @@
 class ControllerWebAccountTransaction extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/transaction', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/transaction', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$this->load->language('account/transaction');
@@ -15,17 +15,17 @@ class ControllerWebAccountTransaction extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('web/account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_transaction'),
-			'href' => $this->url->link('account/transaction', '', true)
+			'href' => $this->url->link('web/account/transaction', '', true)
 		);
 
 		$this->load->model('account/transaction');
@@ -63,7 +63,7 @@ class ControllerWebAccountTransaction extends Controller {
 		$pagination->total = $transaction_total;
 		$pagination->page = $page;
 		$pagination->limit = 10;
-		$pagination->url = $this->url->link('account/transaction', 'page={page}', true);
+		$pagination->url = $this->url->link('web/account/transaction', 'page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
@@ -71,15 +71,15 @@ class ControllerWebAccountTransaction extends Controller {
 
 		$data['total'] = $this->currency->format($this->customer->getBalance(), $this->session->data['currency']);
 
-		$data['continue'] = $this->url->link('account/account', '', true);
+		$data['continue'] = $this->url->link('web/account/account', '', true);
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('account/transaction', $data));
+		$this->response->setOutput($this->load->view('web/account/transaction', $data));
 	}
 }

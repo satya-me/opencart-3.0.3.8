@@ -2,9 +2,9 @@
 class ControllerWebAccountDownload extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/download', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/download', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$this->load->language('account/download');
@@ -15,17 +15,17 @@ class ControllerWebAccountDownload extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('web/account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_downloads'),
-			'href' => $this->url->link('account/download', '', true)
+			'href' => $this->url->link('web/account/download', '', true)
 		);
 
 		$this->load->model('account/download');
@@ -70,7 +70,7 @@ class ControllerWebAccountDownload extends Controller {
 					'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 					'name'       => $result['name'],
 					'size'       => round(substr($size, 0, strpos($size, '.') + 4), 2) . $suffix[$i],
-					'href'       => $this->url->link('account/download/download', 'download_id=' . $result['download_id'], true)
+					'href'       => $this->url->link('web/account/download/download', 'download_id=' . $result['download_id'], true)
 				);
 			}
 		}
@@ -79,29 +79,29 @@ class ControllerWebAccountDownload extends Controller {
 		$pagination->total = $download_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('theme_' . $this->config->get('config_theme') . '_product_limit');
-		$pagination->url = $this->url->link('account/download', 'page={page}', true);
+		$pagination->url = $this->url->link('web/account/download', 'page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($download_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($download_total - 10)) ? $download_total : ((($page - 1) * 10) + 10), $download_total, ceil($download_total / 10));
 		
-		$data['continue'] = $this->url->link('account/account', '', true);
+		$data['continue'] = $this->url->link('web/account/account', '', true);
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('account/download', $data));
+		$this->response->setOutput($this->load->view('web/account/download', $data));
 	}
 
 	public function download() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/download', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/download', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$this->load->model('account/download');
@@ -141,7 +141,7 @@ class ControllerWebAccountDownload extends Controller {
 				exit('Error: Headers already sent out!');
 			}
 		} else {
-			$this->response->redirect($this->url->link('account/download', '', true));
+			$this->response->redirect($this->url->link('web/account/download', '', true));
 		}
 	}
 }

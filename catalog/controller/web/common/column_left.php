@@ -49,7 +49,7 @@ class ControllerWebCommonColumnLeft extends Controller {
 			$part = explode('.', $module['code']);
 
 			if (isset($part[0]) && $this->config->get('module_' . $part[0] . '_status')) {
-				$module_data = $this->load->controller('extension/module/' . $part[0]);
+				$module_data = $this->load->controller('web/extension/module/' . $part[0]);
 
 				if ($module_data) {
 					$data['modules'][] = $module_data;
@@ -60,7 +60,7 @@ class ControllerWebCommonColumnLeft extends Controller {
 				$setting_info = $this->model_setting_module->getModule($part[1]);
 
 				if ($setting_info && $setting_info['status']) {
-					$output = $this->load->controller('extension/module/' . $part[0], $setting_info);
+					$output = $this->load->controller('web/extension/module/' . $part[0], $setting_info);
 
 					if ($output) {
 						$data['modules'][] = $output;
@@ -69,6 +69,6 @@ class ControllerWebCommonColumnLeft extends Controller {
 			}
 		}
 
-		return $this->load->view('common/column_left', $data);
+		return $this->load->view('web/common/column_left', $data);
 	}
 }

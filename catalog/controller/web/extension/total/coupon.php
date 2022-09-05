@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionTotalCoupon extends Controller {
+class ControllerWebExtensionTotalCoupon extends Controller {
 	public function index() {
 		if ($this->config->get('total_coupon_status')) {
 			$this->load->language('extension/total/coupon');
@@ -10,7 +10,7 @@ class ControllerExtensionTotalCoupon extends Controller {
 				$data['coupon'] = '';
 			}
 
-			return $this->load->view('extension/total/coupon', $data);
+			return $this->load->view('web/extension/total/coupon', $data);
 		}
 	}
 
@@ -38,7 +38,7 @@ class ControllerExtensionTotalCoupon extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$json['redirect'] = $this->url->link('checkout/cart');
+			$json['redirect'] = $this->url->link('web/checkout/cart');
 		} else {
 			$json['error'] = $this->language->get('error_coupon');
 		}

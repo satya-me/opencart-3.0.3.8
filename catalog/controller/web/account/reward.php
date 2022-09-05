@@ -2,9 +2,9 @@
 class ControllerWebAccountReward extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/reward', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/reward', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$this->load->language('account/reward');
@@ -15,17 +15,17 @@ class ControllerWebAccountReward extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('web/account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_reward'),
-			'href' => $this->url->link('account/reward', '', true)
+			'href' => $this->url->link('web/account/reward', '', true)
 		);
 
 		$this->load->model('account/reward');
@@ -55,7 +55,7 @@ class ControllerWebAccountReward extends Controller {
 				'points'      => $result['points'],
 				'description' => $result['description'],
 				'date_added'  => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'href'        => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true)
+				'href'        => $this->url->link('web/account/order/info', 'order_id=' . $result['order_id'], true)
 			);
 		}
 
@@ -63,7 +63,7 @@ class ControllerWebAccountReward extends Controller {
 		$pagination->total = $reward_total;
 		$pagination->page = $page;
 		$pagination->limit = 10;
-		$pagination->url = $this->url->link('account/reward', 'page={page}', true);
+		$pagination->url = $this->url->link('web/account/reward', 'page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
@@ -71,15 +71,15 @@ class ControllerWebAccountReward extends Controller {
 
 		$data['total'] = (int)$this->customer->getRewardPoints();
 
-		$data['continue'] = $this->url->link('account/account', '', true);
+		$data['continue'] = $this->url->link('web/account/account', '', true);
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('account/reward', $data));
+		$this->response->setOutput($this->load->view('web/account/reward', $data));
 	}
 }

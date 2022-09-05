@@ -48,7 +48,7 @@ class ControllerWebCheckoutPaymentAddress extends Controller {
 			$data['payment_address_custom_field'] = array();
 		}
 
-		$this->response->setOutput($this->load->view('checkout/payment_address', $data));
+		$this->response->setOutput($this->load->view('web/checkout/payment_address', $data));
 	}
 
 	public function save() {
@@ -58,12 +58,12 @@ class ControllerWebCheckoutPaymentAddress extends Controller {
 
 		// Validate if customer is logged in.
 		if (!$this->customer->isLogged()) {
-			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			$json['redirect'] = $this->url->link('web/checkout/checkout', '', true);
 		}
 
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$json['redirect'] = $this->url->link('checkout/cart');
+			$json['redirect'] = $this->url->link('web/checkout/cart');
 		}
 
 		// Validate minimum quantity requirements.
@@ -79,7 +79,7 @@ class ControllerWebCheckoutPaymentAddress extends Controller {
 			}
 
 			if ($product['minimum'] > $product_total) {
-				$json['redirect'] = $this->url->link('checkout/cart');
+				$json['redirect'] = $this->url->link('web/checkout/cart');
 
 				break;
 			}

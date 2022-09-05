@@ -218,6 +218,10 @@ class ControllerAccountRegister extends Controller {
 	}
 
 	private function validate() {
+
+		// print_r($this->request->post);
+		// exit;
+
 		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}

@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionTotalVoucher extends Controller {
+class ControllerWebExtensionTotalVoucher extends Controller {
 	public function index() {
 		if ($this->config->get('total_voucher_status')) {
 			$this->load->language('extension/total/voucher');
@@ -10,7 +10,7 @@ class ControllerExtensionTotalVoucher extends Controller {
 				$data['voucher'] = '';
 			}
 
-			return $this->load->view('extension/total/voucher', $data);
+			return $this->load->view('web/extension/total/voucher', $data);
 		}
 	}
 
@@ -94,7 +94,7 @@ class ControllerExtensionTotalVoucher extends Controller {
 					$mail->setFrom($this->config->get('config_email'));
 					$mail->setSender(html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
 					$mail->setSubject(html_entity_decode(sprintf($language->get('text_subject'), $voucher['from_name']), ENT_QUOTES, 'UTF-8'));
-					$mail->setHtml($this->load->view('mail/voucher', $data));
+					$mail->setHtml($this->load->view('web/mail/voucher', $data));
 					$mail->send();
 				}
 			}

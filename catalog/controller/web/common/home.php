@@ -19,6 +19,43 @@ class ControllerWebCommonHome extends Controller
         $data['footer'] = $this->load->controller('web/common/footer');
         $data['header'] = $this->load->controller('web/common/header');
 
+
+
+        $this->load->model('setting/module');
+
+        $data['modules'] = array();
+        $layout_id = 14;
+        $modules = $this->model_design_layout->getLayoutModules($layout_id, 'content_top');
+
+        foreach ($modules as $module) {
+            $part = explode('.', $module['code']);
+
+            if (isset($part[0]) && $this->config->get('module_' . $part[0] . '_status')) {
+                $module_data = $this->load->controller('web/extension/module/' . $part[0]);
+
+                if ($module_data) {
+                    if ($part[0] == 'banner') {
+                        $data['banner'][] = $module_data;
+                    }
+                }
+            }
+
+            if (isset($part[1])) {
+                $setting_info = $this->model_setting_module->getModule($part[1]);
+
+                if ($setting_info && $setting_info['status']) {
+                    $output = $this->load->controller('web/extension/module/' . $part[0], $setting_info);
+
+                    if ($output) {
+                        if ($part[0] == 'banner') {
+                            $data['banner'][] = $output;
+                        }
+                    }
+                }
+            }
+        }
+        // print_r($data['banner']);
+
         $this->response->setOutput($this->load->view('web/common/home', $data));
     }
 }

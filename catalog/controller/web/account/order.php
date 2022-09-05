@@ -2,9 +2,9 @@
 class ControllerWebAccountOrder extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/order', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/order', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$this->load->language('account/order');
@@ -21,17 +21,17 @@ class ControllerWebAccountOrder extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('web/account/account', '', true)
 		);
 		
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/order', $url, true)
+			'href' => $this->url->link('web/account/order', $url, true)
 		);
 
 		if (isset($this->request->get['page'])) {
@@ -59,7 +59,7 @@ class ControllerWebAccountOrder extends Controller {
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'products'   => ($product_total + $voucher_total),
 				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
-				'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
+				'view'       => $this->url->link('web/account/order/info', 'order_id=' . $result['order_id'], true),
 			);
 		}
 
@@ -67,22 +67,22 @@ class ControllerWebAccountOrder extends Controller {
 		$pagination->total = $order_total;
 		$pagination->page = $page;
 		$pagination->limit = 10;
-		$pagination->url = $this->url->link('account/order', 'page={page}', true);
+		$pagination->url = $this->url->link('web/account/order', 'page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($order_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($order_total - 10)) ? $order_total : ((($page - 1) * 10) + 10), $order_total, ceil($order_total / 10));
 
-		$data['continue'] = $this->url->link('account/account', '', true);
+		$data['continue'] = $this->url->link('web/account/account', '', true);
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('account/order_list', $data));
+		$this->response->setOutput($this->load->view('web/account/order_list', $data));
 	}
 
 	public function info() {
@@ -95,9 +95,9 @@ class ControllerWebAccountOrder extends Controller {
 		}
 
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/order/info', 'order_id=' . $order_id, true);
+			$this->session->data['redirect'] = $this->url->link('web/account/order/info', 'order_id=' . $order_id, true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->link('web/account/login', '', true));
 		}
 
 		$this->load->model('account/order');
@@ -117,22 +117,22 @@ class ControllerWebAccountOrder extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_home'),
-				'href' => $this->url->link('common/home')
+				'href' => $this->url->link('web/common/home')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_account'),
-				'href' => $this->url->link('account/account', '', true)
+				'href' => $this->url->link('web/account/account', '', true)
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link('account/order', $url, true)
+				'href' => $this->url->link('web/account/order', $url, true)
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_order'),
-				'href' => $this->url->link('account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, true)
+				'href' => $this->url->link('web/account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, true)
 			);
 
 			if (isset($this->session->data['error'])) {
@@ -267,7 +267,7 @@ class ControllerWebAccountOrder extends Controller {
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
 				if ($product_info) {
-					$reorder = $this->url->link('account/order/reorder', 'order_id=' . $order_id . '&order_product_id=' . $product['order_product_id'], true);
+					$reorder = $this->url->link('web/account/order/reorder', 'order_id=' . $order_id . '&order_product_id=' . $product['order_product_id'], true);
 				} else {
 					$reorder = '';
 				}
@@ -280,7 +280,7 @@ class ControllerWebAccountOrder extends Controller {
 					'price'    => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'total'    => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
 					'reorder'  => $reorder,
-					'return'   => $this->url->link('account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], true)
+					'return'   => $this->url->link('web/account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], true)
 				);
 			}
 
@@ -323,16 +323,16 @@ class ControllerWebAccountOrder extends Controller {
 				);
 			}
 
-			$data['continue'] = $this->url->link('account/order', '', true);
+			$data['continue'] = $this->url->link('web/account/order', '', true);
 
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['column_left'] = $this->load->controller('web/common/column_left');
+			$data['column_right'] = $this->load->controller('web/common/column_right');
+			$data['content_top'] = $this->load->controller('web/common/content_top');
+			$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+			$data['footer'] = $this->load->controller('web/common/footer');
+			$data['header'] = $this->load->controller('web/common/header');
 
-			$this->response->setOutput($this->load->view('account/order_info', $data));
+			$this->response->setOutput($this->load->view('web/account/order_info', $data));
 		} else {
 			return new Action('error/not_found');
 		}
@@ -384,7 +384,7 @@ class ControllerWebAccountOrder extends Controller {
 
 					$this->cart->add($order_product_info['product_id'], $order_product_info['quantity'], $option_data);
 
-					$this->session->data['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $product_info['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+					$this->session->data['success'] = sprintf($this->language->get('text_success'), $this->url->link('web/product/product', 'product_id=' . $product_info['product_id']), $product_info['name'], $this->url->link('web/checkout/cart'));
 
 					unset($this->session->data['shipping_method']);
 					unset($this->session->data['shipping_methods']);
@@ -396,6 +396,6 @@ class ControllerWebAccountOrder extends Controller {
 			}
 		}
 
-		$this->response->redirect($this->url->link('account/order/info', 'order_id=' . $order_id));
+		$this->response->redirect($this->url->link('web/account/order/info', 'order_id=' . $order_id));
 	}
 }

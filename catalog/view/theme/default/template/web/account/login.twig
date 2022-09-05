@@ -88,13 +88,15 @@
 
     <div class="entry-content">
         <div class="d-flex jcc">
-            <img src="{{assets}}images/logos/logo-index3.png" alt="">
+            <a href="{{ home }}">
+                <img src="{{assets}}images/logos/logo-index3.png" alt="">
+            </a>
         </div>
         <div class="woocommerce card mt-4">
             <div class="wrapper_log" id="customer_login">
                 <div class="loginWrapper" id="loginWrapper">
                     <div class="text-center">
-                        <h2>Login {{token}}</h2>
+                        <h2>Login</h2>
                     </div>
                     <form method="post" class="login" action="{{login}}" enctype="multipart/form-data">
                         <p class="form-row form-row-wide">
@@ -133,11 +135,11 @@
                     </form>
                     <div class="d-flex jcc">
                         <p class="mb-0 mr-3">Don't have account ?</p>
-                        <p class="mb-0 text-primary ml-3 link" onclick="go_to_signup()">Create account</p>
+                        <a href="{{ register }}"><p class="mb-0 text-primary ml-3 link">Create account</p></a>
                     </div>
                 </div>
 
-                <div class="registerWrapper d-none" id="registerWrapper">
+                {# <div class="registerWrapper d-none" id="registerWrapper">
                     <div class="text-center">
                         <h2>Register</h2>
                     </div>
@@ -167,24 +169,24 @@
                         <p class="mb-0 mr-3">Already have account ?</p>
                         <p class="mb-0 text-primary ml-3 link" onclick="go_to_signin()">Signin here</p>
                     </div>
-                </div>
+                </div> #}
 
                 <div class="forgetWrapper d-none" id="forgetWrapper">
                     <div class="text-center">
                         <h2>Forget Password</h2>
                     </div>
 
-                    <form method="post" class="register" action="{{register}}">
+                    <form action="{{ forgotten }}" method="post" enctype="multipart/form-data" class="register" >
                         <p class="form-row form-row-wide">
                             <label for="reg_email">
                                 Email address <span class="required">*</span>
                             </label>
 
-                            <input type="email" class="input-text" name="email" id="reg_email" value="" />
+                            <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="input-text" />
                         </p>
 
                         <p class="form-row">
-                            <input type="submit" class="button disabled" name="register" value="Register" />
+                            <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
                         </p>
                     </form>
                     <div class="d-flex jcc">

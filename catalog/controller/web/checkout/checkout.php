@@ -3,7 +3,7 @@ class ControllerWebCheckoutCheckout extends Controller {
 	public function index() {
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$this->response->redirect($this->url->link('checkout/cart'));
+			$this->response->redirect($this->url->link('web/checkout/cart'));
 		}
 
 		// Validate minimum quantity requirements.
@@ -19,7 +19,7 @@ class ControllerWebCheckoutCheckout extends Controller {
 			}
 
 			if ($product['minimum'] > $product_total) {
-				$this->response->redirect($this->url->link('checkout/cart'));
+				$this->response->redirect($this->url->link('web/checkout/cart'));
 			}
 		}
 
@@ -41,17 +41,17 @@ class ControllerWebCheckoutCheckout extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_cart'),
-			'href' => $this->url->link('checkout/cart')
+			'href' => $this->url->link('web/checkout/cart')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('checkout/checkout', '', true)
+			'href' => $this->url->link('web/checkout/checkout', '', true)
 		);
 
 		$data['text_checkout_option'] = sprintf($this->language->get('text_checkout_option'), 1);
@@ -85,14 +85,14 @@ class ControllerWebCheckoutCheckout extends Controller {
 
 		$data['shipping_required'] = $this->cart->hasShipping();
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('checkout/checkout', $data));
+		$this->response->setOutput($this->load->view('web/checkout/checkout', $data));
 	}
 
 	public function country() {

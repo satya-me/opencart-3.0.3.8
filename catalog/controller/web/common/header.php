@@ -79,8 +79,19 @@ class ControllerWebCommonHeader extends Controller
         $data['currency'] = $this->load->controller('web/common/currency');
         $data['search'] = $this->load->controller('web/common/search');
         $data['cart'] = $this->load->controller('web/common/cart');
-        $data['menu'] = $this->load->controller('web/common/menu');
 
+        $menu = $this->load->controller('web/common/menu');
+        $data['menu'] = $menu['categories'];
+
+        // echo "<pre>";
+		// print_r($data['menu']);
+		// echo "</pre>";
+
+
+        // for ($i=0; $i < count($data['menu']); $i++) { 
+        //     echo $data['menu'][$i]['href'];
+        //     echo "<br/>";
+        // }
         return $this->load->view('web/common/header', $data);
     }
 }

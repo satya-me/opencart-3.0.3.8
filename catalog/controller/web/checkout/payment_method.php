@@ -76,7 +76,7 @@ class ControllerWebCheckoutPaymentMethod extends Controller {
 		}
 
 		if (empty($this->session->data['payment_methods'])) {
-			$data['error_warning'] = sprintf($this->language->get('error_no_payment'), $this->url->link('information/contact'));
+			$data['error_warning'] = sprintf($this->language->get('error_no_payment'), $this->url->link('web/information/contact'));
 		} else {
 			$data['error_warning'] = '';
 		}
@@ -107,7 +107,7 @@ class ControllerWebCheckoutPaymentMethod extends Controller {
 			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_checkout_id'));
 
 			if ($information_info) {
-				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_checkout_id'), true), $information_info['title']);
+				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('web/information/information/agree', 'information_id=' . $this->config->get('config_checkout_id'), true), $information_info['title']);
 			} else {
 				$data['text_agree'] = '';
 			}
@@ -121,7 +121,7 @@ class ControllerWebCheckoutPaymentMethod extends Controller {
 			$data['agree'] = '';
 		}
 
-		$this->response->setOutput($this->load->view('checkout/payment_method', $data));
+		$this->response->setOutput($this->load->view('web/checkout/payment_method', $data));
 	}
 
 	public function save() {
@@ -131,12 +131,12 @@ class ControllerWebCheckoutPaymentMethod extends Controller {
 
 		// Validate if payment address has been set.
 		if (!isset($this->session->data['payment_address'])) {
-			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			$json['redirect'] = $this->url->link('web/checkout/checkout', '', true);
 		}
 
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$json['redirect'] = $this->url->link('checkout/cart');
+			$json['redirect'] = $this->url->link('web/checkout/cart');
 		}
 
 		// Validate minimum quantity requirements.
@@ -152,7 +152,7 @@ class ControllerWebCheckoutPaymentMethod extends Controller {
 			}
 
 			if ($product['minimum'] > $product_total) {
-				$json['redirect'] = $this->url->link('checkout/cart');
+				$json['redirect'] = $this->url->link('web/checkout/cart');
 
 				break;
 			}
