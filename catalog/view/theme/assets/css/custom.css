@@ -1,6 +1,7 @@
 :root {
     --theme: #FF8100;
     --theme_dark: #d9720a;
+    --white:#fff;
 }
 
 .color_theme {
@@ -320,4 +321,135 @@ footer ul{
 }
 .d-block{
     display: block !important;
+}
+
+
+/*-------------new code saiyaka===========*/
+
+.product_title{
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.brand_name{
+    color: #e84118;
+    font-weight: bold;
+}
+
+#button-cart{
+    background: var(--theme);
+    outline: none;
+    border: none;
+    transition: all 0.1s linear
+}
+
+#button-cart:hover{
+    background: var(--theme_dark);
+}
+
+.rating i{
+    color: var(--theme)
+}
+
+#content{
+   padding: 0 5rem;
+}
+
+.butn_style{
+   margin-bottom: 5rem;
+}
+
+.continue_shopping a{
+border: 1px solid var(--theme);
+color: var(--theme);
+}
+
+.continue_shopping a:hover,.continue_shopping a:focus{
+    background-color: var(--theme);
+    color: var(--white);
+
+}
+
+.checkout a{
+    background-color: var(--theme);
+    color: var(--white); 
+    outline: none;
+    border: none;
+}
+
+.checkout a:hover{
+    background-color: var(--theme_dark);
+    color: var(--white);  
+}
+
+.btn_color{
+    background: var(--theme_);
+    color: var(--white);
+}
+
+
+/* 
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+} */
+
+.bg_theme{
+    background: var(--theme);
+    border-radius: 1rem;
+}
+
+.text_color{
+    text-align: center;
+    color: var(--white);
+    font-weight: bold;
+    text-transform:  capitalize;
+    font-size: 3rem;
+}
+
+.form_width{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.btn_color{
+    background: var(--theme);
+    color: var(--white);
+    transition:0.5s linear;
+    
+}
+
+.btn_color:hover{
+    background: var(--theme_dark);
+    color: var(--white);
+}
+
+.from_grp{
+    text-align: center;
+}
+
+.from_grp label{
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--white);
+    margin-right: 1rem;
+}
+
+
+@media(max-width:768px){
+
+    .container{
+        padding-left: 0px!important;
+        padding-right: 0px!important;
+    }
+
+.form_width{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
 }
