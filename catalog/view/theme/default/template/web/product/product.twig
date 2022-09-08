@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-		<div class="container">
+		<div class="container p-5">
 			<div class="row">
 				<div id="contents-detail" class="content col-lg-12 col-md-12 col-sm-12" role="main">
 					<div id="container">
@@ -24,7 +24,7 @@
 								<div id="product-01"
 									class="product type-product status-publish has-post-thumbnail product_cat-accessories product_brand-global-voices first outofstock featured shipping-taxable purchasable product-type-simple">
 									<div class="product_detail row">
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs"
+										<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 clear_xs"
 											style="max-width:570px;">
 											<div class="slider_img_productd">
 												<!-- woocommerce_show_product_images -->
@@ -54,7 +54,7 @@
 
 														<!-- Thumbnail Slider -->
 														<div class="slider product-responsive-thumbnail mt-3"
-															id="product_thumbnail_247" style="max-width: 550px;">
+															id="product_thumbnail_247" >
 
                               {% if images %}
                                 {% for image in images %}
@@ -76,13 +76,13 @@
 											</div>
 										</div>
 
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
+										<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 clear_xs">
 											<h1 class="product_title entry-title">{{ heading_title }}</h1>
 											<div class="content_product_detail">
 
 												<ul class="list-unstyled">
                           {% if manufacturer %}
-                          <li><h5>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></h5></li>
+                          <li><h5>{{ text_manufacturer }} <a href="{{ manufacturers }}" class="brand_name">{{ manufacturer }}</a></h5></li>
                           {% endif %}
                           <li><h5>{{ text_model }} {{ model }}</h5></li>
                           {% if reward %}
@@ -126,6 +126,7 @@
                           <h3>{{ text_option }}</h3>
                           {% for option in options %}
                           {% if option.type == 'select' %}
+                
                           <div class="form-group {% if option.required %} required {% endif %}">
                             <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
                             <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
@@ -142,7 +143,7 @@
                           {% if option.type == 'radio' %}
                           <div class="form-group{% if option.required %} required {% endif %}">
                             <label class="control-label">{{ option.name }}</label>
-                            <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
+                            <div id="input-option {{ option.product_option_id }}" class="inline_form"> {% for option_value in option.product_option_value %}
                               <div class="radio">
                                 <label>
                                   <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />

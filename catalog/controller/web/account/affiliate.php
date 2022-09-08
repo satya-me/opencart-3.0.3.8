@@ -4,9 +4,9 @@ class ControllerWebAccountAffiliate extends Controller {
 
 	public function add() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/affiliate', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/affiliate', '', true);
 
-			$this->response->redirect($this->url->link('affiliate/login', '', true));
+			$this->response->redirect($this->url->link('web/affiliate/login', '', true));
 		}
 
 		$this->load->language('account/affiliate');
@@ -20,7 +20,7 @@ class ControllerWebAccountAffiliate extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->response->redirect($this->url->link('web/account/account', '', true));
 		}
 		
 		$this->getForm();
@@ -28,9 +28,9 @@ class ControllerWebAccountAffiliate extends Controller {
 	
 	public function edit() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/affiliate', '', true);
+			$this->session->data['redirect'] = $this->url->link('web/account/affiliate', '', true);
 
-			$this->response->redirect($this->url->link('affiliate/login', '', true));
+			$this->response->redirect($this->url->link('web/affiliate/login', '', true));
 		}
 
 		$this->load->language('account/affiliate');
@@ -44,7 +44,7 @@ class ControllerWebAccountAffiliate extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->response->redirect($this->url->link('web/account/account', '', true));
 		}
 		
 		$this->getForm();
@@ -55,23 +55,23 @@ class ControllerWebAccountAffiliate extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('web/account/account', '', true)
 		);
 
 		if ($this->request->get['route'] == 'account/affiliate/add') {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_affiliate'),
-				'href' => $this->url->link('account/affiliate/add', '', true)
+				'href' => $this->url->link('web/account/affiliate/add', '', true)
 			);
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_affiliate'),
-				'href' => $this->url->link('account/affiliate/edit', '', true)
+				'href' => $this->url->link('web/account/affiliate/edit', '', true)
 			);		
 		}
 	
@@ -226,7 +226,7 @@ class ControllerWebAccountAffiliate extends Controller {
 			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_affiliate_id'));
 
 			if ($information_info) {
-				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_affiliate_id'), true), $information_info['title']);
+				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('web/information/information/agree', 'information_id=' . $this->config->get('config_affiliate_id'), true), $information_info['title']);
 			} else {
 				$data['text_agree'] = '';
 			}
@@ -240,16 +240,16 @@ class ControllerWebAccountAffiliate extends Controller {
 			$data['agree'] = false;
 		}
 		
-		$data['back'] = $this->url->link('account/account', '', true);
+		$data['back'] = $this->url->link('web/account/account', '', true);
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('account/affiliate', $data));
+		$this->response->setOutput($this->load->view('web/account/affiliate', $data));
 	}
 	
 	protected function validate() {
