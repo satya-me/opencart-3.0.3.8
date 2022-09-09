@@ -492,8 +492,11 @@ select:-webkit-autofill {
 .item-bottom {
     position: absolute;
     bottom: 15px;
-    left: 50%;
-    margin-left: -69px;
+    /*left: 50%;*/
+    /* margin-left: -69px; */
+    display: flex;
+    align-items:center;
+    justify-content: center;
     text-align: center;
     z-index: 2;
     width: 100%;
@@ -10195,7 +10198,7 @@ iframe {
 
 .wrap-transport .row .item .content h3 {
     font-family: RobotoBold;
-    font-size: 14px;
+    font-size: 13px;
     color: #000000;
     text-transform: uppercase;
     margin: 0 0 3px;

@@ -4,6 +4,7 @@ class ControllerWebCommonHome extends Controller
     public function index()
     {
         $data['assets'] = ASSET_URL;
+
         $this->document->setTitle($this->config->get('config_meta_title'));
         $this->document->setDescription($this->config->get('config_meta_description'));
         $this->document->setKeywords($this->config->get('config_meta_keyword'));
@@ -18,6 +19,8 @@ class ControllerWebCommonHome extends Controller
         $data['content_bottom'] = $this->load->controller('web/common/content_bottom');
         $data['footer'] = $this->load->controller('web/common/footer');
         $data['header'] = $this->load->controller('web/common/header');
+        
+        $data['cst_js'] = 'js/custom.js';
 
 
 

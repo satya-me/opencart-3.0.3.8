@@ -56,11 +56,11 @@ body button {
   border-radius: 4px;
   padding: 0px 5px;
 }
-body img {
-  display: block;
+/* body img {
+   display: block;
   max-width: 100%;
-  height: auto;
-}
+  height: auto; 
+} */
 body ul {
   padding: 0;
 }
