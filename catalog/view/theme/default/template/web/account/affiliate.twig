@@ -18,7 +18,7 @@
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
       <h1>{{ heading_title }}</h1>
-      <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <form action="{{ action }}" method="post" enctype="multipart/form-data" class="">
         <fieldset>
           <legend>{{ text_my_affiliate }}</legend>
           <div class="form-group">
@@ -298,9 +298,9 @@
           </div>
         </div>
         {% else %}
-        <div class="buttons clearfix">
+        <div class="buttons butn_style clearfix">
           <div class="pull-right">
-            <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
+            <input type="submit" value="{{ button_continue }}" class="btn btn_color" />
           </div>
         </div>
         {% endif %}

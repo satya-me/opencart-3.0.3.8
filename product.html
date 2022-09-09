@@ -1,93 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- style css -->
-<style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- style css -->
+    <style>
+        :root {
+            --bg-color: #efefef;
+            --theme: #FF8100;
+        }
 
-:root{
-  --bg-color: #efefef;
-  --theme: #FF8100;  
-}
+        /* lobal css */
+        a,
+        a:hover {
+            text-decoration: none;
+        }
 
-    a,a:hover{
-        text-decoration: none;
-    }
-.features_wrapper{
-    padding:2rem 3rem;
-}
+        ul {
+            list-style-type: none;
+        }
 
-.features_heading{
-    background: var(--bg-color);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom:2rem;
-    padding-right: 2rem;
-}
+        button {
+            border: none;
+            outline: none;
+        }
 
-.product_catagories_title{
-    background: var(--theme);
-    padding: 0 2rem;
-    color: #fff;
-}
+        .features_wrapper {
+            padding: 2rem 3rem;
+            margin-bottom: 2rem;
+        }
 
-.product_slider_row .product_items_box .product_item{
-width:150px;
-height:150px;
-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-}
+        .features_heading {
+            background: var(--bg-color);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding-right: 2rem;
+        }
 
-.product_slider_row .product_items_box .product_item img{
-    width:100%;
-    height:100%;
-    display: inline-block;
-    object-fit: cover;
-}
+        .product_catagories_title {
+            background: var(--theme);
+            padding: 0 2rem;
+            color: #fff;
+        }
+
+        .product_catagories_title h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .seeall {
+            border: none;
+            outline: none;
+            color: var(--theme);
+        }
+
+        .seeall span {
+            margin-right: 0.5rem;
+        }
+
+        .product_slider_row .product_item {
+            padding: 2rem 0.5rem;
+            text-align: center;
+            border: 0.1rem solid rgba(179, 178, 178, 0.564);
+            margin-right: 2rem;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
 
 
-</style>
+        .product_img {
+            width: 200px;
+            margin: 0 auto;
+            /* height: 150px; */
+            transition: 0.5s linear;
+        }
+
+        .product_slider_row .product_item .product_img img {
+            width: 100%;
+            /* height: 100%; */
+            display: inline-block;
+
+        }
+
+        .product_slider_row .product_item:hover .product_img {
+            transform: scale(1.1);
+        }
+
+        .product_details {
+            margin-top: 2rem;
+        }
+
+        .product_details h4 a {
+            font-size: 1.5rem;
+            color: #000;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .product_details h6 .old_price {
+            font-size: 1.3rem;
+            color: rgba(0, 0, 0, 0.365);
+            text-transform: capitalize;
+            text-decoration: line-through;
+        }
+
+        .product_details h6 .new_price {
+            font-size: 1.3rem;
+            color: var(--theme);
+            font-weight: bold;
+            text-transform: capitalize;
+
+        }
+
+        .cart_btn {
+            display: inline-block;
+            width: 10rem;
+            padding: 0.5rem 1rem;
+            background: var(--theme);
+            outline: none;
+            color: #fff;
+            border: 1px solid transparent;
+            transition: 0.2s ease-in;
+
+        }
+
+
+        .cart_btn:hover {
+
+            background: transparent;
+            border: 1px solid var(--theme);
+            outline: none;
+            color: var(--theme);
+        }
+
+
+        .slick-arrows {
+            position: relative;
+
+        }
+
+        .slick-prev {
+            position: absolute;
+            top: 50%;
+            left: -13px;
+            transform: translate(0, -50%);
+            width: 3rem;
+            height: 3rem;
+            background: #efefef;
+            z-index: 99;
+            border-radius: 0;
+            color: var(--theme);
+            transition: 0.5s linear;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .slick-prev:hover {
+            background: var(--theme_dark);
+            color: var(--white) !important;
+        }
+
+        .slick-next {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(0, -50%);
+            width: 3rem;
+            height: 3rem;
+            background: #efefef;
+            z-index: 99;
+            border-radius: 0;
+            color: var(--theme);
+            transition: 0.5s linear;
+            font-size: 2rem;
+            font-weight: bold;
+
+        }
+
+
+        .slick-next:hover {
+            background: var(--theme_dark);
+            color: var(--white) !important;
+        }
+    </style>
 
 </head>
+
 <body>
     <!-- features products -->
 
     <div class="features_wrapper">
         <div class="features_heading">
-           <div class="product_catagories_title">
-            <h1>Features</h1>
-           </div>
-           <button class="seeall"><span><i class="fa fa-eye" aria-hidden="true"></i></span>Sea All</button>
+            <div class="product_catagories_title">
+                <h1>Features</h1>
+            </div>
+            <button class="seeall"><span><i class="fa fa-eye" aria-hidden="true"></i></span>Sea All</button>
         </div>
         <div class="product_slider_row">
-         
-                <div class="product_item">
-                    <div class="product_img">
-                        <img src="https://rukminim1.flixcart.com/image/312/312/kuvkcy80/computer/o/6/t/na-thin-and-light-laptop-asus-original-imag7wjdg4dvcdya.jpeg?q=70" alt="">
-                    </div>
-                    <div class="product_details">
-                        <h4><a href="">Product1</a></h4>
-                        <h6>
-                            <span class="old_price">$20.30</span>
-                            <span class="new_price">$210.30</span>
-                        </h6>
-                        
-                    </div>
-                    <div class="addtocart">
-                       <button type="button" Class="cart_btn">Add To Cart</button>
-                    </div>
+            <div class="product_item">
+
+                <div class="product_img">
+                    <a href="#" target="_blank">
+                        <img src="https://rukminim1.flixcart.com/image/312/312/kuvkcy80/computer/o/6/t/na-thin-and-light-laptop-asus-original-imag7wjdg4dvcdya.jpeg?q=70"
+                            alt="" />
+                    </a>
                 </div>
-           
+                <div class="product_details">
+                    <h4><a href="">Product1</a></h4>
+                    <h6>
+                        <span class="old_price">$20.30</span>
+                        <span class="new_price">$210.30</span>
+                    </h6>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
+
+
+
+
+
+
+
+    <!-- end -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        $('.product_slider_row').slick({
+            dots: false,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            prevArrow: "<button type='button' class='slick-prev'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+            nextArrow: "<button type='button' class='slick-next'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: false,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
+
 </html>

@@ -271,7 +271,7 @@ var voucher = {
 
 var wishlist = {
 	'add': function (product_id) {
-		alert('Wishlist');
+		// alert('Wishlist');
 		$.ajax({
 			url: 'index.php?route=web/account/wishlist/add',
 			type: 'post',
