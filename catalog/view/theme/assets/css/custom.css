@@ -3,6 +3,7 @@
     --theme_dark: #d9720a;
     --white:#fff;
     --bg-color: #efefef;
+    --dark-color: rgb(48, 48, 48);
 }
 
 .color_theme {
@@ -398,8 +399,13 @@ color: var(--theme);
 }
 
 .btn_color{
-    background: var(--theme_);
+    background: var(--theme);
     color: var(--white);
+}
+
+.btn_colortwo{
+    background: var(--dark-color);
+    color: var(--white); 
 }
 
 
@@ -533,18 +539,21 @@ transition: 0.2s linear;
     justify-content: space-between;
     margin-bottom: 2rem;
     padding-right: 2rem;
+    height: 3rem;
 }
 
 .product_catagories_title {
     background: var(--theme);
     padding: 0 2rem;
     color: #fff;
+    height: 3rem;
 }
 
 .product_catagories_title h1 {
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
+    line-height:3rem;
 }
 
 .seeall {
@@ -561,12 +570,13 @@ transition: 0.2s linear;
     padding: 2rem 0.5rem;
     text-align: center;
     border: 0.1rem solid rgba(179, 178, 178, 0.564);
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     overflow: hidden;
     cursor: pointer;
     position: relative;
     height: 350px;padding:3rem 0;
 }
+
 
 
 .product_img {
@@ -643,7 +653,7 @@ transition: 0.2s linear;
 .slick-prev {
     position: absolute;
     top: 50%;
-    left: -13px;
+    left: -15px;
     transform: translate(0, -50%);
     width: 3rem;
     height: 3rem;
@@ -683,6 +693,57 @@ transition: 0.2s linear;
     background: var(--theme_dark);
     color: var(--white) !important;
 }
+.slick-slide {
+    margin: 0 10px;
+}
+/* the parent */
+/* .slick-list {
+    margin: 0 -10px;
+} */
+
+
+
+.product-layout{
+    margin-top: 3rem;
+}
+
+.product-thumb{
+    border: 0.5px solid rgba(43, 43, 43, 0.246);
+    text-align: center;
+}
+
+.image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+.breadcrumb{
+    background: var(--theme)!important;
+
+}
+
+.breadcrumb li a{
+    color: var(--white)!important;
+}
+
+.breadcrumb li i:hover{
+    color: var(--dark)!important;
+}
+
+
+.ac_titile{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--theme);
+}
+
+
+
 
 
 

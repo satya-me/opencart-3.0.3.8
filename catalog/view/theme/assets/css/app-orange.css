@@ -140,10 +140,10 @@ body ul {
     padding: 0;
 }
 
-body ul,
+/* body ul,
 body ol {
     margin-left: 15px;
-}
+} */
 
 .rtl body ul,
 .rtl body ol {
