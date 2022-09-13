@@ -4,7 +4,7 @@
 <head>
     <title>Opriya</title>
     <meta charset="utf-8" />
-    <base href="{{ base }}" />
+<base href="{{ base }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <!-- FAVICONS -->
@@ -93,10 +93,8 @@
                         <div class="pull-left top1 d-flex jcsb w-100">
                             <div class="widget-inner">
                                 <div class="textwidget d-flex">
-                                    <h5 class="call-us personal_link mr-3"><a href="{{base}}index.php?route=web/common/home">Personal</a></h5>
-                                    <h5 class="call-us"><a
-                                            href="{{base}}index.php?route=web/extension/account/purpletree_multivendor/sellerlogin">Business</a>
-                                    </h5>
+                                    <h5 class="call-us personal_link mr-3">Personal</h5>
+                                    <h5 class="call-us">Business</h5>
                                 </div>
                             </div>
                             <!--  -->
@@ -324,46 +322,41 @@
                                     <ul id="menu-vertical-menu-1"
                                         class="nav vertical-megamenu etrostore-mega etrostore-menures">
                                         {% for category in menu %}
-                                        {% if category.children %}
-                                        <li class="dropdown menu-electronic-component etrostore-mega-menu level1">
+                                            {% if category.children %}
+                                            <li class="dropdown menu-electronic-component etrostore-mega-menu level1">
 
-                                            <a href="{{ category.href }}" class="item-link dropdown-toggle">
-                                                <span class="have-title" style="color: rgb(34, 34, 34);">
-                                                    <span class="menu-color" data-color="#f03442"
-                                                        style="background: rgb(240, 52, 66); width: 4px;"></span>
-                                                    <span class="menu-title">{{ category.name }}</span>
-                                                </span>
-                                            </a>
-                                            <ul class="dropdown-menu nav-level1 column-3">
-                                                <li
-                                                    class="dropdown-submenu column-3 menu-electronics etrostore-menu-img">
-                                                    {% for children in
-                                                    category.children|batch((category.children|length) /
-                                                    (category.column|round(1, 'ceil'))) %}
-                                                    <ul class="dropdown-sub nav-level2">
-                                                        {% for child in children %}
-                                                        <li class="menu-leds">
-                                                            <a href="{{ child.href }}"><span class="have-title"><span
-                                                                        class="menu-title">{{ child.name
-                                                                        }}</span></span></a>
-                                                        </li>
+                                                <a href="{{ category.href }}" class="item-link dropdown-toggle">
+                                                    <span class="have-title" style="color: rgb(34, 34, 34);">
+                                                        <span class="menu-color" data-color="#f03442"
+                                                            style="background: rgb(240, 52, 66); width: 4px;"></span>
+                                                        <span class="menu-title">{{ category.name }}</span>
+                                                    </span>
+                                                </a>
+                                                    <ul class="dropdown-menu nav-level1 column-3">
+                                                        <li class="dropdown-submenu column-3 menu-electronics etrostore-menu-img">
+                                                        {% for children in category.children|batch((category.children|length) / (category.column|round(1, 'ceil'))) %}
+                                                            <ul class="dropdown-sub nav-level2">
+                                                                {% for child in children %}
+                                                                    <li class="menu-leds">
+                                                                        <a href="{{ child.href }}"><span class="have-title"><span class="menu-title">{{ child.name }}</span></span></a>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
                                                         {% endfor %}
+                                                        </li>
                                                     </ul>
-                                                    {% endfor %}
+                                            </li>
+                                            {% else %}
+                                                <li class="menu-cameras-camcorders etrostore-menu-custom level1">
+                                                    <a href="{{ category.href }}" class="item-link">
+                                                        <span class="have-title" style="color: rgb(34, 34, 34);">
+                                                            <span class="menu-color" data-color="#fe9901"
+                                                                style="background: rgb(254, 153, 1); width: 4px;"></span>
+                                                            <span class="menu-title">{{ category.name }}</span>
+                                                        </span>
+                                                    </a>
                                                 </li>
-                                            </ul>
-                                        </li>
-                                        {% else %}
-                                        <li class="menu-cameras-camcorders etrostore-menu-custom level1">
-                                            <a href="{{ category.href }}" class="item-link">
-                                                <span class="have-title" style="color: rgb(34, 34, 34);">
-                                                    <span class="menu-color" data-color="#fe9901"
-                                                        style="background: rgb(254, 153, 1); width: 4px;"></span>
-                                                    <span class="menu-title">{{ category.name }}</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        {% endif %}
+                                            {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -381,9 +374,9 @@
                     <div class="d-flex aic" style="width:70px">
                         <div class="top-form top-form-minicart etrostore-minicart">
                             <div class="dropdown" id="compare-head">
-                                {# <a href="{{shopping_cart}}">
-                                    <iconify-icon icon="eva:shopping-cart-fill" width="24" height="24"></iconify-icon>
-                                </a> #}
+                            {# <a href="{{shopping_cart}}">
+                                <iconify-icon icon="eva:shopping-cart-fill" width="24" height="24"></iconify-icon>
+                            </a> #}
                             </div>
                         </div>
                     </div>
@@ -407,26 +400,27 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="d-flex aic" style="width:40px">
                         <div class="top-form top-form-minicart etrostore-minicart">
                             <div class="dropdown">
-                                <a href="{{shopping_cart}}">
-                                    <iconify-icon icon="eva:shopping-cart-fill" width="24" height="24"></iconify-icon>
-                                </a>
+                            <a href="{{shopping_cart}}">
+                                <iconify-icon icon="eva:shopping-cart-fill" width="24" height="24"></iconify-icon>
+                            </a>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex aic" style="width:40px">
                         <div class="top-form top-form-minicart etrostore-minicart">
                             <div class="dropdown">
-                                <a href="{{wishlist}}">
-                                    <iconify-icon icon="clarity:heart-solid" width="24" height="24"></iconify-icon>
-                                </a>
-
+                            <a href="{{wishlist}}">
+                                <iconify-icon icon="clarity:heart-solid" width="24" height="24"></iconify-icon>
+                            </a>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+
