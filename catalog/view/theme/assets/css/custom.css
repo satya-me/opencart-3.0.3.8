@@ -547,6 +547,7 @@ transition: 0.2s linear;
     padding: 0 2rem;
     color: #fff;
     height: 3rem;
+    
 }
 
 .product_catagories_title h1 {
@@ -554,6 +555,7 @@ transition: 0.2s linear;
     font-weight: bold;
     text-transform: uppercase;
     line-height:3rem;
+    font-weight: bolder;
 }
 
 .seeall {
@@ -744,7 +746,15 @@ transition: 0.2s linear;
 
 
 
-
+.footer{
+    /* position: fixed;
+    left: 0;
+    bottom: 0; */
+    width: 100%;
+    padding: 5rem 0;
+   margin-top: 5rem;
+  
+}
 
 
 
