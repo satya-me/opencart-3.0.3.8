@@ -20,17 +20,21 @@
 		{% set class = 'pts-col-sm-12 col-sm-12' %}
 		{% endif %}
 	    <div id="content" class="{{ class }}">
+	<div class="action_area">
+<h1>{{ heading_titlee }}</h1>
+<div class="pts-pull-right"><a href="{{ add }}" data-toggle="tooltip" title="{{ button_add }}" class="btn btn_color"><i class="fa fa-plus"></i></a>
+<button type="button" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-download').submit() : false;"><i class="fa fa-trash-o fas fa-trash-alt"></i></button>
+</div>
+
+	</div>
+
 			
-			<div class="pts-pull-right"><a href="{{ add }}" data-toggle="tooltip" title="{{ button_add }}" class="pts-btn pts-btn-primary"><i class="fa fa-plus"></i></a>
-				<button type="button" data-toggle="tooltip" title="{{ button_delete }}" class="pts-btn pts-btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-download').submit() : false;"><i class="fa fa-trash-o fas fa-trash-alt"></i></button>
-			</div>
-			<h1>{{ heading_titlee }}</h1>
 			<div>
 				<form action="{{ delete }}" method="post" enctype="multipart/form-data" id="form-download">
 					<div class="pts-table-responsive">
-						<table class="pts-table pts-table-bordered pts-table-hover">
-							<thead>
-								<tr>
+						<table class="table table-striped table-responsive table-bordered table-hover mt-5">
+							<thead >
+								<tr >
 									<td style="width: 1px;" class="pts-text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
 									<td class="pts-text-left">{% if sort == 'dd.name' %}
 										<a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a>
