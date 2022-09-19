@@ -1847,6 +1847,36 @@ background: #efefef;
     margin: 20px auto;
 }
 
+.label_color{
+    color: #2d3436;
+}
+
+.panel_heading{
+    background: #dfe6e9;
+    padding: 0.4rem 1rem;
+
+}
+
+.pts-panel-title{
+    margin-top:1rem
+}
+
+.panel_body{
+    background: #dfe6e9;
+    padding: 0.5rem 1rem;
+   margin-top: 2rem;
+  
+
+}
+
+.panel_content{
+    margin-bottom: 0.5rem;
+}
+
+.gap_left{
+    margin-right: 2rem;
+}
+
 
 /*=================media -------------*/
 

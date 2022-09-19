@@ -24,14 +24,14 @@
 			<form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
 				<fieldset>
 					<div class="form-group required">
-						<label class="col-sm-2 control-label" for="input-storename">{{ entry_name }}</label>
+						<label class="col-sm-2 control-label label_color" for="input-storename">{{ entry_name }}</label>
 						<div class="col-sm-10">
 							<input type="text" name="seller_name" disabled value="{{ seller_name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
 							<input type="hidden" name="seller_name" value="{{ seller_name }}" />
 						</div>
 					</div>
 					<div class="form-group required">
-						<label class="col-sm-2 control-label" for="input-storename">{{ entry_storename }}</label>
+						<label class="col-sm-2 control-label label_color" for="input-storename">{{ entry_storename }}</label>
 						<div class="col-sm-10">
 							<input type="text" name="store_name" value="{{ store_name }}" placeholder="{{ entry_storename }}" id="input-storename" class="form-control" />
 							{% if error_storename %}
@@ -307,7 +307,7 @@
 						</div>
 					</div>		
 					<div class="form-group required">
-						<label class="col-sm-2 control-label" for="input-storeaddress">{{ entry_storeaddress }}</label>
+						<label class="col-sm-2 control-label label_color" for="input-storeaddress">{{ entry_storeaddress }}</label>
 						<div class="col-sm-10">
 							<textarea name="store_address" class="form-control" rows="5">{{ store_address }}</textarea>
 							{% if error_storeaddress %}
@@ -316,7 +316,7 @@
 						</div>
 					</div>
 					<div class="form-group required">
-						<label class="col-sm-2 control-label" for="input-storecity">{{ entry_storecity }}</label>
+						<label class="col-sm-2 control-label label_color" for="input-storecity">{{ entry_storecity }}</label>
 						<div class="col-sm-10">
 							<input type="text" name="store_city" value="{{ store_city }}" placeholder="{{ entry_storecity }}" id="input-storecity" class="form-control" />
 							{% if error_storecity %}
@@ -325,7 +325,7 @@
 						</div>
 					</div>
 					<div class="form-group required">
-						<label class="col-sm-2 control-label" for="input-storecountry">{{ entry_storecountry }}</label>
+						<label class="col-sm-2 control-label label_color" for="input-storecountry">{{ entry_storecountry }}</label>
 						<div class="col-sm-10">
 							<select name="store_country" id="input-storecountry" onchange="country(this,'{{ store_state }}');" class="form-control">
 								<option value="">{{ text_select }}</option>
@@ -343,7 +343,7 @@
 						</div>
 					</div>
 					<div class="form-group required">
-						<label class="col-sm-2 control-label" for="input-storestate">{{ entry_storezone }}</label>
+						<label class="col-sm-2 control-label label_color" for="input-storestate">{{ entry_storezone }}</label>
 						<div class="col-sm-10">
 							<select name="store_state" id="input-storestate" class="form-control">
 							</select>
@@ -607,7 +607,7 @@
 					  <tfoot>
 						<tr>
 						  <td colspan="1"></td>
-						  <td class="text-left"><button type="button" onclick="holiday();" data-toggle="tooltip" title="add holiday" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+						  <td class="text-left"><button type="button" onclick="holiday();" data-toggle="tooltip" title="add holiday" class="btn btn-danger"><i class="fa fa-plus-circle"></i></button></td>
 						</tr>
 					  </tfoot>
 					</table>
@@ -631,7 +631,7 @@
 				<div class="buttons clearfix">
 					<div class="pull-left"><a href="{{ back }}" class="btn btn-default">{{ button_back }}</a></div>
 					<div class="pull-right">
-						<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
+						<input type="submit" value="{{ button_continue }}" class="btn btn_color" />
 					</div>
 				</div>
 			</form>

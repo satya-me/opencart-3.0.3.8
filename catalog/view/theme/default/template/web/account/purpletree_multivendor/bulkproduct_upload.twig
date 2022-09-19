@@ -23,25 +23,25 @@
 			
 			<h1>{{ heading_title }}</h1>
 			<div class="pts-panel pts-panel-default">
-				<div class="pts-panel-heading">
+				<div class="panel_heading">
 					<h3 class="pts-panel-title"><i class="fa fa-list"></i> {{ text_bulk_product_upload }}</h3>
 				</div>
 				
 				<div class="pts-panel-body">
-					<div class="pts-well">
-						<div class="pts-row">
+					<div class="pts-well panel_body">
+						<div class="pts-row p-3">
 							<div class="pts-col-sm-12" style="text-align:left;">
 								<div>
-									<div>
+									<div class="panel_content">
 										<label class="pts-control-label" for="input-name" style="  font-weight: normal; ">{{ text_maxtime_info }}</label><label style="font-weight: bold;">{{ max_time }} {{'seconds' }}</label>
 										
 									</div>
-									<div>
+									<div class="panel_content">
 										
 										<label class="pts-control-label" for="input-name" style=" font-weight: normal ">{{ text_file_size_info }} </label><label style="font-weight: bold;">{{ memory_limit }}</label>
 										
 									</div>
-									<div>
+									<div class="panel_content">
 										
 										<label style="font-weight: bold;"><a href="{{ seller_template }}">{{ seller_bulk_product_upload_sheet }}</a></label>
 										
@@ -52,13 +52,13 @@
 						</div>
 					</div>  
 					<form action="{{ export }}" method="post" enctype="multipart/form-data" id="form-customer">
-						<div class="pts-well">
-							<h4 class="pts-panel-title" style=" padding: 0px 0px 20px 0px; "> {{ text_bulk_product_export }}</h4>
+						<div class="pts-well panel_body">
+							<h4 class="pts-panel-title"> {{ text_bulk_product_export }}</h4>
 							<div class="pts-row">
-								<div class="pts-col-sm-4" style="text-align:left;">
-									<div class="pts-form-group">
-										<label class="pts-control-label" for="input-name" >{{ entry_select_language }}</label>
-										<select name="language" id="input-status" class="pts-form-control">
+								<div class="col-sm-4" style="text-align:left;">
+									<div class="form-group">
+										<label class="control-label" for="input-name" >{{ entry_select_language }}</label>
+										<select name="language" id="input-status" class="form-control">
 											{% for lang in lang %}
 											<option value="{{ lang.language_id }}" >{{ lang.name }}</option>
 											{% endfor %}
@@ -67,7 +67,7 @@
 								</div>
 								<div class="pts-col-sm-2 pts-col-sm-offset-6 " style="text-align:left;">
 									<div class="pts-form-group">
-										<button type="submit" name="submit" value="{{ button_upload }}" class="pts-btn pts-btn-primary" class="pts-button_add" id="pts-export" style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_export }}</button>
+										<button type="submit" name="submit" value="{{ button_upload }}" class="btn btn_color" class="pts-button_add" id="pts-export" style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_export }}</button>
 										
 									</div>
 								</div>
@@ -75,20 +75,20 @@
 						</div>
 					</form>
 					<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-customer">
-						<div class="pts-well">
-							<h4 class="pts-panel-title" style=" padding: 0px 0px 20px 0px; "> {{ text_bulk_product_import }}</h4>
+						<div class="panel_body">
+							<h4 class="pts-panel-title"> {{ text_bulk_product_import }}</h4>
 							<div class="pts-row">
 								
-								<div class="pts-col-sm-12" style="text-align:left;">
-									<input type="checkbox" id="check" value="true" name="dataoverwrite"  />
-									<label class="pts-control-label" onclick="checkbox()" for="input-name" style=" padding: 0px 0px 0px 8px; ">{{ text_upload_info }}</label>
+								<div class="pts-col-sm-6" style="text-align:left;">
+								<input type="checkbox" id="check" value="true" name="dataoverwrite"  />
+							<label class="pts-control-label" onclick="checkbox()" for="input-name" style=" padding: 0px 0px 0px 8px; ">{{ text_upload_info }}</label>
 								</div>
 								
 								
-								<div class="pts-col-sm-4" style="text-align:left;">
-									<div class="pts-form-group">
-										<label class="pts-control-label" for="input-name" >{{ entry_select_language }}</label>
-										<select name="language" id="input-status" class="pts-form-control">
+								<div class="col-sm-4" style="text-align:left;">
+									<div class="form-group">
+										<label class="control-label" for="input-name" >{{ entry_select_language }}</label>
+										<select name="language" id="input-status" class="form-control">
 											{% for lang in lang %}
 											<option value="{{ lang.language_id }}" >{{ lang.name }}</option>
 											{% endfor %}
@@ -106,7 +106,7 @@
 								
 								<div class="pts-col-sm-2" style="text-align:left;">
 									<div class="pts-form-group">
-										<button type="submit" name="submit" value="{{ button_upload }}" id="pts-import" class="pts-btn pts-btn-primary" class="pts-button_add"  style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_import }}</button>
+										<button type="submit" name="submit" value="{{ button_upload }}" id="pts-import" class="btn btn_color" class="pts-button_add"  style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_import }}</button>
 										
 									</div>
 								</div>

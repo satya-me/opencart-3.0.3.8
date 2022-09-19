@@ -1,6 +1,6 @@
 {{ header }}
-<div class="pts-container container">
-	<ul class="pts-breadcrumb breadcrumb">
+<div class="container container">
+	<ul class="breadcrumb breadcrumb">
 		{% for breadcrumb in breadcrumbs %}
 		<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
 		{% endfor %}
@@ -8,60 +8,60 @@
 	<div class="plansave"></div>
 	<div class="successdiv">
 		{% if success %}
-		<div class="alert pts-alert-success"><i class="fa fa-check-circle"></i> {{ success }}</div>
+		<div class="alert alert-success"><i class="fa fa-check-circle"></i> {{ success }}</div>
 		{% endif %}
 	</div>
 	<div class="errordiv">
 		{% if error_warning %}
-		<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+		<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
 		{% endif %}
 	</div>
-	<div class="pts-row d-flex row">{{ column_left }}
+	<div class="row d-flex row">{{ column_left }}
 		{% if column_left and column_right %}
-		{% set class = 'pts-col-sm-6 col-sm-6' %}
+		{% set class = 'col-sm-6 col-sm-6' %}
 		{% elseif column_left or column_right %}
-		{% set class = 'pts-col-sm-9 col-sm-9' %}
+		{% set class = 'col-sm-9 col-sm-9' %}
 		{% else %}
-		{% set class = 'pts-col-sm-12 col-sm-12' %}
+		{% set class = 'col-sm-12 col-sm-12' %}
 		{% endif %}
 		<div id="content" class="{{ class }}">{{ content_top }}
-			<div class="pts-pull-right">
+			<div class="pull-right">
 				
-				<button type="submit" form="form-product" data-toggle="tooltip" id="button-enabledproduct" title="{{ text_product_enable }}" formaction="{{ enabledproduct }}" class="pts-btn pts-btn-primary" >{{ text_product_enable }}</button>
-				<button type="submit" form="form-product" data-toggle="tooltip" id="button-disabledproduct" title="{{ text_product_disable }}" formaction="{{ disabledproduct }}" class="pts-btn btn-danger" >{{ text_product_disable }}</button>
+				<button type="submit" form="form-product" data-toggle="tooltip" id="button-enabledproduct" title="{{ text_product_enable }}" formaction="{{ enabledproduct }}" class="btn btn_color" >{{ text_product_enable }}</button>
+				<button type="submit" form="form-product" data-toggle="tooltip" id="button-disabledproduct" title="{{ text_product_disable }}" formaction="{{ disabledproduct }}" class="btn btn-danger" >{{ text_product_disable }}</button>
 				
-				<a href="{{ add }}" id="pts-product-add" data-toggle="tooltip" title="{{ button_add }}" class="pts-btn pts-btn-primary"><i class="fa fa-plus"></i></a>
-				<button type="submit" form="form-product" formaction="{{ copy }}" data-toggle="tooltip" title="{{ button_copy }}" class="pts-btn pts-btn-default"><i class="fa fa-copy"></i></button>
-				<button type="submit" id="deleteButton" formaction="{{ delete }}" form="form-product"  data-toggle="tooltip" title="{{ button_delete }}" class="pts-btn pts-btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-product').submit() : false;"><i class="fa fa-trash-o fas fa-trash-alt"></i></button>
+				<a href="{{ add }}" id="product-add" data-toggle="tooltip" title="{{ button_add }}" class="btn btn_color"><i class="fa fa-plus"></i></a>
+				<button type="submit" form="form-product" formaction="{{ copy }}" data-toggle="tooltip" title="{{ button_copy }}" class="btn btn-default"><i class="fa fa-copy"></i></button>
+				<button type="submit" id="deleteButton" formaction="{{ delete }}" form="form-product"  data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-product').submit() : false;"><i class="fa fa-trash-o fas fa-trash-alt"></i></button>
 			</div>
 			<h1>{{ heading_title }}</h1>
 			<div>
-				<div class="pts-well">
-					<div class="pts-row">
-						<div class="pts-col-sm-4">
-							<div class="pts-form-group ptsnewcss">
-								<label class="pts-control-label" for="input-name">{{ entry_name }}</label>
-								<input type="text" name="filter_name" value="{{ filter_name }}" placeholder="{{ entry_name }}" id="input-name" class="pts-form-control" />
+				<div class="well">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="form-group ewcss">
+								<label class="control-label" for="input-name">{{ entry_name }}</label>
+								<input type="text" name="filter_name" value="{{ filter_name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
 							</div>
-							<div class="pts-form-group ptsnewcss">
-								<label class="pts-control-label" for="input-model">{{ entry_model }}</label>
-								<input type="text" name="filter_model" value="{{ filter_model }}" placeholder="{{ entry_model }}" id="input-model" class="pts-form-control" />
-							</div>
-						</div>
-						<div class="pts-col-sm-4">
-							<div class="pts-form-group">
-								<label class="pts-control-label" for="input-price">{{ entry_price }}</label>
-								<input type="text" name="filter_price" value="{{ filter_price }}" placeholder="{{ entry_price }}" id="input-price" class="pts-form-control" />
-							</div>
-							<div class="pts-form-group">
-								<label class="pts-control-label" for="input-quantity">{{ entry_quantity }}</label>
-								<input type="text" name="filter_quantity" value="{{ filter_quantity }}" placeholder="{{ entry_quantity }}" id="input-quantity" class="pts-form-control" />
+							<div class="form-group ewcss">
+								<label class="control-label" for="input-model">{{ entry_model }}</label>
+								<input type="text" name="filter_model" value="{{ filter_model }}" placeholder="{{ entry_model }}" id="input-model" class="form-control" />
 							</div>
 						</div>
-						<div class="pts-col-sm-4">
-							<div class="pts-form-group">
-								<label class="pts-control-label" for="input-status">{{ entry_status }}</label>
-								<select name="filter_status" id="input-status" class="pts-form-control">
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label class="control-label" for="input-price">{{ entry_price }}</label>
+								<input type="text" name="filter_price" value="{{ filter_price }}" placeholder="{{ entry_price }}" id="input-price" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="input-quantity">{{ entry_quantity }}</label>
+								<input type="text" name="filter_quantity" value="{{ filter_quantity }}" placeholder="{{ entry_quantity }}" id="input-quantity" class="form-control" />
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label class="control-label" for="input-status">{{ entry_status }}</label>
+								<select name="filter_status" id="input-status" class="form-control">
 									<option value="*">{{ text_all }}</option>
 									{% if filter_status =='1' %}
 									<option value="1" selected="selected">{{ text_enabled }}</option>
@@ -75,15 +75,15 @@
 									{% endif %}
 								</select>
 							</div>
-							<button type="button" id="pts-button-filter" class="pts-btn pts-btn-primary pts-pull-right" style="margin-top: 25px;"><i class="fa fa-filter"></i> {{ button_filter }}</button>
+							<button type="button" id="button-filter" class="btn btn_color pull-right" style="margin-top: 25px;"><i class="fa fa-filter"></i> {{ button_filter }}</button>
 						</div>
 					</div>
 				</div>
-				<div class="pts-row">				
-				<div class="pts-col-sm-3">
-					<div class="pts-form-group pts-input-group pts-input-group-sm ptssortcss">
-						<label class="pts-input-group-addon" for="input-sort">{{ text_sort }}</label>
-						<select id="input-sort" class="pts-form-control" onchange="location = this.value;">
+				<div class="row">				
+				<div class="col-sm-3">
+					<div class="form-group input-group input-group-sm ortcss">
+						<label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+						<select id="input-sort" class="form-control" onchange="location = this.value;">
 							 {% for sorts in sorts_order %} 
 							{% if sorts.value == '%s'|format(order) %}
 						<option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
@@ -94,11 +94,11 @@
 						</select>
 					</div>
 				</div>
-				<div class="pts-col-sm-7">
+				<div class="col-sm-7">
 				</div>
-				<div class="pts-col-sm-2">
-				<div class="pts-pull-right" style="margin-bottom: 10px;">
-				<div class="pts-btn-group pts-btn-group-sm">
+				<div class="col-sm-2">
+				<div class="pull-right" style="margin-bottom: 10px;">
+				<div class="btn-group btn-group-sm">
 				{% set class1 = " " %}
 				{% set class2 = " " %}
 				{% if product_view == 1%}
@@ -106,11 +106,11 @@
 				{% else %} 
 				  {% set class2 = "active" %}
 				{% endif %}
-						<button type="button" id="pro-list-view" class="pts-btn pts-btn-default {{ class2 }}" data-toggle="tooltip" title="" data-original-title="{{ text_list }}">
+						<button type="button" id="pro-list-view" class="btn btn-default {{ class2 }}" data-toggle="tooltip" title="" data-original-title="{{ text_list }}">
 							<i class="fa fa-th-list">
 							</i>
 						</button>
-						<button type="button" id="pro-grid-view" class="pts-btn pts-btn-default {{ class1 }}" data-toggle="tooltip" title="" data-original-title="Seller Product Grid">
+						<button type="button" id="pro-grid-view" class="btn btn-default {{ class1 }}" data-toggle="tooltip" title="" data-original-title="Seller Product Grid">
 							<i class="fa fa-th">
 							</i>
 						</button>
@@ -120,95 +120,95 @@
 				</div>
 				<div class = "pro-list">
 				<form action="" method="post" enctype="multipart/form-data" id="form-product">
-					<div class="pts-table-responsive">
-						<table class="pts-table pts-table-bordered pts-table-hover">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<td style="width: 1px;" class="pts-text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-									<td class="pts-text-center">{{ column_image }}</td>
-									<td class="pts-text-left">{{ column_name }}</td>
-									<td class="pts-text-left">{{ column_model }}</td>
-									<td class="pts-text-right">{{ column_price }}</td>
-									<td class="pts-text-right">{{ column_quantity }}</td>
-									<td class="pts-text-left">{{ column_status }}</td>
-									<td class="pts-text-left">{{ column_approved }}</td>
+									<td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+									<td class="text-center">{{ column_image }}</td>
+									<td class="text-left">{{ column_name }}</td>
+									<td class="text-left">{{ column_model }}</td>
+									<td class="text-right">{{ column_price }}</td>
+									<td class="text-right">{{ column_quantity }}</td>
+									<td class="text-left">{{ column_status }}</td>
+									<td class="text-left">{{ column_approved }}</td>
 									<!-- /////// category featured and featured product ///////// -->
 									{% if module_purpletree_multivendor_seller_featured_products %}
-									<td class="pts-text-left">{{ column_featured_product }}</td>
+									<td class="text-left">{{ column_featured_product }}</td>
 									{% endif %}
 									{% if module_purpletree_multivendor_seller_category_featured %}
-									<td class="pts-text-right">{{ column_cataegory_featured_product }}</td>
+									<td class="text-right">{{ column_cataegory_featured_product }}</td>
 									{% endif %}
 									<!--  /////// End category featured and featured product /////////  -->
-									<td class="pts-text-right">{{ column_action }}</td>
+									<td class="text-right">{{ column_action }}</td>
 								</tr>
 							</thead>
 							<tbody>
 								{% if products %}
 								{% for product in products %}
-								<tr {% if product.statusid==0 %} class="pts-disabled"  {% endif %} >
-									<td class="pts-text-center">{% if selected in product.product_id %}
+								<tr {% if product.statusid==0 %} class="disabled"  {% endif %} >
+									<td class="text-center">{% if selected in product.product_id %}
 										<input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
 										{% else %}
 										<input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
 									{% endif %}</td>
-									<td class="pts-text-center">{% if product.image %}
+									<td class="text-center">{% if product.image %}
 										<img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" />
 										{% else %}
 										<span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span>
 									{% endif %}</td>
-									<td class="pts-text-left h4name{{ product.product_id }}">{{ product.name }}</td>
-									<td class="pts-text-left">{{ product.model }}</td>
-									<td class="pts-text-right">{% if product.special %}
-										<span class="pts_price{{ product.product_id }}" style="text-decoration: line-through;">{{ product.price }}</span><br/>
+									<td class="text-left h4name{{ product.product_id }}">{{ product.name }}</td>
+									<td class="text-left">{{ product.model }}</td>
+									<td class="text-right">{% if product.special %}
+										<span class="price{{ product.product_id }}" style="text-decoration: line-through;">{{ product.price }}</span><br/>
 										<div class="text-danger">{{ product.special }}</div>
 										{% else %}
-										<span class="pts_price{{ product.product_id }}">{{ product.price }}</span>
+										<span class="price{{ product.product_id }}">{{ product.price }}</span>
 									{% endif %}</td>
-									<td class="pts-text-right">{% if product.quantity <= 0 %}
-										<span class="label label-warning pts_quantity{{ product.product_id }}">{{ product.quantity }}</span>
+									<td class="text-right">{% if product.quantity <= 0 %}
+										<span class="label label-warning quantity{{ product.product_id }}">{{ product.quantity }}</span>
 										{% elseif product.quantity <= 5 %}
-										<span class="label label-danger pts_quantity{{ product.product_id }}">{{ product.quantity }}</span>
+										<span class="label label-danger quantity{{ product.product_id }}">{{ product.quantity }}</span>
 										{% else %}
-										<span class="label label-success pts_quantity{{ product.product_id }}">{{ product.quantity }}</span>
+										<span class="label label-success quantity{{ product.product_id }}">{{ product.quantity }}</span>
 									{% endif %}</td>
-									<td class="pts-text-left pts_status{{ product.product_id }}">{{ product.status }}</td>
-									<td class="pts-text-left">{{ product.is_approved }}</td>
+									<td class="text-left status{{ product.product_id }}">{{ product.status }}</td>
+									<td class="text-left">{{ product.is_approved }}</td>
 									<!-- /////// category featured and featured product ///////// -->
 									{% if module_purpletree_multivendor_seller_featured_products %}
-									<td class=" pts-text-center"><input product-id="{{ product.product_id }}" class="is_featured is_featu{{ product.product_id }}" name="is_featured" id="is_featured_checkbox" type="checkbox" {% if product.is_featured == 1 %} checked="checked" {% endif %}{% if product.seller_plan_sataus == 1 %} disabled= "disabled" 
+									<td class=" text-center"><input product-id="{{ product.product_id }}" class="is_featured is_featu{{ product.product_id }}" name="is_featured" id="is_featured_checkbox" type="checkbox" {% if product.is_featured == 1 %} checked="checked" {% endif %}{% if product.seller_plan_sataus == 1 %} disabled= "disabled" 
 										{% endif %}
 									></td>
 									{% endif %}
 									{% if module_purpletree_multivendor_seller_category_featured %}
-									<td class=" pts-text-center"><input product-id="{{ product.product_id }}" class="is_category_featured is_catfeatu{{ product.product_id }}" name="is_category_featured" id="is_category_featured_checkbox" type="checkbox" {% if product.is_category_featured == 1 %} checked="checked" {% endif %} {% if product.seller_plan_sataus == 1 %} disabled= "disabled" 
+									<td class=" text-center"><input product-id="{{ product.product_id }}" class="is_category_featured is_catfeatu{{ product.product_id }}" name="is_category_featured" id="is_category_featured_checkbox" type="checkbox" {% if product.is_category_featured == 1 %} checked="checked" {% endif %} {% if product.seller_plan_sataus == 1 %} disabled= "disabled" 
 									{% endif %}></td>
 									{% endif %}
 									<!-- /////// category featured and featured product ///////// -->
 									
-									<!--<td id="ptsproduct{{ product.product_id }}" class="pts-text-right">
+									<!--<td id="roduct{{ product.product_id }}" class="text-right">
 										{% if not product.hide_edit %}
-										<a  href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>
+										<a  href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>
 										{% endif %}
 									</td>-->
-									<td id="producteditlink{{ product.product_id }}" class="pts-text-right">
+									<td id="producteditlink{{ product.product_id }}" class="text-right">
 										
 										{% if product_buttonhide %}
 										{% if product.is_featured !=0 or product.is_category_featured!=0 %}
 										{% else %}
-										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>
-										<a id="quick_edit" title="{{ title_quick_edit }}" style="background: #5cb85c;" class="pts-btn pts-btn-primary pts_quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>
+										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn_color"><i class="fa fa-pencil fas fa-edit"></i></a>
+										<a id="quick_edit" title="{{ title_quick_edit }}" style="background: #5cb85c;" class="btn btn_color quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>
 										{% endif %}
 										{% else %}
-										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>
-										<a id="quick_edit" title="{{ title_quick_edit }}" style="background: #5cb85c;" class="pts-btn pts-btn-primary pts_quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>
+										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn_color"><i class="fa fa-pencil fas fa-edit"></i></a>
+										<a id="quick_edit" title="{{ title_quick_edit }}" style="background: #5cb85c;" class="btn btn_color quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>
 										{% endif %}
 									</td>
 								</tr>
 								{% endfor %}
 								{% else %}
 								<tr>
-									<td class="pts-text-center" colspan="11">{{ text_no_results }}</td>
+									<td class="text-center" colspan="11">{{ text_no_results }}</td>
 								</tr>
 								{% endif %}
 							</tbody>
@@ -216,50 +216,50 @@
 					</div>
 				</div>
 				<div class = "pro-grid">
-				 <div class="pts-row">
+				 <div class="row">
 						{% if product.product_total % 2 == 0 %}
-						<div class="pts-clearfix"></div>
+						<div class="clearfix"></div>
 						{% endif %}				
 								{% if products %}
 								{% for product in products %}								
-							<div class="product-layout pts-product-grid pts-col-lg-4 pts-col-md-4 pts-col-sm-3 pts-col-xs-6">
-							<div class="pts-product-thumb">
+							<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-3 col-xs-6">
+							<div class="product-thumb">
 								<div class="image imagename{{ product.product_id }}"><img src="{{ product.image2 }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"></a></div>
 								<div>
-									<div class="pts-caption">
+									<div class="caption">
 										<h4 class="h4name{{ product.product_id }}">{{ product.name }}</h4>
 										{% if product.price %}
 								<p class="price">
 									{% if not product.special %}
-									<span class="pts_price{{ product.product_id }}">{{ product.price }}</span>
+									<span class="price{{ product.product_id }}">{{ product.price }}</span>
 									{% else %}
-									<span class="price-new pts_price{{ product.product_id }}">{{ product.special }}</span> <span class="price-old pts_price{{ product.product_id }}">{{ product.price }}</span>
+									<span class="price-new price{{ product.product_id }}">{{ product.special }}</span> <span class="price-old price{{ product.product_id }}">{{ product.price }}</span>
 									{% endif %}
 								</p>
 								{% endif %}
 									</div>
-									<div class="pts-button-group pts-text-right"id="producteditlink{{ product.product_id }}" >
-									<div class="pts-quick-lable">
+									<div class="button-group text-right"id="producteditlink{{ product.product_id }}" >
+									<div class="quick-lable">
 									{% if selected in product.product_id %}
-										<input class="pts-quick-lable" type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
+										<input class="quick-lable" type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
 										{% else %}
 										<input type="checkbox" name="selected[]" value="{{ product.product_id }}" />			
 									{% endif %}
 									</div>
-									    {% if product.quantity <= 0 %}<span class="label label-warning pts_quantity{{ product.product_id }}">{{ product.quantity }}</span>
+									    {% if product.quantity <= 0 %}<span class="label label-warning quantity{{ product.product_id }}">{{ product.quantity }}</span>
 										{% elseif product.quantity <= 5 %}
-										<span class="label label-danger pts_quantity{{ product.product_id }}"data-toggle="tooltip" title="{{ column_quantity }}">{{ product.quantity }}</span>
+										<span class="label label-danger quantity{{ product.product_id }}"data-toggle="tooltip" title="{{ column_quantity }}">{{ product.quantity }}</span>
 										{% else %}
-										<span class="label label-success pts_quantity{{ product.product_id }}" data-toggle="tooltip" title="{{ column_quantity }}">{{ product.quantity }}</span>
+										<span class="label label-success quantity{{ product.product_id }}" data-toggle="tooltip" title="{{ column_quantity }}">{{ product.quantity }}</span>
 									 {% endif %}
-									<span style="color: {{ product.color }}; font-weight: bold;"class="pts-quick-lable pts_status{{ product.product_id }}" data-toggle="tooltip" title="{{ column_status }}">{{ product.status }}</span>
+									<span style="color: {{ product.color }}; font-weight: bold;"class="quick-lable status{{ product.product_id }}" data-toggle="tooltip" title="{{ column_status }}">{{ product.status }}</span>
 								    
 									<style>
 									.pro-grid a{
 										margin-bottom: 5px;
 										margin-top: 5px;
 									}
-									.pts-quick-lable {
+									.quick-lable {
 									        color:#2e6da4;
 											display: inline-block;
 											padding: 6px 12px;
@@ -279,12 +279,12 @@
 										{% if product_buttonhide %}
 										{% if product.is_featured !=0 or product.is_category_featured!=0 %}
 										{% else %}
-										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>
-										<a style="background: #5cb85c;" id="quick_edit" title="{{  title_quick_edit }}" class="pts-btn pts-btn-primary pts_quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>
+										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn_color"><i class="fa fa-pencil fas fa-edit"></i></a>
+										<a style="background: #5cb85c;" id="quick_edit" title="{{  title_quick_edit }}" class="btn btn_color quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>
 										{% endif %}
 										{% else %}
-										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>
-										<a style="background: #5cb85c;"  id="quick_edit" title="{{  title_quick_edit }}" class="pts-btn pts-btn-primary pts_quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>									
+										<a id="productIdForSelenium" href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn_color"><i class="fa fa-pencil fas fa-edit"></i></a>
+										<a style="background: #5cb85c;"  id="quick_edit" title="{{  title_quick_edit }}" class="btn btn_color quick_edit" onclick="quick_edit({{ product.product_id }})"><i class = "fa fa-pencil fas fa-pencil"></i></a>									
 										{% endif %}					
 									</div>
 								</div>
@@ -292,14 +292,14 @@
 						</div>
 								{% endfor %}								
 								{% else %}								
-								<div class="pts-text-center">{{ text_no_results }}</div>								
+								<div class="text-center">{{ text_no_results }}</div>								
 								{% endif %}						
 				</div>
 				</div>	
 				</form>
-				<div class="pts-row">
-					<div class="pts-col-sm-6 pts-text-left">{{ pagination }}</div>
-					<div class="pts-col-sm-6 pts-text-right">{{ results }}</div>
+				<div class="row">
+					<div class="col-sm-6 text-left">{{ pagination }}</div>
+					<div class="col-sm-6 text-right">{{ results }}</div>
 				</div>
 			</div>
 		{{ content_bottom }}</div>
@@ -308,7 +308,7 @@
 <!-- Modal -->
 
 {% if module_purpletree_multivendor_subscription_plans is defined and module_purpletree_multivendor_subscription_plans %}
-<div class="modal pts-sidenav fade" id="featured_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal sidenav fade" id="featured_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog"  id="mySidenav">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -335,7 +335,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="pts-btn pts-btn-primary sub1" id="sub1">{{ button_save }}</button>
+					<button type="submit" class="btn btn_color sub1" id="sub1">{{ button_save }}</button>
 				</div>
 			</form>
 		</div>
@@ -345,7 +345,7 @@
 <!--/ popup model-->
 <style>
 	/* width */
-	.pts-sidenav ::-webkit-scrollbar {
+	.sidenav ::-webkit-scrollbar {
 	width: 10px;
 	float:left;
 	position:absolute;
@@ -353,17 +353,17 @@
 	}
 	
 	/* Track */
-	.pts-sidenav ::-webkit-scrollbar-track {
+	.sidenav ::-webkit-scrollbar-track {
 	background: #f1f1f1; 
 	}
 	
 	/* Handle */
-	.pts-sidenav ::-webkit-scrollbar-thumb {
+	.sidenav ::-webkit-scrollbar-thumb {
 	background: #888; 
 	}
 	
 	/* Handle on hover */
-	.pts-sidenav ::-webkit-scrollbar-thumb:hover {
+	.sidenav ::-webkit-scrollbar-thumb:hover {
 	background: #555; 
 	}
 	.inputgroup{
@@ -372,25 +372,25 @@
 	
 	}
 	@media(min-width:768px){
-	.pts-sidenav .modal-dialog{
+	.sidenav .modal-dialog{
     //position: absolute;
 	width: 25%;
     margin-top: 5%;
 	border:none;
 	}
 	}
-	.pts-sidenav .modal-header .modal-title{
+	.sidenav .modal-header .modal-title{
 	font-size: 20x
 	}
-	.pts-sidenav .modal-header{
+	.sidenav .modal-header{
 	padding:7px !important;
 	background:#337ab7;
 	}
-	.pts-sidenav .modal-title, .pts-sidenav .close{
+	.sidenav .modal-title, .sidenav .close{
 	margin: 0px !important;
     color: #fff !important;
 	}
-	.pts-sidenav .modal-content{
+	.sidenav .modal-content{
 	height: 100%;
 	border: 0px solid #fff;
 	}
@@ -406,6 +406,7 @@
 	margin-left:10px;
 	}
 </style>
+
 <script>
 	$('input[name="is_category_featured"]').on('change', function(e){
 		if(e.target.checked){
@@ -438,11 +439,11 @@
 				success: function(json) {
 					if(json.status == 'success') {
 						$("html, body").animate({ scrollTop: 0 }, "slow");
-						$(".plansave").html('<div class="alert pts-alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+						$(".plansave").html('<div class="alert alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 						
 						{% if product_buttonhide %}
 						if($('.is_featu'+product_id).prop('checked')) { } else {
-							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');					
+							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');					
 						}
 						{% endif %}
 					} 
@@ -486,12 +487,12 @@
 					if(json.status == 'success') {
 						
 						$("html, body").animate({ scrollTop: 0 }, "slow");
-						$(".plansave").html('<div class="alert pts-alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');$('#product'+json.product_id).css('display','block');	
+						$(".plansave").html('<div class="alert alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');$('#product'+json.product_id).css('display','block');	
 						
 						
 						{% if product_buttonhide %}
 						if($('.is_catfeatu'+product_id).prop('checked')) { } else {
-							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');	
+							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');	
 						}						
 						{% endif %}
 					} 
@@ -515,7 +516,7 @@
 					if(json.status == 'success') {
 						$('#featured_Modal').modal('hide');
 						$("html, body").animate({ scrollTop: 0 }, "slow");
-						$(".plansave").html('<div class="alert pts-alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+						$(".plansave").html('<div class="alert alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 						if(json.featuredhidden == 1){
 							$('.is_featu'+json.product_id).prop('checked', true);
 							
@@ -527,19 +528,19 @@
 						{% endif %}
 						
 						}else {
-						$('.errorplan').html('<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+						$('.errorplan').html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 					}
 				},
 				error: function (json) {
 					if(json.status == 'error') {
-						$('.errorplan').html('<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+						$('.errorplan').html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 						$('div.modal , .modal-backdrop').show();
 					}
 				},
 			});
 			} else {
 			
-			$('.errorplan').html('<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i>Please Select Subscription plan</div>');
+			$('.errorplan').html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>Please Select Subscription plan</div>');
 			$('div.modal , .modal-backdrop').show();
 		}
 	});
@@ -556,7 +557,7 @@
 			success: function(json) {
 				if(json.status == 'success') {
 					$("html, body").animate({ scrollTop: 0 }, "slow");
-					$('.successdiv').html('<div class="alert pts-alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+					$('.successdiv').html('<div class="alert alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 					$('.errordiv').html('');
 					
 					{% if product_buttonhide %}
@@ -566,14 +567,14 @@
 						} else {
 						//is_catfeatu is_featu
 						if($('.is_catfeatu'+product_id).prop('checked')) { } else {
-							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');
+							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');
 						}
 					}
 					{% endif %}
 				}
 				else {
 					$("html, body").animate({ scrollTop: 0 }, "slow");
-					$('.errordiv').html('<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+					$('.errordiv').html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 					$('.successdiv').html('');
 					$('.is_featu'+product_id).prop('checked', false);
 					
@@ -590,7 +591,7 @@
 			success: function(json) {
 				if(json.status == 'success') {
 					$("html, body").animate({ scrollTop: 0 }, "slow");
-					$('.successdiv').html('<div class="alert pts-alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+					$('.successdiv').html('<div class="alert alert-success"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 					$('.errordiv').html('');
 					{% if product_buttonhide %}
 					if(json.value==1){
@@ -602,7 +603,7 @@
 							
 							} else {
 							
-							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="pts-btn pts-btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');
+							$('#producteditlink'+product_id).append('<a href="{{ productedit }}&product_id=' + product_id + ' data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil fas fa-edit"></i></a>');
 						}
 					}
 					{% endif %}
@@ -610,7 +611,7 @@
 				}
 				else {
 					$("html, body").animate({ scrollTop: 0 }, "slow");
-					$('.errordiv').html('<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
+					$('.errordiv').html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>'+ json.message +'</div>');
 					$('.successdiv').html('');
 					$('.is_catfeatu'+product_id).prop('checked', false)
 				}
@@ -630,7 +631,7 @@
 			return false;
 		}
 	});
-	$('#pts-button-filter').on('click', function() {
+	$('#button-filter').on('click', function() {
 		var url = 'index.php?route=extension/account/purpletree_multivendor/sellerproduct';
 		
 		var filter_name = $('input[name=\'filter_name\']').val();
@@ -667,7 +668,7 @@
 	});
 //--></script>
 <script type="text/javascript"><!--
-	$('input[name=\'filter_name\']').autocompletepts({
+	$('input[name=\'filter_name\']').autocomplete{
 		'source': function(request, response) {
 			$.ajax({
 				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/autocomplete&filter_name=' +  encodeURIComponent(request),
@@ -686,7 +687,7 @@
 			$('input[name=\'filter_name\']').val(item['label']);
 		}
 	});
-	$('input[name=\'filter_model\']').autocompletepts({
+	$('input[name=\'filter_model\']').autocomplete{
 		'source': function(request, response) {
 			$.ajax({
 				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/autocomplete&filter_model=' +  encodeURIComponent(request),
@@ -715,17 +716,17 @@ var option_value_row = 0;
 
 	
 	function addSpecial() {
-		html  = '<tr class="special-pts-row-class" id="special-pts-row' + special_row + '">';
-		html += '  <td class="pts-text-left"><select name="product_special[' + special_row + '][customer_group_id]" class="pts-form-control">';
+		html  = '<tr class="special-row-class" id="special-row' + special_row + '">';
+		html += '  <td class="text-left"><select name="product_special[' + special_row + '][customer_group_id]" class="form-control">';
 		{% for customer_group in customer_groups %}
 		html += '      <option value="{{ customer_group.customer_group_id }}">{{ customer_group.name|escape('js') }}</option>';
 		{% endfor %}
 		html += '  </select></td>';
-		html += '  <td class="pts-text-right"><input id="prioritySpecialId" type="text" name="product_special[' + special_row + '][priority]" value="" placeholder="{{ entry_priority }}" class="pts-form-control" /></td>';
-		html += '  <td class="pts-text-right"><input id="priceSpecialId" type="text" name="product_special[' + special_row + '][price]" value="" placeholder="{{ entry_price }}" class="pts-form-control" /></td>';
-		html += '  <td class="pts-text-left" style="width: 20%;"><div class="pts-input-group date d-flex d-flex"><input id="dataStartSpecialId" type="text" name="product_special[' + special_row + '][date_start]" value="" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
-		html += '  <td class="pts-text-left" style="width: 20%;"><div class="pts-input-group date d-flex d-flex"><input id="dataEndSpecialId" type="text" name="product_special[' + special_row + '][date_end]" value="" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
-		html += '  <td class="pts-text-left"><button type="button" onclick="$(\'#special-pts-row' + special_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="pts-btn pts-btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+		html += '  <td class="text-right"><input id="prioritySpecialId" type="text" name="product_special[' + special_row + '][priority]" value="" placeholder="{{ entry_priority }}" class="form-control" /></td>';
+		html += '  <td class="text-right"><input id="priceSpecialId" type="text" name="product_special[' + special_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
+		html += '  <td class="text-left" style="width: 20%;"><div class="input-group date d-flex d-flex"><input id="dataStartSpecialId" type="text" name="product_special[' + special_row + '][date_start]" value="" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+		html += '  <td class="text-left" style="width: 20%;"><div class="input-group date d-flex d-flex"><input id="dataEndSpecialId" type="text" name="product_special[' + special_row + '][date_end]" value="" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+		html += '  <td class="text-left"><button type="button" onclick="$(\'#special-row' + special_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 		html += '</tr>';
 		
 		$('#special tbody').append(html);
@@ -747,14 +748,14 @@ var option_value_row = 0;
 				$('#quick-product-price').val(json.price);
 				$('#quick-product-quantity').val(json.quantity);
 				$.each (json.name, function (name1) {            
-				  $('.product_name'+json.name[name1].product_lang+'').html('<input autocomplete="off" name="product_description['+json.name[name1].product_lang+'][name]" value="'+json.name[name1].product_name+'" placeholder="" id="quick-product-name'+json.name[name1].product_lang+'" class="pts-form-control" type="text" required>');
+				  $('.product_name'+json.name[name1].product_lang+'').html('<input autocomplete="off" name="product_description['+json.name[name1].product_lang+'][name]" value="'+json.name[name1].product_name+'" placeholder="" id="quick-product-name'+json.name[name1].product_lang+'" class="form-control" type="text" required>');
                  
                 });
-				$('.special-pts-row-class').remove();
+				$('.special-row-class').remove();
 				$.each (json.special_price, function (special_price1) {                 
 		if(special_price1 !=0){
-   		 html  = '<tr style="background: #c1dec1;" class="special-pts-row-class" id="special-pts-row' + special_row + '">';
-		html += '  <td class="pts-text-left"><select name="product_special[' + special_row + '][customer_group_id]" class="pts-form-control">';
+   		 html  = '<tr style="background: #c1dec1;" class="special-row-class" id="special-row' + special_row + '">';
+		html += '  <td class="text-left"><select name="product_special[' + special_row + '][customer_group_id]" class="form-control">';
 		{% for customer_group in customer_groups %}
 		{% if customer_group.customer_group_id == json.special_price[special_price1].customer_group_id %}
 		html += '      <option value="{{ customer_group.customer_group_id }}" selected="selected">{{ customer_group.name|escape('js') }}</option>';
@@ -763,11 +764,11 @@ var option_value_row = 0;
 		{% endif %}
 		{% endfor %}
 		html += '  </select></td>';
-		html += '  <td style="display: none;" class="pts-text-right"><input id="prioritySpecialId" type="text" name="product_special[' + special_row + '][priority]" value="'+json.special_price[special_price1].priority+'" placeholder="{{ entry_priority }}" class="pts-form-control" /></td>';
-		html += '  <td class="pts-text-right"><input id="priceSpecialId" type="text" name="product_special[' + special_row + '][price]" value="'+json.special_price[special_price1].price+'" placeholder="{{ entry_price }}" class="pts-form-control" /></td>';
-		html += '  <td style="display: none;" class="pts-text-left" style="width: 20%;"><div class="pts-input-group date d-flex d-flex"><input id="dataStartSpecialId" type="text" name="product_special[' + special_row + '][date_start]" value="'+json.special_price[special_price1].date_start+'" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
-		html += '  <td style="display: none;" class="pts-text-left" style="width: 20%;"><div class="pts-input-group date d-flex d-flex"><input id="dataEndSpecialId" type="text" name="product_special[' + special_row + '][date_end]" value="'+json.special_price[special_price1].date_end+'" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
-		html += '  <td class="pts-text-left"><button type="button" onclick="$(\'#special-pts-row' + special_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="pts-btn pts-btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+		html += '  <td style="display: none;" class="text-right"><input id="prioritySpecialId" type="text" name="product_special[' + special_row + '][priority]" value="'+json.special_price[special_price1].priority+'" placeholder="{{ entry_priority }}" class="form-control" /></td>';
+		html += '  <td class="text-right"><input id="priceSpecialId" type="text" name="product_special[' + special_row + '][price]" value="'+json.special_price[special_price1].price+'" placeholder="{{ entry_price }}" class="form-control" /></td>';
+		html += '  <td style="display: none;" class="text-left" style="width: 20%;"><div class="input-group date d-flex d-flex"><input id="dataStartSpecialId" type="text" name="product_special[' + special_row + '][date_start]" value="'+json.special_price[special_price1].date_start+'" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+		html += '  <td style="display: none;" class="text-left" style="width: 20%;"><div class="input-group date d-flex d-flex"><input id="dataEndSpecialId" type="text" name="product_special[' + special_row + '][date_end]" value="'+json.special_price[special_price1].date_end+'" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+		html += '  <td class="text-left"><button type="button" onclick="$(\'#special-row' + special_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 		html += '</tr>';
 		
 		$('.quicksprice').append(html);
@@ -781,22 +782,22 @@ var option_value_row = 0;
 				}   
 				special_row++;
                 });
-				$('.options-pts-row-class').remove();
+				$('.options-row-class').remove();
 				$('.tab-option-class-s').remove();
 				$.each (json.product_option, function (product_option1,product_option2) { 
 				html = '';
 				//html += '<a href="#tab-option'+option_row+'" data-toggle="tab"><i class="fa fa-minus-circle" </i>'+json.product_option[product_option1].name+'</a>';				  
 				$('.edit_option').append(html);
 			html='';
-			html  = '<div class="pts-tab-pane options-pts-row-class" id="tab-option' + option_row + '">';
+			html  = '<div class="tab-pane options-row-class" id="tab-option' + option_row + '">';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][product_option_id]" value="'+json.product_option[product_option1].option_id+'" />';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][name]" value="'+json.product_option[product_option1].name+'" />';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][option_id]" value="' + json.product_option[product_option1].option_id + '" />';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][type]" value="' + json.product_option[product_option1].type + '" />';
 			
-			html += '	<div class="pts-form-group row">';
-			html += '	  <label class="pts-col-sm-2 col-form-label" for="input-required' + option_row + '">{{ entry_required }}</label>';
-			html += '	  <div class="pts-col-sm-10"><select name="product_option[' + option_row + '][required]" id="input-required' + option_row + '" class="pts-form-control">';
+			html += '	<div class="form-group row">';
+			html += '	  <label class="col-sm-2 col-form-label" for="input-required' + option_row + '">{{ entry_required }}</label>';
+			html += '	  <div class="col-sm-10"><select name="product_option[' + option_row + '][required]" id="input-required' + option_row + '" class="form-control">';
 			if(json.product_option[product_option1].required){
 			    html += '<option value="1" selected="selected">{{ text_yes }}</option>';
 			    html += '<option value="0">{{ text_no }}</option>';
@@ -809,67 +810,67 @@ var option_value_row = 0;
 			html += '	</div>';
 			
 			if (json.product_option[product_option1].type == 'text') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="pts-form-control" /></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
 				html += '	</div>';
 			}
 			
 			if (json.product_option[product_option1].type == 'textarea') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><textarea name="product_option[' + option_row + '][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="pts-form-control">'+json.product_option[product_option1].value+'</textarea></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><textarea name="product_option[' + option_row + '][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control">'+json.product_option[product_option1].value+'</textarea></div>';
 				html += '	</div>';
 			}
 			
 			if (json.product_option[product_option1].type == 'file') {
-				html += '	<div class="pts-form-group row" style="display: none;">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="pts-form-control" /></div>';
+				html += '	<div class="form-group row" style="display: none;">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
 				html += '	</div>';
 			}
 			
 			if (json.product_option[product_option1].type == 'date') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-3"><div class="pts-input-group date d-flex d-flex"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value' + option_row + '" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-3"><div class="input-group date d-flex d-flex"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 				html += '	</div>';
 			}
 			
 			if (json.product_option[product_option1].type == 'time') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><div class="pts-input-group time"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value' + option_row + '" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><div class="input-group time"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 				html += '	</div>';
 			}
 			
 			if (json.product_option[product_option1].type == 'datetime') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><div class="pts-input-group date d-flex d-flextime"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value' + option_row + '" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><div class="input-group date d-flex d-flextime"><input type="text" name="product_option[' + option_row + '][value]" value="'+json.product_option[product_option1].value+'" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 				html += '	</div>';
 			}
 			
 			if (json.product_option[product_option1].type == 'select' || json.product_option[product_option1].type == 'radio' || json.product_option[product_option1].type == 'checkbox' || json.product_option[product_option1].type == 'image') {
-				html += '<div class="pts-table-responsive">';
-				html += '  <table id="option-value' + option_row + '" class="pts-table pts-table-striped pts-table-bordered pts-table-hover">';
+				html += '<div class="table-responsive">';
+				html += '  <table id="option-value' + option_row + '" class="table table-striped table-bordered table-hover">';
 				html += '  	 <thead>';
 				html += '      <tr>';
-				html += '        <td class="pts-text-left">{{ entry_option_value }}</td>';
-				html += '        <td style="display: none;" class="pts-text-right">{{ entry_quantity }}</td>';
-				html += '        <td style="display: none;" class="pts-text-left">{{ entry_subtract }}</td>';
-				html += '        <td class="pts-text-right">{{ entry_price }}</td>';
-				html += '        <td style="display: none;" class="pts-text-right">{{ entry_option_points }}</td>';
-				html += '        <td style="display: none;" class="pts-text-right">{{ entry_weight }}</td>';
+				html += '        <td class="text-left">{{ entry_option_value }}</td>';
+				html += '        <td style="display: none;" class="text-right">{{ entry_quantity }}</td>';
+				html += '        <td style="display: none;" class="text-left">{{ entry_subtract }}</td>';
+				html += '        <td class="text-right">{{ entry_price }}</td>';
+				html += '        <td style="display: none;" class="text-right">{{ entry_option_points }}</td>';
+				html += '        <td style="display: none;" class="text-right">{{ entry_weight }}</td>';
 				html += '        <td></td>';
 				html += '      </tr>';
 				html += '  	 </thead>';
 				html += '  	 <tbody>';
 				$.each(product_option2.product_option_value,function (product_option_value3,product_option_value4){
 					
-				html += '	<tr id="option-value-pts-row'+option_value_row+'">';
+				html += '	<tr id="option-value-row'+option_value_row+'">';
 				
-				html += '  <td class="pts-text-left pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][option_value_id]" class="pts-form-control">';
+				html += '  <td class="text-left product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][option_value_id]" class="form-control">';
 				$.each (json.product_option_values_data, function (product_option_values_data1,product_option_values_data2) { 
 					
 					$.each (product_option_values_data2, function (product_option_values_data3,product_option_values_data4) {
@@ -884,8 +885,8 @@ var option_value_row = 0;
 				}); 
 				html += $('#option-values' + option_row).html();
 				html += '  </select><input type="hidden" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][product_option_value_id]" value="'+product_option_value4.product_option_value_id+'" /></td>';
-				html += '  <td style="display: none;" class="pts-text-right pts-product-option"><input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][quantity]" value="'+product_option_value4.quantity+'" placeholder="{{ entry_quantity }}" class="pts-form-control" /></td>';
-				html += '  <td style="display: none;" class="pts-text-left pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][subtract]" class="pts-form-control">';
+				html += '  <td style="display: none;" class="text-right product-option"><input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][quantity]" value="'+product_option_value4.quantity+'" placeholder="{{ entry_quantity }}" class="form-control" /></td>';
+				html += '  <td style="display: none;" class="text-left product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][subtract]" class="form-control">';
 				if(product_option_value4.subtract == 1){
 				    html += '    <option value="1" selected="selected">{{ text_yes }}</option>';
 				    html += '    <option value="0">{{ text_no }}</option>';
@@ -895,7 +896,7 @@ var option_value_row = 0;
 					}
 				
 				html += '  </select></td>';
-				html += '  <td class="pts-text-right pts-product-option"><select style="display: none;" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price_prefix]" class="pts-form-control">';
+				html += '  <td class="text-right product-option"><select style="display: none;" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price_prefix]" class="form-control">';
 				if(product_option_value4.price_prefix == '+'){
 				    html += '    <option value="+" selected="selected">+</option>';
 					}else{
@@ -908,8 +909,8 @@ var option_value_row = 0;
 					}
 				
 				html += '  </select>';
-				html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price]" value="'+product_option_value4.price+'" placeholder="{{ entry_price }}" class="pts-form-control" /></td>';
-				html += '  <td style="display: none;" class="pts-text-right pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points_prefix]" class="pts-form-control">';
+				html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price]" value="'+product_option_value4.price+'" placeholder="{{ entry_price }}" class="form-control" /></td>';
+				html += '  <td style="display: none;" class="text-right product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points_prefix]" class="form-control">';
 				if(product_option_value4.points_prefix == '+'){
 				   html += '    <option value="+" selected="selected">+</option>';
 				   
@@ -923,8 +924,8 @@ var option_value_row = 0;
 					}	
 				
 				html += '  </select>';
-				html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points]" value="'+product_option_value4.points+'" placeholder="{{ entry_points }}" class="pts-form-control" /></td>';
-				html += '  <td style="display: none;" class="pts-text-right pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight_prefix]" class="pts-form-control">';
+				html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points]" value="'+product_option_value4.points+'" placeholder="{{ entry_points }}" class="form-control" /></td>';
+				html += '  <td style="display: none;" class="text-right product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight_prefix]" class="form-control">';
 				if(product_option_value4.weight_prefix == '+'){
 				    html += '    <option value="+" selected="selected">+</option>';
 					}else{
@@ -936,8 +937,8 @@ var option_value_row = 0;
 				    html += '    <option value="-">-</option>';
 					};
 				html += '  </select>';
-				html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight]" value="'+product_option_value4.weight+'" placeholder="{{ entry_weight }}" class="pts-form-control" /></td>';
-				html += '  <td class="pts-text-left pts-product-option"><button type="button" onclick="$(this).tooltip(\'destroy\');$(\'#option-value-pts-row' + option_value_row + '\').remove();" data-toggle="tooltip" rel="tooltip" title="{{ button_remove }}" class="pts-btn pts-btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+				html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight]" value="'+product_option_value4.weight+'" placeholder="{{ entry_weight }}" class="form-control" /></td>';
+				html += '  <td class="text-left product-option"><button type="button" onclick="$(this).tooltip(\'destroy\');$(\'#option-value-row' + option_value_row + '\').remove();" data-toggle="tooltip" rel="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 				html += '';
 				html += '	</tr>';
 				   option_value_row++;
@@ -947,7 +948,7 @@ var option_value_row = 0;
 				html += '    <tfoot>';
 				html += '      <tr>';
 				html += '        <td colspan="2"></td>';
-				html += '        <td class="pts-text-left"><button type="button" onclick="addOptionValue(' + option_row + ');" data-toggle="tooltip" title="{{ button_option_value_add }}" class="pts-btn pts-btn-primary"><i class="fa fa-plus-circle"></i></button></td>';
+				html += '        <td class="text-left"><button type="button" onclick="addOptionValue(' + option_row + ');" data-toggle="tooltip" title="{{ button_option_value_add }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>';
 				html += '      </tr>';
 				html += '    </tfoot>';
 				html += '  </table>';
@@ -1027,55 +1028,55 @@ var option_value_row = 0;
         
         <!-- Modal body -->
         <div class="modal-body">
-          <ul class="pts-nav pts-nav-tabs nav nav-tabs" id="language">
+          <ul class="nav nav-tabs nav nav-tabs" id="language">
 							<input type="hidden" id="quick_product_id" name="quick_product_id" value="">
 							<input type="hidden" name="seller_name" value="{{ seller_name }}">
 							{% for language in languages %}
-							<li class="nav-item"><a href="#language{{ language.language_id }}" data-toggle="tab" class="nav-link"><img class="pts-lan-image" src="catalog/language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}</a></li>
+							<li class="nav-item"><a href="#language{{ language.language_id }}" data-toggle="tab" class="nav-link"><img class="lan-image" src="catalog/language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /> {{ language.name }}</a></li>
 							{% endfor %}
 						</ul>
-			<div class="pts-tab-content ">			
+			<div class="tab-content ">			
 			{% for language in languages %}			
-			<div class="pts-tab-pane {{ language.activetab }}" id="language{{ language.language_id }}">
-			    <div class="pts-row">         
-                  <div class="pts-col-lg-3 pts-form-group">
-						<label class="pts-control-label pts-col-form-label" for="quick-product-name{{ language.language_id }}">{{ entry_name }}</label>
+			<div class="tab-pane {{ language.activetab }}" id="language{{ language.language_id }}">
+			    <div class="row">         
+                  <div class="col-lg-3 form-group">
+						<label class="control-label col-form-label" for="quick-product-name{{ language.language_id }}">{{ entry_name }}</label>
 				  </div>
-				  <div class="pts-col-lg-9 pts-form-group product_name{{ language.language_id }}">
+				  <div class="col-lg-9 form-group product_name{{ language.language_id }}">
 						
 				</div>
 			</div>
 			</div>
 			{% endfor %}
 			</div>
-			 <div class="pts-row"> 
-				<div class="pts-col-lg-3 pts-form-group ">
-						<label class="pts-control-label pts-col-form-label" for="quick-product-price">{{ entry_price }}</label>
+			 <div class="row"> 
+				<div class="col-lg-3 form-group ">
+						<label class="control-label col-form-label" for="quick-product-price">{{ entry_price }}</label>
 				  </div>
-				  <div class="pts-col-lg-9 pts-form-group">
-						<input autocomplete="off" name="quick_product_price" value="" placeholder="" id="quick-product-price" class="pts-form-control" type="text" required>
+				  <div class="col-lg-9 form-group">
+						<input autocomplete="off" name="quick_product_price" value="" placeholder="" id="quick-product-price" class="form-control" type="text" required>
 				</div>
 				
 				</div>
-				 <div class="pts-row"> 
-				<div class="pts-col-lg-12 pts-form-group ">
-						<label class="pts-control-label pts-col-form-label" for="quick-product-special-price">{{ entry_special_price }}</label>
+				 <div class="row"> 
+				<div class="col-lg-12 form-group ">
+						<label class="control-label col-form-label" for="quick-product-special-price">{{ entry_special_price }}</label>
 				  </div>
-				  <div class="pts-col-lg-12 pts-form-group">
-				  <div class="pts-table-responsive">
-						<table id="special" class="pts-table pts-table-striped pts-table-bordered pts-table-hover">
+				  <div class="col-lg-12 form-group">
+				  <div class="table-responsive">
+						<table id="special" class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
-								    <td class="pts-text-left">{{ entry_customer_group }}</td>
-									<td style="display: none;"class="pts-text-right">{{ entry_priority }}</td>
+								    <td class="text-left">{{ entry_customer_group }}</td>
+									<td style="display: none;"class="text-right">{{ entry_priority }}</td>
 									{% if metals_product == 1 %}                      
-									<td class="pts-text-right"><span id="priExtr">{{ entry_price_extra }}<span id="priExtrTypeFxd">{{ text_fixed }}</span>
+									<td class="text-right"><span id="priExtr">{{ entry_price_extra }}<span id="priExtrTypeFxd">{{ text_fixed }}</span>
 									<span id="priExtrTypePercent">{{ text_percentage }}</span></span><span id="pri">{{ entry_price }}</span></td>
 									{% else %}
-									<td class="pts-text-right">{{ entry_price }}</td>
+									<td class="text-right">{{ entry_price }}</td>
 									{% endif %}
-									<td style="display: none;" class="pts-text-left">{{ entry_date_start }}</td>
-									<td style="display: none;" class="pts-text-left">{{ entry_date_end }}</td>
+									<td style="display: none;" class="text-left">{{ entry_date_start }}</td>
+									<td style="display: none;" class="text-left">{{ entry_date_end }}</td>
 									<td></td>
 								</tr>
 							</thead>
@@ -1084,7 +1085,7 @@ var option_value_row = 0;
 							<tfoot>
 								<tr style="display: none;">
 									<td colspan="5"></td>
-									<td class="pts-text-left"><button id="addSpecialButtonId" type="button" onclick="addSpecial();" data-toggle="tooltip" title="{{ button_special_add }}" class="pts-btn pts-btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+									<td class="text-left"><button id="addSpecialButtonId" type="button" onclick="addSpecial();" data-toggle="tooltip" title="{{ button_special_add }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
 								</tr>
 							</tfoot>
 						</table>
@@ -1092,39 +1093,39 @@ var option_value_row = 0;
 				</div>
 				
 				</div>
-				 <div class="pts-row"> 
-					<div class="pts-col-lg-3 pts-form-group">
-						<label class="pts-control-label pts-col-form-label" for="quick-product-quantity">{{ entry_quantity }}</label>
+				 <div class="row"> 
+					<div class="col-lg-3 form-group">
+						<label class="control-label col-form-label" for="quick-product-quantity">{{ entry_quantity }}</label>
 				  </div>
-				  <div class="pts-col-lg-9 pts-form-group">
-						<input autocomplete="off" name="quick_product_quantity" value="" placeholder="{{ entry_quantity }}" id="quick-product-quantity" class="pts-form-control" type="text">
+				  <div class="col-lg-9 form-group">
+						<input autocomplete="off" name="quick_product_quantity" value="" placeholder="{{ entry_quantity }}" id="quick-product-quantity" class="form-control" type="text">
 					</div>
 				</div>
-				 <div class="pts-row"> 
-				   <div class="pts-col-lg-3 pts-form-group">
-						<label class="pts-control-label pts-col-form-label" for="quick-product-status">{{ entry_status }}</label>
+				 <div class="row"> 
+				   <div class="col-lg-3 form-group">
+						<label class="control-label col-form-label" for="quick-product-status">{{ entry_status }}</label>
 				  </div>
-				  <div class="pts-col-lg-9 pts-form-group">	
+				  <div class="col-lg-9 form-group">	
 						<input  type="radio" name = "quick_product_status" value="1">&nbsp <span style="color:#5cb85c; font-weight: bold;"> {{ text_enabled }}</span>&nbsp&nbsp 
                         <input  type="radio" name = "quick_product_status" value="0">&nbsp <span style="color:#c73e38; font-weight: bold;">{{ text_disabled }}</span>
 					</div>
 				</div>
-				<div class="pts-row"> 
-					<div class="pts-col-lg-12 pts-form-group">
-						<label class="pts-control-label pts-col-form-label" for="input-product-status">{{ entry_option }}</label>						
+				<div class="row"> 
+					<div class="col-lg-12 form-group">
+						<label class="control-label col-form-label" for="input-product-status">{{ entry_option }}</label>						
 					</div>
-						<div class="pts-col-lg-12 pts-form-group ">
-						<div class="pts-col-sm-2">
-							<ul class="pts-nav pts-nav-pills pts-nav-stacked" id="option">
+						<div class="col-lg-12 form-group ">
+						<div class="col-sm-2">
+							<ul class="nav nav-pills nav-stacked" id="option">
 								<li class="edit_option">
 								</li>
 								<li>
-									<input type="text" name="option" value="" placeholder="{{ entry_option }}" id="input-option" class="pts-form-control" />
+									<input type="text" name="option" value="" placeholder="{{ entry_option }}" id="input-option" class="form-control" />
 								</li>
 							</ul>
 						</div>
-						<div class="pts-col-sm-10">
-							<div class="pts-tab-content quick_product_option">
+						<div class="col-sm-10">
+							<div class="tab-content quick_product_option">
 						</div>
 						</div>
 						</div>
@@ -1135,7 +1136,7 @@ var option_value_row = 0;
         <!-- Modal footer -->
         <div class="modal-footer">
 		   <button type="button" class="btn btn-default" data-dismiss="modal">{{ button_cancel }}</button>
-                <button type="submit" class="btn btn-primary">{{ button_save }}</button>
+                <button type="submit" class="btn btn_color">{{ button_save }}</button>
         </div>
         </form>
       </div>
@@ -1161,7 +1162,7 @@ var option_value_row = 0;
 	});
 //</script>-->
 <script type="text/javascript"><!--	
-	$('input[name=\'option\']').autocompletepts({
+	$('input[name=\'option\']').autocomplete{
 		'source': function(request, response) {
 			$.ajax({
 				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/option&filter_name=' +  encodeURIComponent(request),
@@ -1180,73 +1181,73 @@ var option_value_row = 0;
 			});
 		},
 		'select': function(item) {	
-			html  = '<div class="pts-tab-pane options-pts-row-class" id="tab-option' + option_row + '">';
+			html  = '<div class="tab-pane options-row-class" id="tab-option' + option_row + '">';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][product_option_id]" value="" />';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][name]" value="' + item['label'] + '" />';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][option_id]" value="' + item['value'] + '" />';
 			html += '	<input type="hidden" name="product_option[' + option_row + '][type]" value="' + item['type'] + '" />';
 			
-			html += '	<div class="pts-form-group row">';
-			html += '	  <label class="pts-col-sm-2 col-form-label" for="input-required' + option_row + '">{{ entry_required }}</label>';
-			html += '	  <div class="pts-col-sm-10"><select name="product_option[' + option_row + '][required]" id="input-required' + option_row + '" class="pts-form-control">';
+			html += '	<div class="form-group row">';
+			html += '	  <label class="col-sm-2 col-form-label" for="input-required' + option_row + '">{{ entry_required }}</label>';
+			html += '	  <div class="col-sm-10"><select name="product_option[' + option_row + '][required]" id="input-required' + option_row + '" class="form-control">';
 			html += '	      <option value="1">{{ text_yes }}</option>';
 			html += '	      <option value="0">{{ text_no }}</option>';
 			html += '	  </select></div>';
 			html += '	</div>';
 			
 			if (item['type'] == 'text') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="pts-form-control" /></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
 				html += '	</div>';
 			}
 			
 			if (item['type'] == 'textarea') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><textarea name="product_option[' + option_row + '][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="pts-form-control"></textarea></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><textarea name="product_option[' + option_row + '][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control"></textarea></div>';
 				html += '	</div>';
 			}
 			
 			if (item['type'] == 'file') {
-				html += '	<div class="pts-form-group row" style="display: none;">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="pts-form-control" /></div>';
+				html += '	<div class="form-group row" style="display: none;">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
 				html += '	</div>';
 			}
 			
 			if (item['type'] == 'date') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-3"><div class="pts-input-group date d-flex d-flex"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value' + option_row + '" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-3"><div class="input-group date d-flex d-flex"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 				html += '	</div>';
 			}
 			
 			if (item['type'] == 'time') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><div class="pts-input-group time"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value' + option_row + '" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><div class="input-group time"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 				html += '	</div>';
 			}
 			
 			if (item['type'] == 'datetime') {
-				html += '	<div class="pts-form-group row">';
-				html += '	  <label class="pts-col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-				html += '	  <div class="pts-col-sm-10"><div class="pts-input-group date d-flex d-flextime"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value' + option_row + '" class="pts-form-control" /><span class="pts-input-group-pts-btn"><button type="button" class="pts-btn pts-btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+				html += '	<div class="form-group row">';
+				html += '	  <label class="col-sm-2 col-form-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
+				html += '	  <div class="col-sm-10"><div class="input-group date d-flex d-flextime"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 				html += '	</div>';
 			}
 			
 			if (item['type'] == 'select' || item['type'] == 'radio' || item['type'] == 'checkbox' || item['type'] == 'image') {
-				html += '<div class="pts-table-responsive">';
-				html += '  <table id="option-value' + option_row + '" class="pts-table pts-table-striped pts-table-bordered pts-table-hover">';
+				html += '<div class="table-responsive">';
+				html += '  <table id="option-value' + option_row + '" class="table table-striped table-bordered table-hover">';
 				html += '  	 <thead>';
 				html += '      <tr>';
-				html += '        <td class="pts-text-left">{{ entry_option_value }}</td>';
-				html += '        <td style="display: none;" class="pts-text-right">{{ entry_quantity }}</td>';
-				html += '        <td style="display: none;" class="pts-text-left">{{ entry_subtract }}</td>';
-				html += '        <td class="pts-text-right">{{ entry_price }}</td>';
-				html += '        <td style="display: none;" class="pts-text-right">{{ entry_option_points }}</td>';
-				html += '        <td style="display: none;" class="pts-text-right">{{ entry_weight }}</td>';
+				html += '        <td class="text-left">{{ entry_option_value }}</td>';
+				html += '        <td style="display: none;" class="text-right">{{ entry_quantity }}</td>';
+				html += '        <td style="display: none;" class="text-left">{{ entry_subtract }}</td>';
+				html += '        <td class="text-right">{{ entry_price }}</td>';
+				html += '        <td style="display: none;" class="text-right">{{ entry_option_points }}</td>';
+				html += '        <td style="display: none;" class="text-right">{{ entry_weight }}</td>';
 				html += '        <td></td>';
 				html += '      </tr>';
 				html += '  	 </thead>';
@@ -1255,7 +1256,7 @@ var option_value_row = 0;
 				html += '    <tfoot>';
 				html += '      <tr>';
 				html += '        <td colspan="2"></td>';
-				html += '        <td class="pts-text-left"><button type="button" onclick="addOptionValue(' + option_row + ');" data-toggle="tooltip" title="{{ button_option_value_add }}" class="pts-btn pts-btn-primary"><i class="fa fa-plus-circle"></i></button></td>';
+				html += '        <td class="text-left"><button type="button" onclick="addOptionValue(' + option_row + ');" data-toggle="tooltip" title="{{ button_option_value_add }}" class="btn btn_color"><i class="fa fa-plus-circle"></i></button></td>';
 				html += '      </tr>';
 				html += '    </tfoot>';
 				html += '  </table>';
@@ -1300,31 +1301,31 @@ var option_value_row = 0;
 	});
 
 	function addOptionValue(option_row) {
-		html  = '<tr id="option-value-pts-row' + option_value_row + '">';
-		html += '  <td class="pts-text-left pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][option_value_id]" class="pts-form-control">';
+		html  = '<tr id="option-value-row' + option_value_row + '">';
+		html += '  <td class="text-left product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][option_value_id]" class="form-control">';
 		html += $('#option-values' + option_row).html();
 		html += '  </select><input type="hidden" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][product_option_value_id]" value="" /></td>';
-		html += '  <td style="display: none;" class="pts-text-right pts-product-option"><input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][quantity]" value="" placeholder="{{ entry_quantity }}" class="pts-form-control" /></td>';
-		html += '  <td style="display: none;" class="pts-text-left pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][subtract]" class="pts-form-control">';
+		html += '  <td style="display: none;" class="text-right product-option"><input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][quantity]" value="" placeholder="{{ entry_quantity }}" class="form-control" /></td>';
+		html += '  <td style="display: none;" class="text-left product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][subtract]" class="form-control">';
 		html += '    <option value="1">{{ text_yes }}</option>';
 		html += '    <option value="0">{{ text_no }}</option>';
 		html += '  </select></td>';
-		html += '  <td class="pts-text-right pts-product-option"><select style="display: none;" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price_prefix]" class="pts-form-control">';
+		html += '  <td class="text-right product-option"><select style="display: none;" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price_prefix]" class="form-control">';
 		html += '    <option value="+">+</option>';
 		html += '    <option value="-">-</option>';
 		html += '  </select>';
-		html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price]" value="" placeholder="{{ entry_price }}" class="pts-form-control" /></td>';
-		html += '  <td style="display: none;" class="pts-text-right pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points_prefix]" class="pts-form-control">';
+		html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
+		html += '  <td style="display: none;" class="text-right product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points_prefix]" class="form-control">';
 		html += '    <option value="+">+</option>';
 		html += '    <option value="-">-</option>';
 		html += '  </select>';
-		html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points]" value="" placeholder="{{ entry_points }}" class="pts-form-control" /></td>';
-		html += '  <td style="display: none;" class="pts-text-right pts-product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight_prefix]" class="pts-form-control">';
+		html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points]" value="" placeholder="{{ entry_points }}" class="form-control" /></td>';
+		html += '  <td style="display: none;" class="text-right product-option"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight_prefix]" class="form-control">';
 		html += '    <option value="+">+</option>';
 		html += '    <option value="-">-</option>';
 		html += '  </select>';
-		html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight]" value="" placeholder="{{ entry_weight }}" class="pts-form-control" /></td>';
-		html += '  <td class="pts-text-left pts-product-option"><button type="button" onclick="$(this).tooltip(\'destroy\');$(\'#option-value-pts-row' + option_value_row + '\').remove();" data-toggle="tooltip" rel="tooltip" title="{{ button_remove }}" class="pts-btn pts-btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+		html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight]" value="" placeholder="{{ entry_weight }}" class="form-control" /></td>';
+		html += '  <td class="text-left product-option"><button type="button" onclick="$(this).tooltip(\'destroy\');$(\'#option-value-row' + option_value_row + '\').remove();" data-toggle="tooltip" rel="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 		html += '</tr>';
 		
 		$('#option-value' + option_row + ' tbody').append(html);
@@ -1346,27 +1347,27 @@ var option_value_row = 0;
 						$('.imagename'+json.product_id).attr('title',json.productname);
 						$('.imagename'+json.product_id).attr('alt',json.productname);
 						$('.h4name'+json.product_id).text(json.productname);
-						$('.pts_price'+json.product_id).text(json.pts_price);
-						$('.pts_quantity'+json.product_id).text(json.pts_quentity);
-						$('.pts_status'+json.product_id).text(json.pts_status);
-						if(json.pts_status_id == 1){
-						    $('.pts_status'+json.product_id).css('display','#5cb85c');
+						$('.price'+json.product_id).text(json.price);
+						$('.quantity'+json.product_id).text(json.quentity);
+						$('.status'+json.product_id).text(json.status);
+						if(json.status_id == 1){
+						    $('.status'+json.product_id).css('display','#5cb85c');
 						}else{
-							 $('.pts_status'+json.product_id).css('display','#c73e38');
+							 $('.status'+json.product_id).css('display','#c73e38');
 						}
 						}
 						$('#quick_edit_modal').modal('hide');
 						//$('body').css('overflow', '');
 						//$("html, body").animate({ scrollTop: 0 }, "slow");
-						$(".plansave").html('<div class="alert pts-alert-success"><i class="fa fa-exclamation-circle"></i> 	'+ json.message +'</div>');	
+						$(".plansave").html('<div class="alert alert-success"><i class="fa fa-exclamation-circle"></i> 	'+ json.message +'</div>');	
 						//$('.plansave').css('display','none');
 						}else {
-						$('.errorplan').html('<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i> '+ json.message +'</div>');
+						$('.errorplan').html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> '+ json.message +'</div>');
 					}
 				},
 				error: function (json) {
 					if(json.status == 'error') {
-						$('.errorplan').html('<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i> '+ json.message +'</div>');
+						$('.errorplan').html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> '+ json.message +'</div>');
 						//$('div.modal , .modal-backdrop').show();
 					}
 				},
