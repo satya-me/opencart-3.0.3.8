@@ -68,7 +68,10 @@ class ControllerExtensionPaymentCashFree extends Controller
                 {
                     $response["status"] = 0;
                     $response["message"] = $this->language->get('cashfree_api_error') . $jsonResponse->{"reason"};
+<<<<<<< HEAD
                     // $response["message"] = json_encode($cf_request);
+=======
+>>>>>>> cd0d8cae53cfa6c8b4f3ef67b0432ffb6e451af3
                 }    
             }
             
