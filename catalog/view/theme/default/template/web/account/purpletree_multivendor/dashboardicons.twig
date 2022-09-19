@@ -1,5 +1,24 @@
 {{ header }}
 <div class="container">
+    <ul class="pts-breadcrumb breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+            <li class="breadcrumb-item">
+                <a href="{{ breadcrumb.href }}">
+                    {{ breadcrumb.text }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if error_warning %}
+        <div class="alert alert-danger">
+            <i class="fa fa-exclamation-circle"></i>
+            {{ error_warning }}
+            <button type="button" class="close" data-dismiss="alert">
+                &times;
+                            
+            </button>
+        </div>
+    {% endif %}
     <div class="section_dashboard_area">
         <h1 class="dashboard_title">
             {{ heading_title }}
@@ -56,11 +75,11 @@
                         {% endif %}
                     </a>
                 </div>
-                {% if subscriptionplan == 00 %}
+                {% if subscriptionplan %}
                     <div class="tab_items">
                         <a href="{{ subscriptionplan }}" class="tab_flex">
                             <div class="tab_iocn">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3187/3187902.png" class="img_fixed img-responsive"/>
+                                <img src="https://cdn-icons-png.flaticon.com/512/3187/3187902.png" class="img_fixed img-responsive" />
                             </div>
                             <h6 class="tab_name mt-5">
                                 {{ text_Subscription_plan }}
@@ -129,7 +148,7 @@
                         </h6>
                     </a>
                 </div>
-                {% if seller_blog_status == 00 %}
+                {% if seller_blog_status %}
                     <div class="tab_items">
                         <a href="{{ sellerblogpost }}" class="tab_flex">
                             <div class="tab_iocn">
@@ -234,8 +253,8 @@
                         </h6>
                     </a>
                 </div>
-                {% if subscriptionplan == 00 %}
-                    {% if subscriptions == 00 %}
+                {% if subscriptionplan %}
+                    {% if subscriptions %}
                         <div class="tab_items">
                             <a href="{{ subscriptions }}" class="tab_flex">
                                 <div class="tab_iocn">
@@ -248,17 +267,16 @@
                         </div>
                     {% endif %}
                 {% endif %}
-				<div class="tab_items">
-					<a href="{{ sellercoupons }}" class="tab_flex">
-						<div class="tab_iocn">
-							<iconify-icon icon="bxs:coupon"></iconify-icon>
-						</div>
-						<h6 class="tab_name">
-							{{ text_sellercoupons }}
-						</h6>
-					</a>
-				</div>
-			
+                <div class="tab_items">
+                    <a href="{{ sellercoupons }}" class="tab_flex">
+                        <div class="tab_iocn">
+                            <iconify-icon icon="bxs:coupon"></iconify-icon>
+                        </div>
+                        <h6 class="tab_name">
+                            {{ text_sellercoupons }}
+                        </h6>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
