@@ -6,6 +6,10 @@
     --dark-color: rgb(48, 48, 48);
 }
 
+#content{
+    margin-bottom: 6rem;
+}
+
 .color_theme {
     color: var(--theme);
 }
