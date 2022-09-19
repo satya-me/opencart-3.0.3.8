@@ -90,6 +90,7 @@ $(document).ready(function() {
 	
 	// Image Manager
 	$(document).on('click', 'a[data-toggle=\'image\']', function(e) {
+		console.log("RT");
 		var $element = $(this);
 		var $popover = $element.data('bs.popover'); // element has bs popover?
 
