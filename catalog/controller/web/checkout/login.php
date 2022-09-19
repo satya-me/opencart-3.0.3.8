@@ -11,9 +11,9 @@ class ControllerWebCheckoutLogin extends Controller {
 			$data['account'] = 'register';
 		}
 
-		$data['forgotten'] = $this->url->link('account/forgotten', '', true);
+		$data['forgotten'] = $this->url->link('web/account/forgotten', '', true);
 
-		$this->response->setOutput($this->load->view('checkout/login', $data));
+		$this->response->setOutput($this->load->view('web/checkout/login', $data));
 	}
 
 	public function save() {
@@ -22,11 +22,11 @@ class ControllerWebCheckoutLogin extends Controller {
 		$json = array();
 
 		if ($this->customer->isLogged()) {
-			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			$json['redirect'] = $this->url->link('web/checkout/checkout', '', true);
 		}
 
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$json['redirect'] = $this->url->link('checkout/cart');
+			$json['redirect'] = $this->url->link('web/checkout/cart');
 		}
 
 		if (!$json) {
@@ -83,7 +83,7 @@ class ControllerWebCheckoutLogin extends Controller {
 				}
 			}
 
-			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			$json['redirect'] = $this->url->link('web/checkout/checkout', '', true);
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
