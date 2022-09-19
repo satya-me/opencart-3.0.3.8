@@ -608,7 +608,7 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
         // Captcha
         if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array) $this->config->get('config_captcha_page'))) {
-            $data['captcha'] = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha'), $this->error);
+            $data['captcha'] = $this->load->controller('web/extension/captcha/' . $this->config->get('config_captcha'), $this->error);
         } else {
             $data['captcha'] = '';
         }
@@ -698,14 +698,14 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
         $this->load->model('localisation/country');
         $data['countries'] = $this->model_localisation_country->getCountries();
-        $data['column_left'] = $this->load->controller('common/column_left');
-        $data['column_right'] = $this->load->controller('common/column_right');
-        $data['content_top'] = $this->load->controller('common/content_top');
-        $data['content_bottom'] = $this->load->controller('common/content_bottom');
-        $data['footer'] = $this->load->controller('common/footer');
-        $data['header'] = $this->load->controller('common/header');
+        $data['column_left'] = $this->load->controller('web/common/column_left');
+        $data['column_right'] = $this->load->controller('web/common/column_right');
+        $data['content_top'] = $this->load->controller('web/common/content_top');
+        $data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+        $data['footer'] = $this->load->controller('web/common/footer');
+        $data['header'] = $this->load->controller('web/common/header');
 
-        $this->response->setOutput($this->load->view('account/purpletree_multivendor/sellerregister', $data));
+        $this->response->setOutput($this->load->view('web/account/purpletree_multivendor/sellerregister', $data));
     }
 
     private function validate()
@@ -828,7 +828,7 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
             // Captcha
             if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array) $this->config->get('config_captcha_page'))) {
-                $captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
+                $captcha = $this->load->controller('web/extension/captcha/' . $this->config->get('config_captcha') . '/validate');
 
                 if ($captcha) {
                     $this->error['captcha'] = $captcha;
