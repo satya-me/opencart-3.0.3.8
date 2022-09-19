@@ -118,7 +118,7 @@
 				</div>
 				</div>
 				</div>
-				<div class = "pro-list">
+				<div class = "pro-list" >
 				<form action="" method="post" enctype="multipart/form-data" id="form-product">
 					<div class="table-responsive">
 						<table class="table table-bordered table-hover">
@@ -238,7 +238,7 @@
 								</p>
 								{% endif %}
 									</div>
-									<div class="button-group text-right"id="producteditlink{{ product.product_id }}" >
+									<div class="button-group text-center background_color"id="producteditlink{{ product.product_id }}" >
 									<div class="quick-lable">
 									{% if selected in product.product_id %}
 										<input class="quick-lable" type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
@@ -1161,6 +1161,7 @@ var option_value_row = 0;
 		pickTime: true
 	});
 //</script>-->
+<<<<<<< HEAD
 <script type="text/javascript"><!--	
 	$('input[name=\'option\']').autocomplete{
 		'source': function(request, response) {
@@ -1375,6 +1376,10 @@ var option_value_row = 0;
 			
 	});
 	var product_view = {{ product_view }};
+=======
+<script>
+	var product_view = 0;
+>>>>>>> 5c566cfe71d8fbc7066a6d3decf6a5e7f395bf2e
 	if(product_view == 1){
 	      $(".pro-grid").show();
 		  $(".pro-list").hide();
@@ -1393,15 +1398,8 @@ var option_value_row = 0;
 			$(".pro-grid").hide();
 			$("#pro-grid-view").removeClass("active");
 		});
-	}); 
-/*	$('#quick_edit_modal input[type="text"]').focus(function(e) {
-console.log('a');
-$('#quick_edit_modal').animate({
-        scrollTop: '-=100px'
-    });
-	//e.preventDefault();
-});	*/
-//--></script>
+	});
+</script>
 
 {{ footer }}
 <style>
