@@ -160,7 +160,7 @@
 		
 		if (element.value) { 
 			$.ajax({
-				url: 'index.php?route=account/account/country&country_id=' + element.value,
+				url: 'index.php?route=web/account/account/country&country_id=' + element.value,
 				dataType: 'json',
 				beforeSend: function() {
 					$(element).prop('disabled', true);

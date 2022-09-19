@@ -291,7 +291,7 @@
 <script type="text/javascript"><!--
 	$(document).delegate('#button-invoice', 'click', function() {
 		$.ajax({
-			url: 'index.php?route=sale/order/createinvoiceno&order_id={{ order_id }}',
+			url: 'index.php?route=web/sale/order/createinvoiceno&order_id={{ order_id }}',
 			dataType: 'json',
 			beforeSend: function() {
 				$('#button-invoice').button('loading');
@@ -320,7 +320,7 @@
 	
 	$(document).delegate('#button-reward-add', 'click', function() {
 		$.ajax({
-			url: 'index.php?route=sale/order/addreward&order_id={{ order_id }}',
+			url: 'index.php?route=web/sale/order/addreward&order_id={{ order_id }}',
 			type: 'post',
 			dataType: 'json',
 			beforeSend: function() {
@@ -350,7 +350,7 @@
 	
 	$(document).delegate('#button-reward-remove', 'click', function() {
 		$.ajax({
-			url: 'index.php?route=sale/order/removereward&order_id={{ order_id }}',
+			url: 'index.php?route=web/sale/order/removereward&order_id={{ order_id }}',
 			type: 'post',
 			dataType: 'json',
 			beforeSend: function() {
@@ -380,7 +380,7 @@
 	
 	$(document).delegate('#button-commission-add', 'click', function() {
 		$.ajax({
-			url: 'index.php?route=sale/order/addcommission&order_id={{ order_id }}',
+			url: 'index.php?route=web/sale/order/addcommission&order_id={{ order_id }}',
 			type: 'post',
 			dataType: 'json',
 			beforeSend: function() {
@@ -410,7 +410,7 @@
 	
 	$(document).delegate('#button-commission-remove', 'click', function() {
 		$.ajax({
-			url: 'index.php?route=sale/order/removecommission&order_id={{ order_id }}',
+			url: 'index.php?route=web/sale/order/removecommission&order_id={{ order_id }}',
 			type: 'post',
 			dataType: 'json',
 			beforeSend: function() {
@@ -445,7 +445,7 @@
 		$('#history').load(this.href);
 	});
 	
-	$('#history').load('index.php?route=extension/account/purpletree_multivendor/sellerorder/historylist&order_id={{ order_id }}');
+	$('#history').load('index.php?route=web/extension/account/purpletree_multivendor/sellerorder/historylist&order_id={{ order_id }}');
 	{% if module_purpletree_multivendor_commission_status != admin_order_status_id %}
 	$('#button-history').on('click', function() {
 		/*
@@ -460,7 +460,7 @@
 		}*/
 		
 		$.ajax({
-			url: 'index.php?route=extension/account/purpletree_multivendor/sellerorder/history&order_id={{ order_id }}',
+			url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerorder/history&order_id={{ order_id }}',
 			type: 'post',
 			dataType: 'json',
 			data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + ($('input[name=\'notify\']').prop('checked') ? 1 : 0) + '&override=' + ($('input[name=\'override\']').prop('checked') ? 1 : 0) + '&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),
@@ -479,7 +479,7 @@
 				}
 				
 				if (json['success']) {
-					$('#history').load('index.php?route=extension/account/purpletree_multivendor/sellerorder/historylist&order_id={{ order_id }}');
+					$('#history').load('index.php?route=web/extension/account/purpletree_multivendor/sellerorder/historylist&order_id={{ order_id }}');
 					
 					$('#history').before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 					
@@ -497,7 +497,7 @@
 		var status_id = $('select[name="order_status_id"]').val();
 		
 		$.ajax({
-			url: 'index.php?route=extension/openbay/addorderinfo&order_id={{ order_id }}&status_id=' + status_id,
+			url: 'index.php?route=web/extension/openbay/addorderinfo&order_id={{ order_id }}&status_id=' + status_id,
 			type: 'post',
 			dataType: 'html',
 			data: $(".openbay-data").serialize()

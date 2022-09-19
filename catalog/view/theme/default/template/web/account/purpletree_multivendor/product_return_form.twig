@@ -158,13 +158,13 @@
 		$('#history').load(this.href);
 	});			
 	
-	$('#history').load('index.php?route=extension/account/purpletree_multivendor/product_returns/history&return_id={{ return_id }}');
+	$('#history').load('index.php?route=web/extension/account/purpletree_multivendor/product_returns/history&return_id={{ return_id }}');
 	
 	$('#button-history').on('click', function(e) {
 		e.preventDefault();
 		
 		$.ajax({
-			url: 'index.php?route=extension/account/purpletree_multivendor/product_returns/addhistory&return_id={{ return_id }}',
+			url: 'index.php?route=web/extension/account/purpletree_multivendor/product_returns/addhistory&return_id={{ return_id }}',
 			type: 'post',
 			dataType: 'json',
 			data: 'return_status_id=' + encodeURIComponent($('#tab-history select[name=\'return_status_id\']').val()) + '&notify=' + ($('input[name=\'notify\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('#tab-history textarea[name=\'comment\']').val()),
@@ -182,7 +182,7 @@
 				}
 				
 				if (json['success']) {
-					$('#history').load('index.php?route=extension/account/purpletree_multivendor/product_returns/history&return_id={{ return_id }}');
+					$('#history').load('index.php?route=web/extension/account/purpletree_multivendor/product_returns/history&return_id={{ return_id }}');
 					
 					$('#tab-history').prepend('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 					
