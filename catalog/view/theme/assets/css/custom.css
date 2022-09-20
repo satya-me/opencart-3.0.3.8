@@ -1952,13 +1952,55 @@ text-align: center;
 
 }
 
-.check_box{
-
+.heading_area{
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
+.toggle-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #fff;
+    background: var(--theme);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.toggle-button:hover{color:#fff}
 
 
+.side-nav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -100%;
+    background-color: #dfe6e9;
+ transition: 0.5s linear;
 
+  }
+
+  .side-nav.active{
+    left: 0;
+  
+  }
+  
+  .side-nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #2d3436;;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .side-nav a:hover {
+    color: var(--theme);
+  }
+  
 
 /*=================media -------------*/
 
