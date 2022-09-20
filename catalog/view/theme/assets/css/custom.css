@@ -897,7 +897,7 @@ font-weight:bold;
     display: none
 }
 
-#msform input,
+#msform .input_style,
 #msform textarea {
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
@@ -913,7 +913,7 @@ font-weight:bold;
     letter-spacing: 1px
 }
 
-#msform input:focus,
+#msform .input_style:focus,
 #msform textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
@@ -1937,6 +1937,28 @@ background: #efefef;
 .btn_view a:hover{
     color:#dfe6e9!important;
 }
+
+.login_area{
+background: #b2bec3;
+padding:1rem;
+text-align: center;
+
+}
+
+.login_area a{
+    font-size: 1.5rem;
+    color: #2d3436;
+    font-weight: bold;
+
+}
+
+.check_box{
+
+}
+
+
+
+
 
 /*=================media -------------*/
 
