@@ -21,7 +21,7 @@
 			<h1>{{ heading_titlee }}</h1>
 			<div class="panel-body">
 				<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-download" class="form-horizontal">
-					<div class="form-group required">
+					<div class="form-group ">
 						<label class="col-sm-2 control-label">{{ entry_name }}</label>
 						<div class="col-sm-10">
 							{% for language in languages %}
@@ -34,20 +34,20 @@
 							{% endfor %}
 						</div>
 					</div>
-					<div class="form-group required">
+					<div class="form-group ">
 						<label class="col-sm-2 control-label" for="input-filename"><span data-toggle="tooltip" title="{{ help_filename }}">{{ entry_filename }}</span></label>
 						<div class="col-sm-10">
 							<div class="input-group d-flex" style="display:flex">
 								<input type="text" name="filename" value="{{ filename }}" placeholder="{{ entry_filename }}" id="input-filename" class="form-control" />
 								<span class="input-group-btn">
-									<button type="button" id="button-upload" data-loading-text="{{ text_loading }}" class="btn btn-primary"><i class="fa fa-upload"></i> {{ button_upload }}</button>
+									<button type="button" id="button-upload" data-loading-text="{{ text_loading }}" class="btn btn-info"><i class="fa fa-upload"></i> {{ button_upload }}</button>
 								</span> </div>
 								{% if error_filename %}
 								<div class="text-danger">{{ error_filename }}</div>
 								{% endif %}
 						</div>
 					</div>
-					<div class="form-group required">
+					<div class="form-group ">
 						<label class="col-sm-2 control-label" for="input-mask"><span data-toggle="tooltip" title="{{ help_mask }}">{{ entry_mask }}</span></label>
 						<div class="col-sm-10">
 							<input type="text" name="mask" value="{{ mask }}" placeholder="{{ entry_mask }}" id="input-mask" class="form-control" />
@@ -60,7 +60,7 @@
 						<div class="pull-left">
 						<a href="{{ cancel }}" title="{{ button_cancel }}" class="btn btn-default">{{ button_cancel }}</a></div>
 						<div class="pull-right">
-							<button type="submit" form="form-download" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary button_save_download">{{ button_save }}</button>
+							<button type="submit" form="form-download" data-toggle="tooltip" title="{{ button_save }}" class="btn btn_color button_save_download">{{ button_save }}</button>
 						</div>
 					</div>
 				</form>
