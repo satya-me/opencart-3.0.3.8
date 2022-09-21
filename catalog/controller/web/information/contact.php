@@ -1,5 +1,5 @@
 <?php
-class ControllerInformationContact extends Controller {
+class ControllerWebInformationContact extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -24,19 +24,19 @@ class ControllerInformationContact extends Controller {
 			$mail->setText($this->request->post['enquiry']);
 			$mail->send();
 
-			$this->response->redirect($this->url->link('information/contact/success'));
+			$this->response->redirect($this->url->link('web/information/contact/success'));
 		}
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('information/contact')
+			'href' => $this->url->link('web/information/contact')
 		);
 
 		if (isset($this->error['name'])) {
@@ -59,7 +59,7 @@ class ControllerInformationContact extends Controller {
 
 		$data['button_submit'] = $this->language->get('button_submit');
 
-		$data['action'] = $this->url->link('information/contact', '', true);
+		$data['action'] = $this->url->link('web/information/contact', '', true);
 
 		$this->load->model('tool/image');
 
@@ -126,19 +126,19 @@ class ControllerInformationContact extends Controller {
 
 		// Captcha
 		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('contact', (array)$this->config->get('config_captcha_page'))) {
-			$data['captcha'] = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha'), $this->error);
+			$data['captcha'] = $this->load->controller('web/extension/captcha/' . $this->config->get('config_captcha'), $this->error);
 		} else {
 			$data['captcha'] = '';
 		}
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('information/contact', $data));
+		$this->response->setOutput($this->load->view('web/information/contact', $data));
 	}
 
 	protected function validate() {
@@ -156,7 +156,7 @@ class ControllerInformationContact extends Controller {
 
 		// Captcha
 		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('contact', (array)$this->config->get('config_captcha_page'))) {
-			$captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
+			$captcha = $this->load->controller('web/extension/captcha/' . $this->config->get('config_captcha') . '/validate');
 
 			if ($captcha) {
 				$this->error['captcha'] = $captcha;
@@ -175,25 +175,25 @@ class ControllerInformationContact extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->link('web/common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('information/contact')
+			'href' => $this->url->link('web/information/contact')
 		);
 
  		$data['text_message'] = $this->language->get('text_message'); 
 
-		$data['continue'] = $this->url->link('common/home');
+		$data['continue'] = $this->url->link('web/common/home');
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('web/common/column_left');
+		$data['column_right'] = $this->load->controller('web/common/column_right');
+		$data['content_top'] = $this->load->controller('web/common/content_top');
+		$data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+		$data['footer'] = $this->load->controller('web/common/footer');
+		$data['header'] = $this->load->controller('web/common/header');
 
-		$this->response->setOutput($this->load->view('common/success', $data));
+		$this->response->setOutput($this->load->view('web/common/success', $data));
 	}
 }
