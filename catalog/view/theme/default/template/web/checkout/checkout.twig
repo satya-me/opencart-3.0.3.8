@@ -106,7 +106,7 @@ $(document).on('change', 'input[name=\'account\']', function() {
 {% if not logged %}
 $(document).ready(function() {
     $.ajax({
-        url: 'index.php?route=checkout/login',
+        url: 'index.php?route=web/checkout/login',
         dataType: 'html',
         success: function(html) {
            $('#collapse-checkout-option .panel-body').html(html);
@@ -173,7 +173,7 @@ $(document).delegate('#button-account', 'click', function() {
 // Login
 $(document).delegate('#button-login', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/login/save',
+        url: 'index.php?route=web/checkout/login/save',
         type: 'post',
         data: $('#collapse-checkout-option :input'),
         dataType: 'json',
