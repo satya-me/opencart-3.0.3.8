@@ -871,14 +871,14 @@ font-weight:bold;
     font-weight: bold;
 }
 
-#msform {
+#regForm {
     text-align: center;
     position: relative;
     margin-top: 20px;
  
 }
 
-#msform fieldset {
+#regForm .tab {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -893,12 +893,12 @@ font-weight:bold;
     text-align: left
 }
 
-#msform fieldset:not(:first-of-type) {
+#regForm .tab:not(:first-of-type) {
     display: none
 }
 
-#msform .input_style,
-#msform textarea {
+#regForm .input_style,
+#regForm textarea {
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
     border-radius: 0px;
@@ -913,8 +913,8 @@ font-weight:bold;
     letter-spacing: 1px
 }
 
-#msform .input_style:focus,
-#msform textarea:focus {
+#regForm .input_style:focus,
+#regForm textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -922,7 +922,7 @@ font-weight:bold;
     outline-width: 0
 }
 
-#msform .action-button {
+#regForm .action-button {
     width: 100px;
     background: var(--theme);
     font-weight: bold;
@@ -937,12 +937,12 @@ font-weight:bold;
     border: 1px solid transparent;
 }
 
-#msform .action-button:hover,
-#msform .action-button:focus {
+#regForm .action-button:hover,
+#regForm .action-button:focus {
    border: 1px solid var(--theme);
 }
 
-#msform .action-button-previous {
+#regForm .action-button-previous {
     width: 100px;
     background: #616161;
     font-weight: bold;
@@ -955,8 +955,8 @@ font-weight:bold;
     float: right
 }
 
-#msform .action-button-previous:hover,
-#msform .action-button-previous:focus {
+#regForm .action-button-previous:hover,
+#regForm .action-button-previous:focus {
     background-color: #000000
 }
 

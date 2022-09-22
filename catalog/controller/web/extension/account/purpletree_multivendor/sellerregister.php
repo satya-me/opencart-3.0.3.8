@@ -5,6 +5,8 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
     public function index()
     {
+
+        
         $livecheck = 1;
         if (!$this->customer->validateSeller($livecheck)) {
             $this->load->language('purpletree_multivendor/ptsmultivendor');
@@ -43,16 +45,16 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
         $this->load->language('purpletree_multivendor/sellerregister');
         $this->document->setTitle($this->language->get('text_seller_register_page'));
 
-        $this->document->addScriptpts('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
-        $this->document->addScriptpts('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
-        $this->document->addScriptpts('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
+        $data['js'][] = ('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
+        $data['js'][] = ('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
+        $data['js'][] = ('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
         $this->document->addStylepts('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/jquery/jquery.validate.min.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/jquery/jquery.validate.min.js');
         $this->document->addStylepts('catalog/view/javascript/purpletree/codemirror/lib/codemirror.css');
         $this->document->addStylepts('catalog/view/javascript/purpletree/codemirror/theme/monokai.css');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/codemirror/lib/codemirror.js');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/codemirror/lib/xml.js');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/codemirror/lib/formatting.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/codemirror/lib/codemirror.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/codemirror/lib/xml.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/codemirror/lib/formatting.js');
 
         $this->load->model('account/customer');
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
