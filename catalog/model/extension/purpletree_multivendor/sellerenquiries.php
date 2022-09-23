@@ -18,7 +18,7 @@ class ModelExtensionPurpletreeMultivendorSellerenquiries extends Model {
 				// 	$data['limit'] = 20;
 				// }
 				
-				$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+				//$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 			}
 			$query = $this->db->query($sql);
 			if($query->num_rows>0){

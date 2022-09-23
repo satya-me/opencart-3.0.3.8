@@ -1263,16 +1263,19 @@ font-size: 1.6rem;
 
 
 .message-area{
-    height: calc(75vh);
-    overflow: auto;
+  
     max-width: 500px;
     margin: 0 auto;
 }
+::-webkit-scrollbar {
+    display: none;
+}
+.msg-body{
+    height: calc(30vh);
+    overflow: auto;
+}
 
 .chatbox {
-
-   
- 
     height: 100%;
     border-left: 1px solid #ccc;
 }

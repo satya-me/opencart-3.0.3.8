@@ -35,13 +35,13 @@
             <h1>
                 {{ heading_title }}
             </h1>
-            <div class="message-area" id="messages_container">
+            <div class="message-area">
                 <!-- chatbox -->
                 <div class="chatbox">
                     <div class="modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <div class="msg-body">
+                                <div class="msg-body" id="messages_container">
                                     <ul>
                                         {% for key,result in messages %}
                                             <tr class="pts-tr-hover-none">
@@ -90,18 +90,13 @@
         </div>
     <!-- chatbox -->
     </div>
-    <div class="pts-row">
-        <div class="pts-col-sm-6 pts-text-left">
-            {{ pagination }}
-        </div>
-        <div class="pts-col-sm-6 pts-text-right">
-            {{ results }}
-        </div>
-    </div>
+   
     {{ content_bottom }}
 </div>
-{{ column_right }}</div></div><script>
-	function scrollDown() {
-	$('#messages_container').animate({scrollTop:$('#messages_container').prop('scrollHeight')}, 1000);
-  }
-</script>{{ footer }}
+{{ column_right }}</div></div>
+<script type="text/javascript">
+
+var objDiv = document.getElementById("messages_container");
+objDiv.scrollTop = objDiv.scrollHeight;
+</script>
+{{ footer }}
