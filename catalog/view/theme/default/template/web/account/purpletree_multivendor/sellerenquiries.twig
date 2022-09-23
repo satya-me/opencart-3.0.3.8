@@ -35,7 +35,7 @@
             <h1>
                 {{ heading_title }}
             </h1>
-            <div class="message-area">
+            <div class="message-area" id="messages_container">
                 <!-- chatbox -->
                 <div class="chatbox">
                     <div class="modal-dialog-scrollable">
@@ -100,4 +100,12 @@
     </div>
     {{ content_bottom }}
 </div>
-{{ column_right }}</div></div>{{ footer }}
+{{ column_right }}
+</div>
+</div>
+<script>
+	function scrollDown() {
+	$('#messages_container').animate({scrollTop:$('#messages_container').prop('scrollHeight')}, 1000);
+  }
+</script>
+{{ footer }}
