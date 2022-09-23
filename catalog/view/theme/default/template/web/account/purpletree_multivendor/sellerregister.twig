@@ -476,13 +476,15 @@ margin-right: 1rem;
                                             </div>
                                             {% if text_agree %}
                                                 <div class="required">
+                                                <div class="col-sm-10">
                                                     {{ text_agree }}
                                                     {% if agree %}
                                                         <input
-                                                    id="pts_agree" type="checkbox" name="agree" value="1" checked="checked" style="margin-right:5px;" />
+                                                    id="pts_agree" type="checkbox" name="agree" value="1" checked="checked" style="" />
                                                         {% else %}
                                                         <input id="pts_agree" type="checkbox" name="agree" value="1" />
                                                     {% endif %}
+                                                </div>
                                                 </div>
                                             {% endif %}
                                         {% endif %}
@@ -530,7 +532,7 @@ margin-right: 1rem;
                                             </textarea>
                                         </div>
                                         <div class="row">
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-5">
                                                 <label class="control-label" for="input-storecountry">
                                                     {{ entry_storecountry }}
                                                 </label>
@@ -553,7 +555,8 @@ margin-right: 1rem;
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-md-6">
+                                        <div class="col-md-2"></div>
+                                            <div class="form-group col-md-5">
                                                 <label class="control-label" for="store-storestate">
                                                     {{ entry_storezone }}
                                                 </label>
@@ -563,13 +566,14 @@ margin-right: 1rem;
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-5">
                                                 <label class="control-label" for="input-sellercity">
                                                     {{ entry_storecity }}
                                                 </label>
                                                 <input type="text" name="store_city" value="{{ store_city }}" placeholder="{{ entry_storecity }}" id="input-sellercity" class="form-control" />
                                             </div>
-                                            <div class="form-group col-md-6">
+                                        <div class="col-md-2"></div>
+                                            <div class="form-group col-md-5">
                                                 <label class="control-label" for="input-storepostcode">
                                                     {{ entry_storepostcode }}
                                                 </label>
@@ -1178,7 +1182,7 @@ margin-right: 1rem;
                                     </div>
                                     <!--end payment data-->
                                     <div class="form-group text-right">
-                                        <div style="overflow:auto;">
+                                        <div >
                                             <div style="float:right;">
                                                 <button type="button" id="prevBtn1" class="btn_control" onclick="nextPrev(-1)">
                                                     {{ btn_prev }}
