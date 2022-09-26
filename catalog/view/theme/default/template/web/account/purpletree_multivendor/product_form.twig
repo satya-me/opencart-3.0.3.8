@@ -1335,6 +1335,7 @@
 				</div>
 			</div>
 		</form>
+		
 	{{ content_bottom }}</div>
 {{ column_right }}</div>
 </div>
@@ -1839,7 +1840,7 @@
 		special_row++;
 	}
 //--></script>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 	var image_row = {{ image_row }};
 	
 	function addImage() {
@@ -1897,4 +1898,14 @@
   });
 	{% endif %}
 //--></script>
+
+<script type="text/javascript"><!--
+	$('#input-date-from').datetimepicker({
+		pickTime:false
+	});
+	$('#input-date-to').datetimepicker({
+		pickTime:false
+	});
+//--></script>
+
 {{ footer }}
