@@ -1,44 +1,44 @@
 {{ header }}
-<div class="pts-container container">
-	<ul class="pts-breadcrumb breadcrumb">
+<div class="container container">
+	<ul class="breadcrumb breadcrumb">
 		{% for breadcrumb in breadcrumbs %}
 		<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
 		{% endfor %}
 	</ul>
 	{% if success %}
-	<div class="alert pts-alert-success"><i class="fa fa-check-circle"></i> {{ success }}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+	<div class="alert alert-success"><i class="fa fa-check-circle"></i> {{ success }}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
 	{% endif %}
 	{% if error_warning %}
-	<div class="alert pts-alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+	<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
 	{% endif %}
-	<div class="pts-row d-flex row">{{ column_left }}
+	<div class="row d-flex row">{{ column_left }}
 		{% if column_left and column_right %}
-		{% set class = 'pts-col-sm-6 col-sm-6' %}
+		{% set class = 'col-sm-6 col-sm-6' %}
 		{% elseif column_left or column_right %}
-		{% set class = 'pts-col-sm-9 col-sm-9' %}
+		{% set class = 'col-sm-9 col-sm-9' %}
 		{% else %}
-		{% set class = 'pts-col-sm-12 col-sm-12' %}
+		{% set class = 'col-sm-12 col-sm-12' %}
 		{% endif %}
 		<div id="content" class="{{ class }}">{{ content_top }}
 			
 			<h1>{{ heading_title }}</h1>
-			<div class="pts-panel pts-panel-default">
+			<div class="panel panel-default">
 				<div class="panel_heading">
-					<h3 class="pts-panel-title"><i class="fa fa-list"></i> {{ text_bulk_product_upload }}</h3>
+					<h3 class="panel-title"><i class="fa fa-list"></i> {{ text_bulk_product_upload }}</h3>
 				</div>
 				
-				<div class="pts-panel-body">
-					<div class="pts-well panel_body">
-						<div class="pts-row p-3">
-							<div class="pts-col-sm-12" style="text-align:left;">
+				<div class="panel-body">
+					<div class="well panel_body">
+						<div class="row p-3">
+							<div class="col-sm-12" style="text-align:left;">
 								<div>
 									<div class="panel_content">
-										<label class="pts-control-label" for="input-name" style="  font-weight: normal; ">{{ text_maxtime_info }}</label><label style="font-weight: bold;">{{ max_time }} {{'seconds' }}</label>
+										<label class="control-label" for="input-name" style="  font-weight: normal; ">{{ text_maxtime_info }}</label><label style="font-weight: bold;">{{ max_time }} {{'seconds' }}</label>
 										
 									</div>
 									<div class="panel_content">
 										
-										<label class="pts-control-label" for="input-name" style=" font-weight: normal ">{{ text_file_size_info }} </label><label style="font-weight: bold;">{{ memory_limit }}</label>
+										<label class="control-label" for="input-name" style=" font-weight: normal ">{{ text_file_size_info }} </label><label style="font-weight: bold;">{{ memory_limit }}</label>
 										
 									</div>
 									<div class="panel_content">
@@ -52,9 +52,9 @@
 						</div>
 					</div>  
 					<form action="{{ export }}" method="post" enctype="multipart/form-data" id="form-customer">
-						<div class="pts-well panel_body">
-							<h4 class="pts-panel-title"> {{ text_bulk_product_export }}</h4>
-							<div class="pts-row">
+						<div class="well panel_body">
+							<h4 class="panel-title"> {{ text_bulk_product_export }}</h4>
+							<div class="row">
 								<div class="col-sm-4" style="text-align:left;">
 									<div class="form-group">
 										<label class="control-label" for="input-name" >{{ entry_select_language }}</label>
@@ -65,9 +65,9 @@
 										</select>
 									</div>
 								</div>
-								<div class="pts-col-sm-2 pts-col-sm-offset-6 " style="text-align:left;">
-									<div class="pts-form-group">
-										<button type="submit" name="submit" value="{{ button_upload }}" class="btn btn_color" class="pts-button_add" id="pts-export" style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_export }}</button>
+								<div class="col-sm-2 col-sm-offset-6 " style="text-align:left;">
+									<div class="form-group">
+										<button type="submit" name="submit" value="{{ button_upload }}" class="btn btn_color" class="button_add" id="export" style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_export }}</button>
 										
 									</div>
 								</div>
@@ -76,12 +76,12 @@
 					</form>
 					<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-customer">
 						<div class="panel_body">
-							<h4 class="pts-panel-title"> {{ text_bulk_product_import }}</h4>
-							<div class="pts-row">
+							<h4 class="panel-title"> {{ text_bulk_product_import }}</h4>
+							<div class="row">
 								
-								<div class="pts-col-sm-6" style="text-align:left;">
+								<div class="col-sm-6" style="text-align:left;">
 								<input type="checkbox" id="check" value="true" name="dataoverwrite"  />
-							<label class="pts-control-label" onclick="checkbox()" for="input-name" style=" padding: 0px 0px 0px 8px; ">{{ text_upload_info }}</label>
+							<label class="control-label" onclick="checkbox()" for="input-name" style=" padding: 0px 0px 0px 8px; ">{{ text_upload_info }}</label>
 								</div>
 								
 								
@@ -97,16 +97,16 @@
 								</div>
 								
 								
-								<div class="pts-col-sm-6" style="text-align:left;">
-									<div class="pts-form-group">
-										<input type="file" style="height:35px; margin-top: 24px;" id="pts-import-file" name="import">
+								<div class="col-sm-6" style="text-align:left;">
+									<div class="form-group">
+										<input type="file" style="height:35px; margin-top: 24px;" id="import-file" name="import">
 										
 									</div>
 								</div>
 								
-								<div class="pts-col-sm-2" style="text-align:left;">
-									<div class="pts-form-group">
-										<button type="submit" name="submit" value="{{ button_upload }}" id="pts-import" class="btn btn_color" class="pts-button_add"  style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_import }}</button>
+								<div class="col-sm-2" style="text-align:left;">
+									<div class="form-group">
+										<button type="submit" name="submit" value="{{ button_upload }}" id="import" class="btn btn_color" class="button_add"  style=" padding: 8px 20px 8px 20px; margin-top: 24px; " >{{ text_import }}</button>
 										
 									</div>
 								</div>

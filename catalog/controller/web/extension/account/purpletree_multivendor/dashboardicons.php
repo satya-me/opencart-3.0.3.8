@@ -107,7 +107,7 @@ class ControllerWebExtensionAccountPurpletreeMultivendorDashboardicons extends C
 			if($this->config->get('module_purpletree_multivendor_shippingtype')){
 				$data['shipping'] = $this->url->link('web/extension/account/purpletree_multivendor/sellergeozone', '', true);
 				}else{
-				$data['shipping'] = $this->url->link(	'extension/account/purpletree_multivendor/shipping', '', true);
+				$data['shipping'] = $this->url->link('web/extension/account/purpletree_multivendor/shipping', '', true);
 			}
 			$data['bulkproductupload'] = $this->url->link('web/extension/account/purpletree_multivendor/bulkproductupload', '', true);
 			
