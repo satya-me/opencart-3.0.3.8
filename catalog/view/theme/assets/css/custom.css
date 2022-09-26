@@ -6,6 +6,10 @@
     --dark-color: rgb(48, 48, 48);
 }
 
+#content{
+    margin-bottom: 6rem;
+}
+
 .color_theme {
     color: var(--theme);
 }
@@ -26,6 +30,7 @@
 
 .d-flex {
     display: flex;
+    
 }
 
 .aic {
@@ -292,8 +297,8 @@ i:hover {
 .item-wrap .item-detail .products-thumb .product-thumb-hover .wp-post-image {
     opacity: 1;
     filter: alpha(opacity=100);
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
 }
 footer{
     background-color: #efefef;
@@ -349,6 +354,8 @@ footer ul{
 .product_title{
     text-transform: capitalize;
     font-weight: bold;
+    font-size: 3rem;
+    margin-top: 1rem;
 }
 
 .brand_name{
@@ -545,6 +552,7 @@ transition: 0.2s linear;
     margin-bottom: 2rem;
     padding-right: 2rem;
     height: 3rem;
+    
 }
 
 .product_catagories_title {
@@ -775,9 +783,9 @@ transition: 0.2s linear;
    max-width: 500px;
    width:100%;
    margin: 0 auto;
-   -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
+   /* -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
-   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
+   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25); */
    padding: 4rem 3rem;
 }
 
@@ -808,6 +816,12 @@ transition: 0.2s linear;
     background: var(--theme);
     color: var(--white);
     font-size: 1.5rem;
+    outline: 0;
+    border: 0;
+}
+
+.seller_login_btn input:hover{
+    background: var(--theme);
 }
 
 .newseller a{
@@ -867,14 +881,14 @@ font-weight:bold;
     font-weight: bold;
 }
 
-#msform {
+#regForm {
     text-align: center;
     position: relative;
     margin-top: 20px;
  
 }
 
-#msform fieldset {
+#regForm .tab {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -889,12 +903,12 @@ font-weight:bold;
     text-align: left
 }
 
-#msform fieldset:not(:first-of-type) {
+#regForm .tab:not(:first-of-type) {
     display: none
 }
 
-#msform input,
-#msform textarea {
+#regForm .input_style,
+#regForm textarea {
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
     border-radius: 0px;
@@ -909,8 +923,8 @@ font-weight:bold;
     letter-spacing: 1px
 }
 
-#msform input:focus,
-#msform textarea:focus {
+#regForm .input_style:focus,
+#regForm textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -918,7 +932,7 @@ font-weight:bold;
     outline-width: 0
 }
 
-#msform .action-button {
+#regForm .action-button {
     width: 100px;
     background: var(--theme);
     font-weight: bold;
@@ -933,12 +947,12 @@ font-weight:bold;
     border: 1px solid transparent;
 }
 
-#msform .action-button:hover,
-#msform .action-button:focus {
+#regForm .action-button:hover,
+#regForm .action-button:focus {
    border: 1px solid var(--theme);
 }
 
-#msform .action-button-previous {
+#regForm .action-button-previous {
     width: 100px;
     background: #616161;
     font-weight: bold;
@@ -951,8 +965,8 @@ font-weight:bold;
     float: right
 }
 
-#msform .action-button-previous:hover,
-#msform .action-button-previous:focus {
+#regForm .action-button-previous:hover,
+#regForm .action-button-previous:focus {
     background-color: #000000
 }
 
@@ -1253,10 +1267,22 @@ font-size: 1.6rem;
     font-size:1.3rem;
     font-weight: bold;
 }
-.chatbox {
+
+
+.message-area{
+  
     max-width: 500px;
     margin: 0 auto;
-    overflow: hidden;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.msg-body{
+    height: calc(30vh);
+    overflow: auto;
+}
+
+.chatbox {
     height: 100%;
     border-left: 1px solid #ccc;
 }
@@ -1474,7 +1500,7 @@ a.add img {
 }
 
 .time {
-    display: block;
+    /* */
     color: #000;
     font-size: 12px;
     line-height: 1.5;
@@ -1875,6 +1901,148 @@ background: #efefef;
 
 .gap_left{
     margin-right: 2rem;
+}
+
+.background_color{
+    background: #dfe6e9;
+}
+
+.dash-box{
+    background:#ffbe76;
+    text-align: center;
+}
+
+.box-top,.box-bottom{
+    padding: 1rem;
+    background: var(--theme);
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    
+}
+
+.box-body{
+    padding: 3rem 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.box-bottom a{
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.box-bottom a:hover{
+    color: #fff;
+}
+
+.dash-heading{
+    font-size:1.8rem;
+    background:#dfe6e9;
+    padding: 1rem;
+}
+
+.activevation{
+    font-size:1.2rem;
+    color: #636e72;
+}
+
+.btn_view a{
+    background: var(--theme);
+    padding: 0.5rem 0.8rem;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.btn_view a:hover{
+    color:#dfe6e9!important;
+}
+
+.login_area{
+background: #b2bec3;
+padding:1rem;
+text-align: center;
+
+}
+
+.login_area a{
+    font-size: 1.5rem;
+    color: #2d3436;
+    font-weight: bold;
+
+}
+
+.heading_area{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.toggle-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #fff;
+    background: var(--theme);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.toggle-button:hover{color:#fff}
+
+
+.side-nav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -100%;
+    background-color: #dfe6e9;
+ transition: 0.5s linear;
+
+  }
+
+  .side-nav.active{
+    left: 0;
+  
+  }
+  
+  .side-nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #2d3436;;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .side-nav a:hover {
+    color: var(--theme);
+  }
+
+  .footer_contact{
+    list-style-type: none;
+  }
+  
+
+.footer_contact li{
+    margin-bottom:1.5rem;
+
+}
+.footer_contact li i{
+  margin-right: 0.5rem;
+  color: var(--theme)!important;
+}
+
+.footer_contact li a{
+    color:#1c1c1c;
+}
+
+.con_icon{
+    margin-left: 1.5rem;
 }
 
 

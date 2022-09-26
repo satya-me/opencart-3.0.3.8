@@ -5,6 +5,14 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
     public function index()
     {
+
+        if ($this->request->server['HTTPS']) {
+			$server = $this->config->get('config_ssl');
+		} else {
+			$server = $this->config->get('config_url');
+		}
+        $data['base'] = $server;
+        
         $livecheck = 1;
         if (!$this->customer->validateSeller($livecheck)) {
             $this->load->language('purpletree_multivendor/ptsmultivendor');
@@ -43,16 +51,16 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
         $this->load->language('purpletree_multivendor/sellerregister');
         $this->document->setTitle($this->language->get('text_seller_register_page'));
 
-        $this->document->addScriptpts('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
-        $this->document->addScriptpts('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
-        $this->document->addScriptpts('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
+        $data['js'][] = ('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
+        $data['js'][] = ('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
+        $data['js'][] = ('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
         $this->document->addStylepts('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/jquery/jquery.validate.min.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/jquery/jquery.validate.min.js');
         $this->document->addStylepts('catalog/view/javascript/purpletree/codemirror/lib/codemirror.css');
         $this->document->addStylepts('catalog/view/javascript/purpletree/codemirror/theme/monokai.css');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/codemirror/lib/codemirror.js');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/codemirror/lib/xml.js');
-        $this->document->addScriptpts('catalog/view/javascript/purpletree/codemirror/lib/formatting.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/codemirror/lib/codemirror.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/codemirror/lib/xml.js');
+        $data['js'][] = ('catalog/view/javascript/purpletree/codemirror/lib/formatting.js');
 
         $this->load->model('account/customer');
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
@@ -608,7 +616,7 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
         // Captcha
         if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array) $this->config->get('config_captcha_page'))) {
-            $data['captcha'] = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha'), $this->error);
+            $data['captcha'] = $this->load->controller('web/extension/captcha/' . $this->config->get('config_captcha'), $this->error);
         } else {
             $data['captcha'] = '';
         }
@@ -698,14 +706,14 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
         $this->load->model('localisation/country');
         $data['countries'] = $this->model_localisation_country->getCountries();
-        $data['column_left'] = $this->load->controller('common/column_left');
-        $data['column_right'] = $this->load->controller('common/column_right');
-        $data['content_top'] = $this->load->controller('common/content_top');
-        $data['content_bottom'] = $this->load->controller('common/content_bottom');
-        $data['footer'] = $this->load->controller('common/footer');
-        $data['header'] = $this->load->controller('common/header');
+        $data['column_left'] = $this->load->controller('web/common/column_left');
+        $data['column_right'] = $this->load->controller('web/common/column_right');
+        $data['content_top'] = $this->load->controller('web/common/content_top');
+        $data['content_bottom'] = $this->load->controller('web/common/content_bottom');
+        $data['footer'] = $this->load->controller('web/common/footer');
+        $data['header'] = $this->load->controller('web/common/header');
 
-        $this->response->setOutput($this->load->view('account/purpletree_multivendor/sellerregister', $data));
+        $this->response->setOutput($this->load->view('web/account/purpletree_multivendor/sellerregister', $data));
     }
 
     private function validate()
@@ -828,7 +836,7 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
             // Captcha
             if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array) $this->config->get('config_captcha_page'))) {
-                $captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
+                $captcha = $this->load->controller('web/extension/captcha/' . $this->config->get('config_captcha') . '/validate');
 
                 if ($captcha) {
                     $this->error['captcha'] = $captcha;

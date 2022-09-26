@@ -100,7 +100,7 @@
 	$('input[name=\'post\']').autocomplete({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/sellerblogpost/autocomplete=filter_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerblogpost/autocomplete=filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',			
 				success: function(json) {
 					response($.map(json, function(item) {

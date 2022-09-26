@@ -161,7 +161,7 @@
 
 <script type="text/javascript"><!--
 	$('#button-filter').on('click', function() {
-		url = 'index.php?route=extension/account/purpletree_multivendor/subscriptions';
+		url = 'index.php?route=web/extension/account/purpletree_multivendor/subscriptions';
 		
 		var filter_plan_id = $('input[name=\'filter_plan_id\']').val();
 		if (filter_plan_id !== '') {
@@ -222,7 +222,7 @@
 	$('input[name=\'filter_plan_name\']').autocomplete({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/subscriptions/autoplanname&filter_plan_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/subscriptions/autoplanname&filter_plan_name=' +  encodeURIComponent(request),
 				
 				dataType: 'json',	
 				success: function(json) {
@@ -248,7 +248,7 @@
 	$('input[name=\'filter_status\']').autocomplete({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/subscriptions/autoplanstatus&filter_status=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/subscriptions/autoplanstatus&filter_status=' +  encodeURIComponent(request),
 				
 				dataType: 'json',	
 				success: function(json) {

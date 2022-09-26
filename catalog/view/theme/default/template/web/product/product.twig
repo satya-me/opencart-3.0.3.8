@@ -111,20 +111,22 @@
                           <ul class="list-unstyled">
                             {% if not special %}
                               <li>
-                                <h2>
+                                M.R.P.:
+                                <h3 class="text-info">
                                   {{ price }}
-                                </h2>
+                                </h3>
                               </li>
                             {% else %}
                               <li>
+                                M.R.P.:
                                 <span style="text-decoration: line-through;">
-                                  {{ price }}
+                                   {{ price }}
                                 </span>
                               </li>
                               <li>
-                                <h2>
-                                  {{ special }}
-                                </h2>
+                                <h3 class="text-danger">
+                                <small>Special Offer:</small> {{ special }}
+                                </h3>
                               </li>
                             {% endif %}
                             {% if tax %}
@@ -144,6 +146,7 @@
                                 <hr></li>
                                 {% for discount in discounts %}
                                   <li>
+                                    Special Discount: 
                                     {{ discount.quantity }}
                                     {{ text_discount }}
                                     {{ discount.price }}
@@ -188,9 +191,10 @@
                                       <label class="control-label">
                                         {{ option.name }}
                                       </label>
-                                      <div id="input-option {{ option.product_option_id }}" class="inline_form">
+                                      <div id="input-option {{ option.product_option_id }}" class="">
                                         {% for option_value in option.product_option_value %}
-                                          <div class="radio">
+                                          <div class=" radio-inline">
+                                         
                                             <label>
                                               <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
                                               {% if option_value.image %}
@@ -205,6 +209,7 @@
                                                                                   
                                               {% endif %}
                                             </label>
+                                           
                                           </div>
                                         {% endfor %}
                                       </div>
@@ -616,6 +621,7 @@
                     </div>
                   </div>
                 </div>
+                
               </div>
               <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){

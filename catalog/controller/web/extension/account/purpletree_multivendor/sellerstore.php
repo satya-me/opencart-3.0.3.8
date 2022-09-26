@@ -1217,6 +1217,7 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerstore extends Cont
     }
     public function storeview()
     {
+        $data['assets'] = ASSET_URL;
         /* $store_detail = $this->customer->isSeller();
         if(!isset($store_detail['store_status'])){
         $this->response->redirect($this->url->link('web/account/account', '', true));

@@ -421,14 +421,15 @@ select:-webkit-autofill {
 
 .price,
 .item-price {
-    font-family: PoppinsSemiBold;
+    /* font-family: PoppinsSemiBold; */
     font-size: 14px;
     color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
-
 .price del,
 .item-price del {
-    font-family: PoppinsRegular;
+    /* font-family: PoppinsRegular; */
     font-size: 14px;
     color: #b3b3b3;
 }
@@ -1444,7 +1445,7 @@ select:-webkit-autofill {
 }
 
 .top-form .wrapp-minicart .minicart-padding .cart-checkout .price-total .label-price-total {
-    font-family: RobotoBold;
+    /* font-family: RobotoBold; */
     font-size: 14px;
     color: #222222;
     text-transform: uppercase;
@@ -1462,7 +1463,7 @@ select:-webkit-autofill {
 
 .top-form .wrapp-minicart .minicart-padding .cart-checkout .price-total .price-total-w span.price span.amount {
     font-size: 18px;
-    font-family: PoppinsSemiBold;
+    /* font-family: PoppinsSemiBold; */
     color: #000000;
 }
 
@@ -6448,7 +6449,7 @@ ul.thumbnails {
 .woocommerce .widget_price_filter .price_slider_amount #max_price,
 .widget_price_filter .price_slider_amount #min_price,
 .widget_price_filter .price_slider_amount #max_price {
-    font-family: PoppinsRegular;
+    /* font-family: PoppinsRegular; */
     font-size: 12px;
     display: inline-block !important;
     width: 65px;
