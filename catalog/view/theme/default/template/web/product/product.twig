@@ -191,9 +191,10 @@
                                       <label class="control-label">
                                         {{ option.name }}
                                       </label>
-                                      <div id="input-option {{ option.product_option_id }}" class="inline_form">
+                                      <div id="input-option {{ option.product_option_id }}" class="">
                                         {% for option_value in option.product_option_value %}
-                                          <div class="radio">
+                                          <div class=" radio-inline">
+                                         
                                             <label>
                                               <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
                                               {% if option_value.image %}
@@ -208,6 +209,7 @@
                                                                                   
                                               {% endif %}
                                             </label>
+                                           
                                           </div>
                                         {% endfor %}
                                       </div>
