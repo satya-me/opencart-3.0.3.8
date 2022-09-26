@@ -1419,7 +1419,7 @@
 	$('input[name=\'manufacturer\']').autocompletepts({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/manufacturer&filter_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerproduct/manufacturer&filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
 					json.unshift({
@@ -1446,7 +1446,7 @@
 	$('input[name=\'category\']').autocompletepts({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/category&filter_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerproduct/category&filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
 					response($.map(json, function(item) {
@@ -1475,7 +1475,7 @@
 	$('input[name=\'filter\']').autocompletepts({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/filter&filter_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerproduct/filter&filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
 					response($.map(json, function(item) {
@@ -1504,7 +1504,7 @@
 	$('input[name=\'download\']').autocompletepts({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/download&filter_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerproduct/download&filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
 					response($.map(json, function(item) {
@@ -1533,7 +1533,7 @@
 	$('input[name=\'related\']').autocompletepts({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/product&filter_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerproduct/product&filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
 					response($.map(json, function(item) {
@@ -1583,7 +1583,7 @@
 		$('input[name=\'product_attribute[' + attribute_row + '][name]\']').autocompletepts({
 			'source': function(request, response) {
 				$.ajax({
-					url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/attribute&filter_name=' +  encodeURIComponent(request),
+					url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerproduct/attribute&filter_name=' +  encodeURIComponent(request),
 					dataType: 'json',
 					success: function(json) {
 						response($.map(json, function(item) {
@@ -1613,7 +1613,7 @@
 	$('input[name=\'option\']').autocompletepts({
 		'source': function(request, response) {
 			$.ajax({
-				url: 'index.php?route=extension/account/purpletree_multivendor/sellerproduct/option&filter_name=' +  encodeURIComponent(request),
+				url: 'index.php?route=web/extension/account/purpletree_multivendor/sellerproduct/option&filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
 					response($.map(json, function(item) {
