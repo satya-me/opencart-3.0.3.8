@@ -440,7 +440,7 @@ label {
 .contact_seller_link{  
 	margin-bottom: 5px;
     margin-top: 4px;
-    background: #51D3F9;
+    /* background: #51D3F9; */
 	border: 1px solid #ddd;
     padding: 10px 5px;
     color: #fff;
