@@ -5,7 +5,12 @@ class ControllerWebExtensionAccountPurpletreeMultivendorSellerregister extends C
 
     public function index()
     {
-
+        if ($this->request->server['HTTPS']) {
+			$server = $this->config->get('config_ssl');
+		} else {
+			$server = $this->config->get('config_url');
+		}
+		$data['base'] = $server;
         
         $livecheck = 1;
         if (!$this->customer->validateSeller($livecheck)) {

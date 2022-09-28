@@ -1,6 +1,9 @@
 <?php
 class ControllerMailRegister extends Controller {
 	public function index(&$route, &$args, &$output) {
+
+		$data['url'] = HTTP_SERVER;
+
 		$this->load->language('mail/register');
 
 		$data['text_welcome'] = sprintf($this->language->get('text_welcome'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'));
@@ -25,7 +28,9 @@ class ControllerMailRegister extends Controller {
 			$data['approval'] = '';
 		}
 			
-		$data['login'] = $this->url->link('account/login', '', true);		
+		$data['login'] = $this->url->link('web/account/login', '', true);		
+		$data['home'] = $data['url'];		
+		$data['mail_logo'] = $data['home']."catalog/view/theme/assets/logo.png";		
 		$data['store'] = html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8');
 
 		$mail = new Mail($this->config->get('config_mail_engine'));
