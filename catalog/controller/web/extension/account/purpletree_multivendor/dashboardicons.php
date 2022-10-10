@@ -133,6 +133,7 @@ class ControllerWebExtensionAccountPurpletreeMultivendorDashboardicons extends C
 			$data['sellerenquiries'] = $this->url->link('web/extension/account/purpletree_multivendor/sellerenquiries', '', true);
 			$data['sellercoupons'] = $this->url->link('web/extension/account/purpletree_multivendor/sellercoupons', '', true);
 			$data['seller_product_returns'] = $this->url->link('web/extension/account/purpletree_multivendor/product_returns', '', true);
+			$data['base_url'] = HTTP_SERVER;
 			$this->response->setOutput($this->load->view('web/account/purpletree_multivendor/dashboardicons', $data));
 		}	
 }
