@@ -47,8 +47,8 @@ class ControllerExtensionPaymentCashFree extends Controller
             $cf_request["customerPhone"] = $order_info['telephone'];
             $cf_request["customerName"] = html_entity_decode($order_info['payment_firstname'] . ' ' . $order_info['payment_lastname'], ENT_QUOTES, 'UTF-8');
             $cf_request["customerEmail"] = $order_info['email'];
-            $cf_request["returnUrl"] = $this->url->link('extension/payment/cashfree/thankyou', '', 'SSL');
-            $cf_request["notifyUrl"] = $this->url->link('extension/payment/cashfree/callback', '', 'SSL');
+            $cf_request["returnUrl"] = $this->url->link('web/extension/payment/cashfree/thankyou', '', 'SSL');
+            $cf_request["notifyUrl"] = $this->url->link('web/extension/payment/cashfree/callback', '', 'SSL');
             $cf_request["source"] = "opencart";
             
             $jsonResponse = $this->getOrderLink($appId, $secretKey, $this->session->data['order_id']);
@@ -176,7 +176,7 @@ class ControllerExtensionPaymentCashFree extends Controller
             $computedSignature = base64_encode($hash_hmac);
             if ($cashfree_response["signature"] != $computedSignature) {
                 $this->model_checkout_order->addOrderHistory($cashfree_response['orderId'], 10, $cashfree_response["txMsg"] . ' Signature missmatch! Check Cashfree dashboard for details of Reference Id:' . $data['referenceId']);
-                $redirectUrl = $this->url->link('checkout/failure', '', true);
+                $redirectUrl = $this->url->link('web/checkout/failure', '', true);
                 return array("status" => 0, "message" => $this->language->get('cashfree_signature_mismatch'), "redirectUrl" => $redirectUrl);
             }
 
@@ -188,11 +188,11 @@ class ControllerExtensionPaymentCashFree extends Controller
                 return array("status" => 1);
             } else if ($cashfree_response["txStatus"] == "CANCELLED") {
                 $this->model_checkout_order->addOrderHistory($cashfree_response['orderId'], 7, $cashfree_response["txMsg"] . ' Payment Cancelled! Check Cashfree dashboard for details of Reference Id:' . $cashfree_response['referenceId']);
-                $redirectUrl = $this->url->link('checkout/checkout', '', true);
+                $redirectUrl = $this->url->link('web/checkout/checkout', '', true);
                 return array("status" => 0, "message" => $this->language->get('cashfree_payment_cancelled'), "redirectUrl" => $redirectUrl);
             } else {
                 $this->model_checkout_order->addOrderHistory($cashfree_response['orderId'], 10, $cashfree_response["txMsg"] . ' Payment Failed! Check Cashfree dashboard for details of Reference Id:' . $cashfree_response['referenceId']);
-                $redirectUrl = $this->url->link('checkout/failure', '', true);
+                $redirectUrl = $this->url->link('web/checkout/failure', '', true);
                 return array("status" => 0, "message" => $this->language->get('cashfree_payment_failed'), "redirectUrl" => $redirectUrl);
             }
 
@@ -209,12 +209,12 @@ class ControllerExtensionPaymentCashFree extends Controller
     {
 
         if (!isset($_POST["orderId"])) {
-            $this->response->redirect($this->url->link('checkout/failure'));
+            $this->response->redirect($this->url->link('web/checkout/failure'));
         }
 
         $response = $this->processResponse($_POST);
         if ($response["status"] == 1) {
-            $this->response->redirect($this->url->link('checkout/success', '', true));
+            $this->response->redirect($this->url->link('web/checkout/success', '', true));
         } else {
             $this->session->data['error_warning'] = $response["message"];
             $this->response->redirect($response['redirectUrl']);

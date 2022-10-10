@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionPaymentCod extends Controller {
+class ControllerWebExtensionPaymentCod extends Controller {
 	public function index() {
 		return $this->load->view('web/extension/payment/cod');
 	}
